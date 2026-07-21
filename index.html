@@ -201,7 +201,7 @@
   .nav-item svg{flex:0 0 auto; opacity:.9;}
   .sidebar-foot{margin-top:auto; padding:14px 12px 0; font-size:11px; color:#7f9dbe; border-top:1px solid rgba(255,255,255,.08);}
 
-  .main{flex:1; min-width:0; overflow-y:auto; padding:24px 28px 60px;}
+  .main{flex:1; min-width:0; overflow-y:auto; padding:24px 28px 20px;}
   .breadcrumb{font-size:12.5px; color:var(--ink-400); margin-bottom:6px;}
   .breadcrumb a{color:var(--ink-400); text-decoration:none;}
   .page-header{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-bottom:22px; flex-wrap:wrap;}
@@ -210,6 +210,22 @@
   .page-header__actions{display:flex; gap:8px;}
 
   .cards-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; margin-bottom:20px;}
+  .cards-row--dash{grid-template-columns:repeat(auto-fit,minmax(132px,1fr)); gap:12px; margin-bottom:14px;}
+  .page-header--dash h1{font-size:18px;}
+  .page-header--dash p{margin-top:2px; font-size:12.5px;}
+  .cards-row--dash .card{padding:10px 12px;}
+  .cards-row--dash .kpi-icon{width:24px; height:24px; margin-bottom:4px;}
+  .cards-row--dash .kpi-icon .icon{width:14px; height:14px;}
+  .cards-row--dash .kpi-label{font-size:11px;}
+  .cards-row--dash .kpi-value{font-size:18px; margin-top:2px;}
+
+  .card.dash-chart-card{padding:14px 16px;}
+  .dash-chart-card h3{font-size:13px;}
+  .dash-chart-card .card-head{margin-bottom:8px;}
+  #dashDonutLegend .legend-item{margin-bottom:2px; font-size:11px;}
+
+  table.data.dash-table{min-width:0;}
+  table.data.dash-table th, table.data.dash-table td{padding:6px 12px;}
   .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:18px; box-shadow:var(--shadow-sm);}
   .kpi-card{position:relative;}
   .kpi-card.accent{border-top:3px solid var(--gold-500);}
@@ -222,6 +238,7 @@
 
   .grid-2{display:grid; grid-template-columns:1.3fr 1fr; gap:16px;}
   .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .grid-2 > *, .grid-3 > *{min-width:0;}
   @media (max-width:900px){ .grid-2, .grid-3{grid-template-columns:1fr;} }
 
   .rpt-filter-label{display:block; font-size:11.5px; font-weight:600; color:var(--ink-600); margin-bottom:5px;}
@@ -234,20 +251,20 @@
   .card .card-sub{color:var(--ink-400); font-size:11.5px; margin-top:2px;}
   .card-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px;}
 
-  .bars{display:flex; align-items:flex-end; gap:26px; height:170px; padding:0 6px;}
-  .bar-col{display:flex; flex-direction:column; align-items:center; gap:8px; flex:1;}
+  .bars{display:flex; align-items:flex-end; gap:18px; height:64px; padding:0 6px;}
+  .bar-col{display:flex; flex-direction:column; align-items:center; gap:3px; flex:1;}
   .bar-col .bar{width:44px; border-radius:5px 5px 0 0; background:var(--navy-700);}
   .bar-col .bar.gold{background:var(--gold-500);}
-  .bar-col .bar-val{font-size:11.5px; color:var(--ink-600); font-family:var(--font-mono);}
-  .bar-col .bar-label{font-size:12px; color:var(--ink-600); font-weight:600;}
+  .bar-col .bar-val{font-size:10.5px; color:var(--ink-600); font-family:var(--font-mono); line-height:1.1;}
+  .bar-col .bar-label{font-size:10.5px; color:var(--ink-600); font-weight:600; line-height:1.1;}
 
   .donut-wrap{display:flex; align-items:center; gap:20px;}
   .donut{
-    width:130px;height:130px;border-radius:999px; flex:0 0 auto;
+    width:78px;height:78px;border-radius:999px; flex:0 0 auto;
     background:conic-gradient(var(--navy-700) 0 66.8%, var(--gold-500) 66.8% 100%);
     display:flex; align-items:center; justify-content:center;
   }
-  .donut::after{content:""; width:66px; height:66px; border-radius:999px; background:var(--surface);}
+  .donut::after{content:""; width:40px; height:40px; border-radius:999px; background:var(--surface);}
   .legend-item{display:flex; align-items:center; gap:8px; font-size:12.5px; margin-bottom:8px;}
   .legend-swatch{width:11px;height:11px;border-radius:3px;}
 
@@ -520,104 +537,90 @@
 
       <!-- ============ DASHBOARD ============ -->
       <section class="page active" id="page-dashboard">
-        <div class="page-header">
-          <div><h1 data-i18n="dash.title">Good day, admin@ems.local</h1><p data-i18n="dash.subtitle">Investor Relations overview · Data as of 19 Jul 2026, 09:40</p></div>
-          <div class="page-header__actions"><button class="btn btn-ghost" data-i18n="btn.refresh">↻ Refresh</button></div>
+        <div class="page-header page-header--dash" style="margin-bottom:10px;">
+          <div><h1 data-i18n="dash.title">Good day, admin@ems.local</h1><p data-i18n="dash.subtitle" id="dashSubtitle">Investor Relations overview · Data as of 19 Jul 2026, 09:40</p></div>
+          <div class="page-header__actions no-print"><button class="btn btn-ghost" onclick="refreshDashboard()" data-i18n="btn.refresh">↻ Refresh</button><button class="btn btn-primary" onclick="downloadDashboardPdf()">⬇ Download PDF</button></div>
         </div>
-        <div class="cards-row">
+        <div class="cards-row cards-row--dash">
           <div class="card kpi-card accent">
             <div class="kpi-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M2.5 19c1-3.6 3.4-5.4 6.5-5.4s5.5 1.8 6.5 5.4" stroke-linecap="round"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 13.4c2.6.3 4 1.9 4.8 4.6" stroke-linecap="round"/></svg></div>
-            <div class="kpi-label" data-i18n="kpi.shareholders">Registered shareholders</div><div class="kpi-value">3</div>
+            <div class="kpi-label" data-i18n="kpi.shareholders">Registered shareholders</div><div class="kpi-value" id="kpiShareholders">—</div>
           </div>
           <div class="card kpi-card">
             <div class="kpi-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 7-8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div class="kpi-label" data-i18n="kpi.totalshares">Total shares</div><div class="kpi-value">18,700</div>
+            <div class="kpi-label" data-i18n="kpi.totalshares">Total shares</div><div class="kpi-value" id="kpiTotalShares">—</div>
           </div>
           <div class="card kpi-card">
             <div class="kpi-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18" /></svg></div>
-            <div class="kpi-label" data-i18n="kpi.paidup">Paid-up capital</div><div class="kpi-value">MMK 187.0M</div>
+            <div class="kpi-label" data-i18n="kpi.paidup">Paid-up capital</div><div class="kpi-value" id="kpiPaidUp">—</div>
           </div>
           <div class="card kpi-card">
             <div class="kpi-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg></div>
-            <div class="kpi-label" data-i18n="kpi.pending">Pending approvals</div><div class="kpi-value">4</div>
+            <div class="kpi-label" data-i18n="kpi.pending">Pending approvals</div><div class="kpi-value" id="kpiPending">—</div>
           </div>
           <div class="card kpi-card">
             <div class="kpi-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M7 7.5c0-2 2-3 5-3s5 1.3 5 3-2 2.6-5 3-5 1.3-5 3.2 2 3.3 5 3.3 5-1 5-3" stroke-linecap="round"/></svg></div>
-            <div class="kpi-label" data-i18n="kpi.dividend">Dividend provision</div><div class="kpi-value">MMK 14.4M</div>
+            <div class="kpi-label" data-i18n="kpi.dividend">Dividend provision</div><div class="kpi-value" id="kpiDividend">—</div>
+          </div>
+          <div class="card kpi-card">
+            <div class="kpi-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round"/></svg></div>
+            <div class="kpi-label" data-i18n="kpi.certificates">Certificates on issue</div><div class="kpi-value" id="kpiCertificates">—</div>
+          </div>
+          <div class="card kpi-card">
+            <div class="kpi-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 2v4M16 2v4M4 10h16" stroke-linecap="round"/></svg></div>
+            <div class="kpi-label" data-i18n="kpi.applications">Applications in progress</div><div class="kpi-value" id="kpiApplications">—</div>
           </div>
         </div>
 
-        <div class="grid-2" style="margin-bottom:16px;">
-          <div class="card">
+        <div class="grid-2" style="margin-bottom:6px;">
+          <div class="card dash-chart-card">
             <div class="card-head"><div><h3 data-i18n="chart.byGroup">Shareholding by group</h3><div class="card-sub">DB-01 · number of shares</div></div></div>
-            <div class="bars">
-              <div class="bar-col"><div class="bar-val">12,500</div><div class="bar" style="height:140px;"></div><div class="bar-label">BOD</div></div>
-              <div class="bar-col"><div class="bar-val">6,200</div><div class="bar gold" style="height:70px;"></div><div class="bar-label">Staff</div></div>
-            </div>
+            <div class="bars" id="dashGroupBars"></div>
           </div>
-          <div class="card">
-            <h3 data-i18n="chart.byGroupPct">Shareholding by group (%)</h3><div class="card-sub" style="margin-bottom:16px;">DB-02 · percentage of issued shares</div>
+          <div class="card dash-chart-card">
+            <h3 data-i18n="chart.byGroupPct">Shareholding by group (%)</h3><div class="card-sub" style="margin-bottom:8px;">DB-02 · percentage of issued shares</div>
             <div class="donut-wrap">
-              <div class="donut"></div>
-              <div>
-                <div class="legend-item"><span class="legend-swatch" style="background:var(--navy-700);"></span>BOD — 66.8%</div>
-                <div class="legend-item"><span class="legend-swatch" style="background:var(--gold-500);"></span>Staff — 33.2%</div>
-              </div>
+              <div class="donut" id="dashDonut"></div>
+              <div id="dashDonutLegend"></div>
             </div>
           </div>
         </div>
 
-        <div class="grid-3" style="margin-bottom:16px;">
-          <div class="card">
-            <h3 data-i18n="chart.paidupYearly">Yearly paid-up capital</h3><div class="card-sub" style="margin-bottom:14px;">DB-03 · MMK, millions</div>
-            <div class="bars" style="height:120px;">
-              <div class="bar-col"><div class="bar-val">142</div><div class="bar" style="height:60px;"></div><div class="bar-label">2023</div></div>
-              <div class="bar-col"><div class="bar-val">159</div><div class="bar" style="height:70px;"></div><div class="bar-label">2024</div></div>
-              <div class="bar-col"><div class="bar-val">171</div><div class="bar" style="height:80px;"></div><div class="bar-label">2025</div></div>
-              <div class="bar-col"><div class="bar-val">187</div><div class="bar gold" style="height:92px;"></div><div class="bar-label">2026</div></div>
-            </div>
+        <div class="grid-3" style="margin-bottom:6px;">
+          <div class="card dash-chart-card">
+            <h3 data-i18n="chart.paidupYearly">Yearly paid-up capital</h3><div class="card-sub" style="margin-bottom:8px;">DB-03 · MMK, billions · cumulative</div>
+            <div class="bars" id="dashPaidUpBars"></div>
           </div>
-          <div class="card">
-            <h3 data-i18n="chart.dividendYearly">Yearly dividend %</h3><div class="card-sub" style="margin-bottom:14px;">DB-04 · declared rate</div>
-            <div class="bars" style="height:120px;">
-              <div class="bar-col"><div class="bar-val">6%</div><div class="bar" style="height:50px;"></div><div class="bar-label">2023</div></div>
-              <div class="bar-col"><div class="bar-val">7%</div><div class="bar" style="height:58px;"></div><div class="bar-label">2024</div></div>
-              <div class="bar-col"><div class="bar-val">7%</div><div class="bar" style="height:58px;"></div><div class="bar-label">2025</div></div>
-              <div class="bar-col"><div class="bar-val">8%</div><div class="bar gold" style="height:68px;"></div><div class="bar-label">2026</div></div>
-            </div>
+          <div class="card dash-chart-card">
+            <h3 data-i18n="chart.dividendYearly">Yearly dividend %</h3><div class="card-sub" style="margin-bottom:8px;">DB-04 · declared rate</div>
+            <div class="bars" id="dashDividendYearlyBars"></div>
           </div>
-          <div class="card">
-            <h3 data-i18n="chart.dividendCompare">Dividend comparison</h3><div class="card-sub" style="margin-bottom:14px;">DB-05 · this year vs. prior</div>
-            <div class="bars" style="height:120px;">
-              <div class="bar-col"><div class="bar-val">12.9</div><div class="bar" style="height:55px;"></div><div class="bar-label">2025</div></div>
-              <div class="bar-col"><div class="bar-val">14.4</div><div class="bar gold" style="height:68px;"></div><div class="bar-label">2026</div></div>
-            </div>
+          <div class="card dash-chart-card">
+            <h3 data-i18n="chart.dividendCompare">Dividend comparison</h3><div class="card-sub" style="margin-bottom:8px;">DB-05 · this year vs. prior · MMK, millions</div>
+            <div class="bars" id="dashDividendCompareBars"></div>
           </div>
         </div>
 
-        <div class="grid-2">
-          <div class="card">
+        <div class="grid-2" style="margin-bottom:6px;">
+          <div class="card dash-chart-card">
             <div class="card-head"><h3 data-i18n="dash.myPending">My pending approvals</h3><a href="#" onclick="go('approvals');return false;" style="font-size:12.5px;" data-i18n="notif.viewall">View all</a></div>
-            <div class="table-wrap"><table class="data">
-              <thead><tr><th>Reference</th><th>Type</th><th>Step</th><th>Submitted</th></tr></thead>
-              <tbody>
-                <tr><td class="mono">IS-2026-0018</td><td>Issue Shares</td><td><span class="pill pill-warning">Step 2 of 3</span></td><td>17 Jul 2026</td></tr>
-                <tr><td class="mono">TS-2026-0009</td><td>Transfer Shares</td><td><span class="pill pill-danger">Overdue</span></td><td>15 Jul 2026</td></tr>
-                <tr><td class="mono">APP-2026-0042</td><td>KYC Decision</td><td><span class="pill pill-warning">Step 1 of 2</span></td><td>18 Jul 2026</td></tr>
-              </tbody>
-            </table></div>
-          </div>
-          <div class="card">
-            <h3 data-i18n="dash.recentTx">Recent transactions</h3>
-            <div class="table-wrap"><table class="data">
+            <div class="table-wrap"><table class="data dash-table">
               <thead><tr><th>Reference</th><th>Type</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr><td class="mono">BS-2026-0004</td><td>Bonus Shares</td><td><span class="pill pill-success">Posted</span></td></tr>
-                <tr><td class="mono">DS-2026-0007</td><td>Dividend</td><td><span class="pill pill-success">Settled</span></td></tr>
-                <tr><td class="mono">IS-2026-0017</td><td>Issue Shares</td><td><span class="pill pill-success">Posted</span></td></tr>
-              </tbody>
+              <tbody id="dashPendingBody"></tbody>
             </table></div>
           </div>
+          <div class="card dash-chart-card">
+            <h3 data-i18n="dash.recentTx">Recent transactions</h3>
+            <div class="table-wrap"><table class="data dash-table">
+              <thead><tr><th>Reference</th><th>Type</th><th>Status</th></tr></thead>
+              <tbody id="dashRecentTxBody"></tbody>
+            </table></div>
+          </div>
+        </div>
+
+        <div class="card dash-chart-card">
+          <div class="card-head"><h3 data-i18n="dash.recentActivity">Recent activity</h3><a href="#" onclick="go('audit');return false;" style="font-size:12.5px;" data-i18n="notif.viewall">View all</a></div>
+          <div id="dashActivityFeed" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:6px 24px;font-size:12.5px;"></div>
         </div>
       </section>
 
@@ -1271,7 +1274,7 @@
 
       <!-- ============ PERMISSIONS ============ -->
       <section class="page" id="page-permissions">
-        <div class="page-header"><div><h1 data-i18n="page.permissions.title">Permissions</h1><p data-i18n="page.permissions.sub">Role × action grant matrix, layered over role-based access.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="toast('Permission changes saved.')">Save changes</button></div></div>
+        <div class="page-header"><div><h1 data-i18n="page.permissions.title">Permissions</h1><p data-i18n="page.permissions.sub">Role × action grant matrix, layered over role-based access.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="savePermissions()">Save changes</button></div></div>
         <div class="table-wrap"><table class="data perm-table">
           <thead><tr><th>Role</th><th>SA.Submit</th><th>IS.Submit</th><th>TS.Submit</th><th>BS.Submit</th><th>DS.Submit</th><th>Reports.View</th><th>Reports.Export</th><th>Reports.ViewSensitiveData</th></tr></thead>
           <tbody>
@@ -1313,20 +1316,24 @@
 
       <!-- ============ AUDIT LOG ============ -->
       <section class="page" id="page-audit">
-        <div class="page-header"><div><h1 data-i18n="page.audit.title">Audit Log</h1><p data-i18n="page.audit.sub">Append-only record of every state-changing action.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="exportAuditLog()">⬇ Export</button></div></div>
+        <div class="page-header"><div><h1 data-i18n="page.audit.title">Audit Log</h1><p data-i18n="page.audit.sub">Append-only record of every screen view and state-changing action, with full detail.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="exportAuditLog()">⬇ Export</button></div></div>
         <div class="filter-row">
-          <input type="date" value="2026-07-19" /><span style="color:var(--ink-400);">to</span><input type="date" value="2026-07-19" />
-          <select><option>All actions</option><option>Create</option><option>Update</option><option>Decision</option></select>
+          <input type="date" id="auditDateFrom" /><span style="color:var(--ink-400);">to</span><input type="date" id="auditDateTo" />
+          <select id="auditModuleFilter"><option value="All">All modules</option></select>
+          <select id="auditActionFilter">
+            <option value="All">All actions</option>
+            <option>View</option><option>Create</option><option>Update</option><option>Submit</option>
+            <option>Decision</option><option>Export</option><option>Print</option><option>Login</option><option>Logout</option><option>Job</option>
+          </select>
+          <input type="text" id="auditUserFilter" placeholder="Filter by user…" style="min-width:180px;" />
+          <button class="btn btn-ghost btn-sm" onclick="applyAuditFilters()">Apply</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetAuditFilters()">Reset</button>
         </div>
         <div class="table-wrap"><table class="data" id="auditTable">
-          <thead><tr><th>Timestamp</th><th>User</th><th>Action</th><th>Entity</th></tr></thead>
-          <tbody>
-            <tr><td class="mono">2026-07-19 09:12:03</td><td>admin@ems.local</td><td>Decision: Approve</td><td class="mono">APP-2026-0043</td></tr>
-            <tr><td class="mono">2026-07-19 08:47:51</td><td>nyein.chan@cbbank.com</td><td>Create: Delegation</td><td class="mono">DEL-000018</td></tr>
-            <tr><td class="mono">2026-07-18 17:03:22</td><td>system</td><td>Job: ReconciliationJob</td><td class="mono">RECON-20260718</td></tr>
-            <tr><td class="mono">2026-07-18 14:20:09</td><td>yamin.oo@cbbank.com</td><td>Decision: Approve</td><td class="mono">IS-2026-0017</td></tr>
-          </tbody>
+          <thead><tr><th>Timestamp</th><th>User</th><th>Action</th><th>Module</th><th>Entity Ref</th><th>Details</th><th>Result</th></tr></thead>
+          <tbody></tbody>
         </table></div>
+        <div class="pager" id="auditPager"></div>
       </section>
 
     </main>
@@ -1408,7 +1415,7 @@
       });
     });
     el.innerHTML = html;
-    el.innerHTML += '<div class="sidebar-foot">EMS UI Mockup v1.0<br/>Static HTML/CSS/JS — no backend</div>';
+    el.innerHTML += '<div class="sidebar-foot">Developed by Sunfix</div>';
   }
   buildSidebar();
 
@@ -1435,6 +1442,11 @@
     closeAllDrops();
     if(window.innerWidth <= 860) document.getElementById('sidebar').classList.remove('open');
     window.scrollTo(0,0);
+    if(typeof logAudit === 'function'){
+      logAudit('View', AUDIT_MODULE_BY_PAGE[pageId] || pageId, null, 'Viewed ' + (PAGE_TITLES[pageId] || pageId) + ' screen');
+      if(pageId === 'audit'){ auditPage = 1; renderAuditTable(); }
+      if(pageId === 'dashboard' && typeof renderDashboardFromBulkData === 'function') renderDashboardFromBulkData();
+    }
   }
 
   function showDetail(section){
@@ -1482,9 +1494,11 @@
   function enterApp(){
     document.getElementById('screen-login').classList.add('hidden');
     document.getElementById('screen-app').classList.add('active');
+    logAudit('Login', 'Security', null, 'Signed in successfully');
     go('dashboard');
   }
   function signOut(){
+    logAudit('Logout', 'Security', null, 'Signed out');
     closeAllDrops();
     document.getElementById('screen-app').classList.remove('active');
     document.getElementById('screen-login').classList.remove('hidden');
@@ -1519,9 +1533,10 @@
       'btn.refresh':'↻ Refresh',
       'kpi.shareholders':'Registered shareholders', 'kpi.totalshares':'Total shares', 'kpi.paidup':'Paid-up capital',
       'kpi.pending':'Pending approvals', 'kpi.dividend':'Dividend provision',
+      'kpi.certificates':'Certificates on issue', 'kpi.applications':'Applications in progress',
       'chart.byGroup':'Shareholding by group', 'chart.byGroupPct':'Shareholding by group (%)',
       'chart.paidupYearly':'Yearly paid-up capital', 'chart.dividendYearly':'Yearly dividend %', 'chart.dividendCompare':'Dividend comparison',
-      'dash.myPending':'My pending approvals', 'dash.recentTx':'Recent transactions',
+      'dash.myPending':'My pending approvals', 'dash.recentTx':'Recent transactions', 'dash.recentActivity':'Recent activity',
       'page.applications.title':'Shareholder Applications', 'page.applications.sub':'Onboarding & KYC intake — personal, joint and corporate applicants.',
       'page.applications.new.title':'New Shareholder Application', 'page.applications.new.sub':'Section 6.1 · Personal / Joint / Corporate applicant intake.',
       'page.kyc.title':'KYC Queue', 'page.kyc.sub':'Applications awaiting a compliance decision.',
@@ -1544,7 +1559,7 @@
       'page.matrix.title':'Approval Matrix', 'page.matrix.sub':'Configurable, effective-dated routing per transaction type & amount band.',
       'page.permissions.title':'Permissions', 'page.permissions.sub':'Role × action grant matrix, layered over role-based access.',
       'page.masterdata.title':'Master Data', 'page.masterdata.sub':'Groups, share classes, branches, departments, NRC prefixes, document & reason codes.',
-      'page.audit.title':'Audit Log', 'page.audit.sub':'Append-only record of every state-changing action.',
+      'page.audit.title':'Audit Log', 'page.audit.sub':'Append-only record of every screen view and state-changing action, with full detail.',
       'btn.backtolist':'← Back to list', 'btn.savedraft':'Save draft', 'btn.submitforapproval':'Submit for approval',
       'btn.cancel':'Cancel', 'btn.submitdecision':'Submit decision', 'btn.createdelegation':'Create delegation',
       'btn.downloadpdf':'⬇ Download PDF', 'btn.markallread':'Mark all read', 'btn.applyfilters':'Apply filters', 'btn.reset':'Reset',
@@ -1588,9 +1603,10 @@
       'btn.refresh':'↻ ပြန်လည်စတင်ရန်',
       'kpi.shareholders':'မှတ်ပုံတင်ရှယ်ယာရှင်များ', 'kpi.totalshares':'ရှယ်ယာစုစုပေါင်း', 'kpi.paidup':'ငွေပေးသွင်းပြီးအရင်းအနှီး',
       'kpi.pending':'အတည်ပြုရန်ကျန်ရှိသည်', 'kpi.dividend':'အမြတ်ဝေစု ပြင်ဆင်ငွေ',
+      'kpi.certificates':'ထုတ်ပေးဆဲ လက်မှတ်များ', 'kpi.applications':'လုပ်ငန်းစဉ်ဆဲ လျှောက်လွှာများ',
       'chart.byGroup':'အုပ်စုအလိုက် ရှယ်ယာပိုင်ဆိုင်မှု', 'chart.byGroupPct':'အုပ်စုအလိုက် ရှယ်ယာပိုင်ဆိုင်မှု (%)',
       'chart.paidupYearly':'နှစ်စဉ် ငွေပေးသွင်းပြီးအရင်းအနှီး', 'chart.dividendYearly':'နှစ်စဉ် အမြတ်ဝေစုရာခိုင်နှုန်း', 'chart.dividendCompare':'အမြတ်ဝေစု နှိုင်းယှဉ်ချက်',
-      'dash.myPending':'ကျွန်ုပ် အတည်ပြုရန်ကျန်များ', 'dash.recentTx':'လတ်တလော ငွေလွှဲမှုများ',
+      'dash.myPending':'ကျွန်ုပ် အတည်ပြုရန်ကျန်များ', 'dash.recentTx':'လတ်တလော ငွေလွှဲမှုများ', 'dash.recentActivity':'လတ်တလော လှုပ်ရှားမှုများ',
       'page.applications.title':'ရှယ်ယာရှင် လျှောက်လွှာများ', 'page.applications.sub':'အသင်းဝင်ခြင်းနှင့် KYC လက်ခံခြင်း — တစ်ဦးချင်း၊ ပူးတွဲနှင့် ကော်ပိုရိတ် လျှောက်ထားသူများ။',
       'page.applications.new.title':'ရှယ်ယာရှင် လျှောက်လွှာအသစ်', 'page.applications.new.sub':'အပိုဒ် ၆.၁ · တစ်ဦးချင်း / ပူးတွဲ / ကော်ပိုရိတ် လျှောက်ထားသူ လက်ခံခြင်း။',
       'page.kyc.title':'KYC စာရင်း', 'page.kyc.sub':'လိုက်နာမှုဆုံးဖြတ်ချက်ကို စောင့်ဆိုင်းနေသည့် လျှောက်လွှာများ။',
@@ -1613,7 +1629,7 @@
       'page.matrix.title':'အတည်ပြုမှုဇယား', 'page.matrix.sub':'ငွေလွှဲမှုအမျိုးအစားနှင့် ပမာဏအလိုက် ချိန်ညှိနိုင်သော လမ်းကြောင်းသတ်မှတ်ချက်။',
       'page.permissions.title':'ခွင့်ပြုချက်များ', 'page.permissions.sub':'အခန်းကဏ္ဍ × လုပ်ဆောင်ချက် ခွင့်ပြုချက်ဇယား။',
       'page.masterdata.title':'အခြေခံဒေတာ', 'page.masterdata.sub':'အုပ်စုများ၊ ရှယ်ယာအတန်းအစားများ၊ ဌာနခွဲများ၊ ဌာနများ၊ NRC ရှေ့ဆက်များ၊ စာရွက်စာတမ်းနှင့် အကြောင်းရင်းကုဒ်များ။',
-      'page.audit.title':'စစ်ဆေးမှတ်တမ်း', 'page.audit.sub':'အခြေအနေပြောင်းလဲစေသော လုပ်ဆောင်ချက်တိုင်း၏ ထည့်သွင်းမှတ်တမ်းသာ။',
+      'page.audit.title':'စစ်ဆေးမှတ်တမ်း', 'page.audit.sub':'မျက်နှာပြင်ကြည့်ရှုမှုနှင့် အခြေအနေပြောင်းလဲစေသော လုပ်ဆောင်ချက်တိုင်း၏ အသေးစိတ်ပါဝင်သည့် ထည့်သွင်းမှတ်တမ်းသာ။',
       'btn.backtolist':'← စာရင်းသို့ပြန်သွားရန်', 'btn.savedraft':'မူကြမ်းသိမ်းမည်', 'btn.submitforapproval':'အတည်ပြုရန်တင်သွင်းမည်',
       'btn.cancel':'ပယ်ဖျက်မည်', 'btn.submitdecision':'ဆုံးဖြတ်ချက်တင်သွင်းမည်', 'btn.createdelegation':'လွှဲအပ်မှုဖန်တီးမည်',
       'btn.downloadpdf':'⬇ PDF ဒေါင်းလုဒ်လုပ်မည်', 'btn.markallread':'အားလုံးဖတ်ပြီးဟု သတ်မှတ်မည်', 'btn.applyfilters':'စစ်ထုတ်မှုသုံးမည်', 'btn.reset':'ပြန်လည်သတ်မှတ်မည်',
@@ -1722,6 +1738,176 @@
       setTimeout(function(){ el.remove(); }, 250);
     }, 3800);
   }
+
+  /* ---------- audit log: every screen view and every state-changing action, with detail ----------
+     A single logAudit() call is the one path every screen and every CRUD action writes through, so the
+     log can never miss an event just because a new screen forgot to wire it up separately. Held in memory
+     for this session (a static mockup has no backend to persist to) and rendered/paged/filterable on the
+     Audit Log screen, with a matching "export the full filtered set" CSV — mirrors the real .NET
+     AuditService's shape (actor, action, module, entity reference, timestamp, result) plus a human-readable
+     detail string in place of the real system's JSON before/after snapshot. */
+  var CURRENT_USER = 'admin@ems.local';
+  var SESSION_IP = '10.20.4.' + (10 + Math.floor(Math.random() * 40));
+  var AUDIT_LOG = [];
+  var AUDIT_SEQ = 0;
+  var AUDIT_PAGE_SIZE = 25;
+  var auditPage = 1;
+  var auditFilters = {dateFrom: '', dateTo: '', module: 'All', action: 'All', user: ''};
+
+  var AUDIT_MODULE_BY_PAGE = {
+    dashboard: 'Dashboard', applications: 'Applications', kyc: 'KYC', shareholders: 'Shareholders',
+    certificates: 'Certificates', issue: 'Issue Shares', transfer: 'Transfer Shares', bonus: 'Bonus Shares',
+    dividends: 'Dividends', approvals: 'Approvals', submitted: 'Approvals', delegations: 'Delegations',
+    reports: 'Reports', users: 'Users & Roles', matrix: 'Approval Matrix', permissions: 'Permissions',
+    masterdata: 'Master Data', audit: 'Audit Log', notifications: 'Notifications'
+  };
+  var SECTION_MODULE = {applications: 'Applications', issue: 'Issue Shares', transfer: 'Transfer Shares', bonus: 'Bonus Shares', dividends: 'Dividends'};
+
+  function logAudit(action, module, entityRef, detail, result){
+    AUDIT_SEQ += 1;
+    AUDIT_LOG.unshift({
+      id: AUDIT_SEQ, ts: new Date(), user: CURRENT_USER, action: action, module: module,
+      entityRef: entityRef || '—', detail: detail || '', result: result || 'Success', ip: SESSION_IP
+    });
+    return AUDIT_SEQ;
+  }
+
+  function fmtAuditTs(d){
+    function pad(n){ return String(n).padStart(2, '0'); }
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  }
+
+  function auditFilterMatch(e){
+    if(auditFilters.module !== 'All' && e.module !== auditFilters.module) return false;
+    if(auditFilters.action !== 'All' && e.action !== auditFilters.action) return false;
+    if(auditFilters.user && e.user.toLowerCase().indexOf(auditFilters.user.toLowerCase()) === -1) return false;
+    var d = fmtAuditTs(e.ts).slice(0, 10);
+    if(auditFilters.dateFrom && d < auditFilters.dateFrom) return false;
+    if(auditFilters.dateTo && d > auditFilters.dateTo) return false;
+    return true;
+  }
+
+  function genAuditSeedData(){
+    var users = ['admin@ems.local', 'nyein.chan@cbbank.com', 'yamin.oo@cbbank.com', 'thazin.aung@cbbank.com', 'zaw.myint@cbbank.com', 'khin.sandar@cbbank.com'];
+    var pool = [
+      {action: 'View', module: 'Dashboard', detail: 'Viewed Dashboard screen'},
+      {action: 'View', module: 'Shareholders', detail: 'Viewed Registered Shareholders screen'},
+      {action: 'View', module: 'Certificates', detail: 'Viewed Certificates screen'},
+      {action: 'View', module: 'Reports', detail: 'Viewed Standard Reports screen'},
+      {action: 'View', module: 'Applications', detail: 'Viewed Shareholder Applications screen'},
+      {action: 'Create', module: 'Applications', refPrefix: 'APP', detail: 'Application created and saved as draft'},
+      {action: 'Submit', module: 'Applications', refPrefix: 'APP', detail: 'Application submitted — moved to KYC Review'},
+      {action: 'Decision', module: 'KYC', refPrefix: 'APP', detail: 'KYC decision recorded — Approved'},
+      {action: 'Create', module: 'Issue Shares', refPrefix: 'IS', detail: 'Draft share issue created'},
+      {action: 'Submit', module: 'Issue Shares', refPrefix: 'IS', detail: 'Submitted for approval — Step 1 of the configured route'},
+      {action: 'Decision', module: 'Approvals', refPrefix: 'IS', detail: 'Decision recorded — Approve'},
+      {action: 'Create', module: 'Transfer Shares', refPrefix: 'TS', detail: 'Draft transfer created'},
+      {action: 'Submit', module: 'Transfer Shares', refPrefix: 'TS', detail: 'Submitted for approval'},
+      {action: 'Submit', module: 'Bonus Shares', refPrefix: 'BS', detail: 'Bonus batch submitted for approval'},
+      {action: 'Submit', module: 'Dividends', refPrefix: 'DS', detail: 'Dividend event submitted for approval'},
+      {action: 'Create', module: 'Delegations', detail: 'Approval delegation created'},
+      {action: 'Create', module: 'Users & Roles', detail: 'User account created'},
+      {action: 'Update', module: 'Approval Matrix', detail: 'Approval rule updated'},
+      {action: 'Create', module: 'Master Data', detail: 'Master data item added'},
+      {action: 'Update', module: 'Permissions', detail: 'Role permission grants updated'},
+      {action: 'Export', module: 'Reports', detail: 'Exported report as CSV'},
+      {action: 'Print', module: 'Certificates', refPrefix: 'CERT', detail: 'Printed certificate PDF'},
+      {action: 'Login', module: 'Security', detail: 'Signed in successfully'},
+      {action: 'Logout', module: 'Security', detail: 'Signed out'},
+      {action: 'Job', module: 'System', ref: 'RECON-20260718', detail: 'Daily reconciliation job completed — 0 exceptions', user: 'system'},
+      {action: 'Job', module: 'System', ref: 'REM-20260718', detail: 'Approval reminder job sent 2 overdue notification(s)', user: 'system'}
+    ];
+    var out = [];
+    var minsAgo = 0;
+    var anchor = new Date(2026, 6, 19, 9, 12, 3); // matches the most recent entry shown before this was made data-driven
+    for(var i = 0; i < 260; i++){
+      var pick = pool[Math.floor(Math.random() * pool.length)];
+      if(i > 0) minsAgo += 6 + Math.floor(Math.random() * 14);
+      var ts = new Date(anchor.getTime() - minsAgo * 60000);
+      var ref = pick.ref || (pick.refPrefix ? pick.refPrefix + '-2026-' + String(1000 + Math.floor(Math.random() * 900)).padStart(4, '0') : null);
+      out.push({
+        id: i + 1, ts: ts, user: pick.user || users[Math.floor(Math.random() * users.length)],
+        action: pick.action, module: pick.module, entityRef: ref || '—', detail: pick.detail,
+        result: 'Success', ip: '10.20.4.' + (10 + Math.floor(Math.random() * 40))
+      });
+    }
+    return out;
+  }
+
+  function populateAuditModuleFilter(){
+    var sel = document.getElementById('auditModuleFilter');
+    if(!sel) return;
+    var seen = {};
+    var modules = [];
+    AUDIT_LOG.forEach(function(e){ if(!seen[e.module]){ seen[e.module] = true; modules.push(e.module); } });
+    modules.sort();
+    sel.innerHTML = '<option value="All">All modules</option>' + modules.map(function(m){ return '<option>' + esc(m) + '</option>'; }).join('');
+  }
+
+  function renderAuditTable(){
+    var filtered = AUDIT_LOG.filter(auditFilterMatch);
+    var totalPages = Math.max(1, Math.ceil(filtered.length / AUDIT_PAGE_SIZE));
+    if(auditPage > totalPages) auditPage = totalPages;
+    var start = (auditPage - 1) * AUDIT_PAGE_SIZE;
+    var pageRows = filtered.slice(start, start + AUDIT_PAGE_SIZE);
+    var tbody = document.querySelector('#auditTable tbody');
+    if(tbody){
+      tbody.innerHTML = pageRows.map(function(e){
+        var resultCls = e.result === 'Success' ? 'pill-success' : 'pill-danger';
+        return '<tr><td class="mono">' + fmtAuditTs(e.ts) + '</td><td>' + esc(e.user) + '</td><td>' + esc(e.action) + '</td><td>' + esc(e.module) + '</td>' +
+          '<td class="mono">' + esc(e.entityRef) + '</td><td>' + esc(e.detail) + '</td><td><span class="pill ' + resultCls + '">' + esc(e.result) + '</span></td></tr>';
+      }).join('');
+    }
+    var pagerEl = document.getElementById('auditPager');
+    if(pagerEl){
+      pagerEl.innerHTML =
+        '<span>' + fmtNum(filtered.length) + ' entr' + (filtered.length === 1 ? 'y' : 'ies') + '</span>' +
+        '<div style="display:flex;gap:8px;align-items:center;">' +
+        '<button data-act="prev"' + (auditPage <= 1 ? ' disabled' : '') + '>‹ Prev</button>' +
+        '<span>Page ' + fmtNum(auditPage) + ' / ' + fmtNum(totalPages) + '</span>' +
+        '<button data-act="next"' + (auditPage >= totalPages ? ' disabled' : '') + '>Next ›</button>' +
+        '</div>';
+      pagerEl.querySelectorAll('button').forEach(function(btn){
+        btn.onclick = function(){
+          var act = this.getAttribute('data-act');
+          if(act === 'prev') auditPage = Math.max(1, auditPage - 1);
+          else if(act === 'next') auditPage = Math.min(totalPages, auditPage + 1);
+          renderAuditTable();
+        };
+      });
+    }
+    if(typeof currentLang !== 'undefined' && currentLang !== 'en'){
+      var page = document.getElementById('page-audit');
+      if(page && typeof applyLangToElement === 'function') applyLangToElement(page);
+    }
+    return filtered;
+  }
+
+  function applyAuditFilters(){
+    auditFilters.dateFrom = document.getElementById('auditDateFrom').value;
+    auditFilters.dateTo = document.getElementById('auditDateTo').value;
+    auditFilters.module = document.getElementById('auditModuleFilter').value;
+    auditFilters.action = document.getElementById('auditActionFilter').value;
+    auditFilters.user = document.getElementById('auditUserFilter').value.trim();
+    auditPage = 1;
+    var rows = renderAuditTable();
+    toast('Filters applied — ' + fmtNum(rows.length) + ' entr' + (rows.length === 1 ? 'y' : 'ies') + ' match.', 'info');
+  }
+  function resetAuditFilters(){
+    document.getElementById('auditDateFrom').value = '';
+    document.getElementById('auditDateTo').value = '';
+    document.getElementById('auditModuleFilter').value = 'All';
+    document.getElementById('auditActionFilter').value = 'All';
+    document.getElementById('auditUserFilter').value = '';
+    auditFilters = {dateFrom: '', dateTo: '', module: 'All', action: 'All', user: ''};
+    auditPage = 1;
+    renderAuditTable();
+    toast('Filters reset.', 'info');
+  }
+
+  AUDIT_LOG = genAuditSeedData();
+  AUDIT_SEQ = AUDIT_LOG.length;
+  populateAuditModuleFilter();
 
   /* ---------- small helpers ---------- */
   function esc(s){
@@ -1855,6 +2041,7 @@
     var ref = nextRef(section);
     prependRow(LIST_TABLE[section], rowHtml(section, ref, 'Draft'));
     toast('Draft saved — ' + ref + '.');
+    logAudit('Create', SECTION_MODULE[section], ref, 'Saved as draft');
     showList(section);
   }
   function submitForApproval(section){
@@ -1862,6 +2049,7 @@
     var ref = nextRef(section);
     prependRow(LIST_TABLE[section], rowHtml(section, ref, 'Pending Approval'));
     toast('Submitted for approval — ' + ref + ' (Step 1 of the configured route).');
+    logAudit('Submit', SECTION_MODULE[section], ref, 'Submitted for approval — Step 1 of the configured route');
     showList(section);
   }
   /* ---------- application wizard: click through all 5 steps ---------- */
@@ -1950,6 +2138,7 @@
     var ref = nextRef('applications');
     prependRow(LIST_TABLE.applications, rowHtml('applications', ref, 'KYC Review'));
     toast('Application submitted — ' + ref + ' moved to KYC Review.');
+    logAudit('Submit', 'Applications', ref, 'Application submitted — moved to KYC Review');
     document.getElementById('wzDeclaration').checked = false;
     showList('applications');
     wizardGoTo(1);
@@ -1972,6 +2161,7 @@
         ? 'Decision recorded — Rejected. IS-2026-0018 returned to the submitter.'
         : 'Decision recorded — Reverted. IS-2026-0018 sent back to Step 1 (Branch Manager).';
     toast(msg);
+    logAudit('Decision', 'Approvals', 'IS-2026-0018', msg + (comment && comment.value.trim() ? ' Comment: ' + comment.value.trim() : ''));
     showList('approvals');
   }
 
@@ -1989,6 +2179,7 @@
     var html = '<td>' + esc(to) + '</td><td>' + esc(role) + '</td><td>' + start + '</td><td>' + end + '</td><td>' + esc(reason) + '</td><td><span class="pill pill-success">Active</span></td><td><a href="#" style="color:var(--danger);" data-i18n="btn.end">End</a></td>';
     prependRow('delegationsTable', html);
     toast('Delegation created — ' + role + ' delegated to ' + to + '.');
+    logAudit('Create', 'Delegations', null, role + ' delegated to ' + to + ' (' + start + ' to ' + end + ', reason: ' + reason + ')');
     toggleDrawerOpen('delDrawer');
   }
 
@@ -2010,6 +2201,7 @@
     var html = '<td>' + esc(name) + '</td><td class="mono">' + esc(email) + '</td><td><span class="pill pill-neutral">' + esc(role) + '</span></td><td><span class="pill ' + pillClass + '">' + esc(status) + '</span></td>';
     prependRow('usersTable', html);
     toast('User created — ' + name + ' (' + role + ').');
+    logAudit('Create', 'Users & Roles', email, 'User created — ' + name + ' (' + role + ', ' + status + ')');
     document.getElementById('newUserName').value = '';
     document.getElementById('newUserEmail').value = '';
     toggleUserDrawer();
@@ -2069,9 +2261,11 @@
     if(matrixEditingRow){
       matrixEditingRow.innerHTML = cellsHtml;
       toast('Approval rule updated — ' + type + '.');
+      logAudit('Update', 'Approval Matrix', type, 'Rule updated — band ' + band + ', route ' + route + ', effective ' + effDate + ', status ' + status);
     } else {
       prependRow('matrixTable', cellsHtml);
       toast('Approval rule created — ' + type + '.');
+      logAudit('Create', 'Approval Matrix', type, 'Rule created — band ' + band + ', route ' + route + ', effective ' + effDate + ', status ' + status);
     }
     closeMatrixDrawer();
   }
@@ -2200,6 +2394,13 @@
     if(countEl) countEl.textContent = def.rows.length;
     toggleMasterDataDrawer();
     toast(def.title.replace(/s$/, '') + ' added.');
+    logAudit('Create', 'Master Data', row[0], def.title + ' — added "' + row[1] + '"');
+  }
+
+  /* ---------- permissions ---------- */
+  function savePermissions(){
+    toast('Permission changes saved.');
+    logAudit('Update', 'Permissions', null, 'Role permission grants updated');
   }
 
   /* ---------- reports: click-to-preview + real CSV export + print/PDF ---------- */
@@ -2491,11 +2692,13 @@
     renderReportRows(false);
     downloadBlob('﻿' + csv, filename + '.csv', 'text/csv;charset=utf-8;');
     toast('Downloaded ' + filename + '.csv (all matching rows).');
+    logAudit('Export', 'Reports', currentReportCode, 'Exported ' + REPORTS[currentReportCode].title + ' as Excel/CSV');
   }
   function printReport(){
     renderReportRows(true);
     printOnly(document.getElementById('reportPreviewCard'), reportFilenameBase());
     renderReportRows(false);
+    logAudit('Print', 'Reports', currentReportCode, 'Printed ' + REPORTS[currentReportCode].title);
   }
   function exportPdf(){
     toast('Opening the print dialog — choose "Save as PDF" as the destination.', 'info');
@@ -2949,6 +3152,155 @@
   rebuildReportsFromBulkData();
   loadReport(currentReportCode);
 
+  /* ---------- dashboard: every KPI and chart pulled from the same bulk register the Reports and list
+     screens use (DB-01..DB-05 mirror RPT-002's group aggregation and ALL_DIVIDENDS/ALL_ISSUE), so the
+     Dashboard never drifts from what the rest of the app shows (it used to be four static numbers left
+     over from before the 20,000-row register existed). ---------- */
+  var DASH_GROUP_COLORS = ['var(--navy-700)', 'var(--gold-500)', 'var(--info)', 'var(--danger)', 'var(--success)'];
+  var DASH_GROUP_SHORT = {
+    'BOD': 'BOD', 'Staff': 'Staff', 'Public': 'Public',
+    'Private & Public Companies': 'Companies', 'States & Divisions Co-operatives': 'Co-operatives'
+  };
+
+  function fmtMoneyCompact(amountInMmk){
+    if(amountInMmk >= 1e9) return 'MMK ' + (amountInMmk / 1e9).toFixed(1) + 'B';
+    return 'MMK ' + (amountInMmk / 1e6).toFixed(1) + 'M';
+  }
+
+  function dashBars(containerId, items, valueFormatter){
+    var maxVal = Math.max.apply(null, items.map(function(it){ return it.value; })) || 1;
+    document.getElementById(containerId).innerHTML = items.map(function(it, i){
+      var h = Math.max(4, Math.round(it.value / maxVal * 30));
+      return '<div class="bar-col"><div class="bar-val">' + esc(valueFormatter(it.value)) + '</div>' +
+        '<div class="bar' + (i === items.length - 1 ? ' gold' : '') + '" style="height:' + h + 'px;"></div>' +
+        '<div class="bar-label">' + esc(it.label) + '</div></div>';
+    }).join('');
+  }
+
+  function renderDashboardFromBulkData(){
+    var PAR = 10000;
+    var totalShares = ALL_SHAREHOLDERS.reduce(function(s, r){ return s + r.shares; }, 0);
+    var totalAmount = totalShares * PAR;
+
+    // ---- group aggregation (same logic as RPT-002, so Dashboard and Reports always reconcile) ----
+    var groupTotals = {};
+    ALL_SHAREHOLDERS.forEach(function(r){
+      if(!groupTotals[r.group]) groupTotals[r.group] = {count: 0, shares: 0};
+      groupTotals[r.group].count++; groupTotals[r.group].shares += r.shares;
+    });
+    var groupList = GROUP_ORDER.filter(function(g){ return groupTotals[g]; }).map(function(g){
+      return {name: g, shares: groupTotals[g].shares, count: groupTotals[g].count, pct: groupTotals[g].shares / totalShares * 100};
+    }).sort(function(a, b){ return b.shares - a.shares; });
+
+    // ---- pending work: pending/overdue Issue+Transfer, plus applications still in the KYC pipeline ----
+    var pendingIssue = ALL_ISSUE.filter(function(r){ return r.status === 'Pending Approval' || r.status === 'Overdue'; });
+    var pendingTransfer = ALL_TRANSFER.filter(function(r){ return r.status === 'Pending Approval' || r.status === 'Overdue'; });
+    var pendingKyc = ALL_APPLICATIONS.filter(function(r){ return r.stage === 'KYC Review' || r.stage === 'Pending Documents'; });
+    var totalPending = pendingIssue.length + pendingTransfer.length + pendingKyc.length;
+
+    var activeCerts = ALL_CERTS.filter(function(c){ return c.status !== 'Cancelled'; }).length;
+    var appsInProgress = ALL_APPLICATIONS.filter(function(a){ return a.stage !== 'Registered' && a.stage !== 'Rejected'; }).length;
+    var latestDividend = ALL_DIVIDENDS[0];
+
+    // ---- KPIs ----
+    document.getElementById('kpiShareholders').textContent = fmtNum(ALL_SHAREHOLDERS.length);
+    document.getElementById('kpiTotalShares').textContent = fmtNum(totalShares);
+    document.getElementById('kpiPaidUp').textContent = fmtMoneyCompact(totalAmount);
+    document.getElementById('kpiPending').textContent = fmtNum(totalPending);
+    document.getElementById('kpiDividend').textContent = 'MMK ' + latestDividend.total;
+    document.getElementById('kpiCertificates').textContent = fmtNum(activeCerts);
+    document.getElementById('kpiApplications').textContent = fmtNum(appsInProgress);
+
+    // ---- DB-01: shareholding by group (bars, number of shares) ----
+    dashBars('dashGroupBars', groupList.map(function(g){ return {label: DASH_GROUP_SHORT[g.name] || g.name, value: g.shares}; }), fmtNum);
+
+    // ---- DB-02: shareholding by group (%) — donut + legend ----
+    var acc = 0;
+    var stops = groupList.map(function(g, i){
+      var start = acc; acc += g.pct;
+      return DASH_GROUP_COLORS[i % DASH_GROUP_COLORS.length] + ' ' + start.toFixed(1) + '% ' + acc.toFixed(1) + '%';
+    }).join(', ');
+    document.getElementById('dashDonut').style.background = 'conic-gradient(' + stops + ')';
+    document.getElementById('dashDonutLegend').innerHTML = groupList.map(function(g, i){
+      return '<div class="legend-item"><span class="legend-swatch" style="background:' + DASH_GROUP_COLORS[i % DASH_GROUP_COLORS.length] + ';"></span>' +
+        esc(DASH_GROUP_SHORT[g.name] || g.name) + ' — ' + g.pct.toFixed(1) + '%</div>';
+    }).join('');
+
+    // ---- DB-03: yearly paid-up capital — cumulative issuance by year (from ALL_ISSUE's embedded year),
+    // scaled so the most recent year matches the true total paid-up capital above (the 20,000-row register
+    // is cross-sectional, not a year-by-year ledger, so the trend's *shape* is real issuance data and its
+    // *endpoint* is anchored to the one true total rather than inventing an unrelated absolute figure). ----
+    var issuedByYear = {};
+    ALL_ISSUE.forEach(function(r){
+      var y = parseInt(r.ref.split('-')[1], 10);
+      if(!y) return;
+      issuedByYear[y] = (issuedByYear[y] || 0) + r.amount;
+    });
+    var issueYears = Object.keys(issuedByYear).map(Number).sort(function(a, b){ return a - b; });
+    var running = 0, cumByYear = {};
+    issueYears.forEach(function(y){ running += issuedByYear[y]; cumByYear[y] = running; });
+    var recentIssueYears = issueYears.slice(-4);
+    var lastCum = cumByYear[issueYears[issueYears.length - 1]] || 1;
+    var scale = totalAmount / lastCum;
+    dashBars('dashPaidUpBars', recentIssueYears.map(function(y){
+      return {label: String(y), value: cumByYear[y] * scale / 1e9};
+    }), function(v){ return v.toFixed(1); });
+
+    // ---- DB-04: yearly dividend % (ALL_DIVIDENDS is newest-first, one row per year back to 2001) ----
+    var recentDividends = ALL_DIVIDENDS.slice(0, 4).slice().reverse();
+    dashBars('dashDividendYearlyBars', recentDividends.map(function(d){
+      return {label: d.date.split(' ')[2], value: parseFloat(d.rate)};
+    }), function(v){ return v + '%'; });
+
+    // ---- DB-05: dividend comparison — this year vs. prior ----
+    var compareYears = [ALL_DIVIDENDS[1], ALL_DIVIDENDS[0]].filter(Boolean);
+    dashBars('dashDividendCompareBars', compareYears.map(function(d){
+      return {label: d.date.split(' ')[2], value: parseFloat(d.total)};
+    }), function(v){ return v.toFixed(1); });
+
+    // ---- my pending approvals (a handful of real pending/overdue records, not fabricated ones) ----
+    var pendingRows = pendingIssue.slice(0, 2).map(function(r){ return {ref: r.ref, type: 'Issue Shares', status: r.status, page: 'issue'}; })
+      .concat(pendingTransfer.slice(0, 2).map(function(r){ return {ref: r.ref, type: 'Transfer Shares', status: r.status, page: 'transfer'}; }))
+      .concat(pendingKyc.slice(0, 2).map(function(r){ return {ref: r.id, type: 'KYC / Application', status: r.stage, page: 'kyc'}; }))
+      .slice(0, 2);
+    document.getElementById('dashPendingBody').innerHTML = pendingRows.length ? pendingRows.map(function(r){
+      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.status) + '</td></tr>';
+    }).join('') : '<tr><td colspan="3" style="text-align:center;color:var(--ink-400);padding:16px;">Nothing pending.</td></tr>';
+
+    // ---- recent transactions (most recently posted/settled across all four transaction types) ----
+    var recentRows = ALL_ISSUE.filter(function(r){ return r.status === 'Posted'; }).slice(0, 2).map(function(r){ return {ref: r.ref, type: 'Issue Shares', status: r.status}; })
+      .concat(ALL_TRANSFER.filter(function(r){ return r.status === 'Posted'; }).slice(0, 1).map(function(r){ return {ref: r.ref, type: 'Transfer Shares', status: r.status}; }))
+      .concat(ALL_BONUS.slice(0, 1).map(function(r){ return {ref: r.batch, type: 'Bonus Shares', status: r.status}; }))
+      .concat(ALL_DIVIDENDS.slice(0, 1).map(function(r){ return {ref: r.event, type: 'Dividend', status: r.status}; }))
+      .slice(0, 2);
+    document.getElementById('dashRecentTxBody').innerHTML = recentRows.map(function(r){
+      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.status) + '</td></tr>';
+    }).join('');
+
+    // ---- recent activity — straight off the same audit trail the Audit Log screen shows ----
+    var recentAudit = AUDIT_LOG.slice(0, 2);
+    document.getElementById('dashActivityFeed').innerHTML = recentAudit.map(function(e){
+      return '<div style="border-bottom:1px solid var(--border);padding-bottom:4px;">' +
+        '<div style="display:flex;justify-content:space-between;gap:8px;"><strong>' + esc(e.action) + ' · ' + esc(e.module) + '</strong><span class="mono" style="color:var(--ink-400);white-space:nowrap;">' + fmtAuditTs(e.ts).slice(5) + '</span></div>' +
+        '<div style="color:var(--ink-600);">' + esc(e.detail) + '</div>' +
+        '<div style="color:var(--ink-400);">' + esc(e.user) + '</div>' +
+      '</div>';
+    }).join('');
+  }
+  renderDashboardFromBulkData();
+
+  function refreshDashboard(){
+    renderDashboardFromBulkData();
+    document.getElementById('dashSubtitle').textContent = 'Investor Relations overview · Data as of ' + fmtAuditTs(new Date()).replace(' ', ', ').slice(0, -3);
+    toast('Dashboard refreshed.');
+  }
+
+  function downloadDashboardPdf(){
+    toast('Opening the print dialog — choose "Save as PDF" as the destination.', 'info');
+    printOnly(document.getElementById('page-dashboard'), 'Dashboard-' + fmtAuditTs(new Date()).slice(0, 10));
+    logAudit('Print', 'Dashboard', null, 'Downloaded dashboard as PDF');
+  }
+
   /* ---------- generic CSV export for the bulk list pagers (exports the full filtered set, not just the visible page) ---------- */
   function csvCell(v){
     v = String(v == null ? '' : v);
@@ -2963,6 +3315,7 @@
     });
     downloadBlob('﻿' + lines.join('\r\n'), filenameBase + '.csv', 'text/csv;charset=utf-8;');
     toast('Downloaded ' + filenameBase + '.csv — ' + fmtNum(rows.length) + ' row(s).');
+    logAudit('Export', filenameBase.replace(/-/g, ' '), null, 'Exported ' + filenameBase.replace(/-/g, ' ') + ' as CSV (' + rows.length + ' row(s))');
   }
 
   function exportShareholders(){
@@ -3033,9 +3386,15 @@
     ], 'Shareholder-Applications');
   }
   function exportAuditLog(){
-    var table = document.getElementById('auditTable');
-    downloadBlob('﻿' + tableToCsv(table), 'Audit-Log.csv', 'text/csv;charset=utf-8;');
-    toast('Downloaded Audit-Log.csv');
+    var filtered = AUDIT_LOG.filter(auditFilterMatch);
+    var headers = ['Timestamp', 'User', 'Action', 'Module', 'Entity Ref', 'Details', 'Result'];
+    var lines = [headers.map(csvCell).join(',')];
+    filtered.forEach(function(e){
+      lines.push([fmtAuditTs(e.ts), e.user, e.action, e.module, e.entityRef, e.detail, e.result].map(csvCell).join(','));
+    });
+    downloadBlob('﻿' + lines.join('\r\n'), 'Audit-Log.csv', 'text/csv;charset=utf-8;');
+    toast('Downloaded Audit-Log.csv — ' + fmtNum(filtered.length) + ' row(s).');
+    logAudit('Export', 'Audit Log', null, 'Exported audit log as CSV (' + filtered.length + ' row(s), current filters applied)');
   }
 
   /* ---------- generic "print just this element" — walks up the DOM hiding every
@@ -3070,9 +3429,11 @@
   function printCertificate(){
     toast('Opening the print dialog — choose "Save as PDF" as the destination.', 'info');
     printOnly(document.querySelector('#certificates-detail .cert-wrap'), 'CERT-2026-000001');
+    logAudit('Print', 'Certificates', 'CERT-2026-000001', 'Printed share certificate PDF');
   }
   function printReceipt(){
     toast('Opening the print dialog — choose "Save as PDF" as the destination.', 'info');
     printOnly(document.querySelector('#issue-receipt .receipt-wrap'), 'Receipt-IS-2026-0016');
+    logAudit('Print', 'Issue Shares', 'IS-2026-0016', 'Printed transaction receipt PDF');
   }
 </script>
