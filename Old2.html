@@ -327,11 +327,6 @@
   }
   .decision-panel input{accent-color:var(--navy-700);}
 
-  .kv-list{margin:0;}
-  .kv-list dt{font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--ink-400); margin-top:12px;}
-  .kv-list dt:first-child{margin-top:0;}
-  .kv-list dd{margin:2px 0 0; font-size:14px; font-weight:600; color:var(--ink-900);}
-
   .drawer-layout{display:grid; grid-template-columns:280px 1fr; gap:16px;}
   @media (max-width:800px){.drawer-layout{grid-template-columns:1fr;}}
   .drawer-list{list-style:none; margin:0; padding:0; border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden;}
@@ -728,100 +723,37 @@
 
       <!-- ============ KYC QUEUE ============ -->
       <section class="page" id="page-kyc">
-        <div class="list-view" id="kyc-list">
-          <div class="page-header"><div><h1 data-i18n="page.kyc.title">KYC Queue</h1><p data-i18n="page.kyc.sub">Applications awaiting a compliance decision.</p></div></div>
-          <div class="cards-row">
-            <div class="card kpi-card"><div class="kpi-label">Awaiting screening</div><div class="kpi-value" id="kycKpiScreening">—</div></div>
-            <div class="card kpi-card"><div class="kpi-label">Pending documents</div><div class="kpi-value" id="kycKpiDocs">—</div></div>
-            <div class="card kpi-card"><div class="kpi-label">Decided today</div><div class="kpi-value" id="kycKpiDecided">—</div></div>
-          </div>
-          <div class="filter-row">
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="kycSearch" placeholder="Search applicant or ID" oninput="kycPager.applySearch(this.value)" /></div>
-          </div>
-          <div class="table-wrap"><table class="data" id="kycTable">
-            <thead><tr><th>Application ID</th><th>Applicant</th><th>Type</th><th>Stage</th><th>Submitted</th><th></th></tr></thead>
-            <tbody></tbody>
-          </table></div>
-          <div class="pager" id="kycPagerBar"></div>
+        <div class="page-header"><div><h1 data-i18n="page.kyc.title">KYC Queue</h1><p data-i18n="page.kyc.sub">Applications awaiting a compliance decision.</p></div></div>
+        <div class="cards-row">
+          <div class="card kpi-card"><div class="kpi-label">Awaiting screening</div><div class="kpi-value">1</div></div>
+          <div class="card kpi-card"><div class="kpi-label">Pending documents</div><div class="kpi-value">1</div></div>
+          <div class="card kpi-card"><div class="kpi-label">Decided today</div><div class="kpi-value">1</div></div>
         </div>
-        <div class="detail-view hidden" id="kyc-detail">
-          <div class="page-header">
-            <div><h1 id="kycDetailId">—</h1><p id="kycDetailSub">—</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('kyc')" data-i18n="btn.backtolist">← Back to list</button></div>
-          </div>
-          <div class="grid-2">
-            <div class="card">
-              <h3 style="margin-bottom:14px;">Application details</h3>
-              <dl class="kv-list">
-                <dt>Application ID</dt><dd class="mono" id="kycDetailIdField">—</dd>
-                <dt>Applicant</dt><dd id="kycDetailName">—</dd>
-                <dt>Type</dt><dd id="kycDetailType">—</dd>
-                <dt>Current stage</dt><dd id="kycDetailStage">—</dd>
-                <dt>Submitted</dt><dd id="kycDetailDate">—</dd>
-                <dt>Screening ref.</dt><dd class="mono" id="kycDetailScreeningRef">—</dd>
-              </dl>
-            </div>
-            <div class="card">
-              <h3 style="margin-bottom:14px;" data-i18n="approvals.decision">Decision</h3>
-              <div class="decision-panel">
-                <label><input type="radio" name="kycDec" value="Approve" checked /> <span>Approve</span></label>
-                <label><input type="radio" name="kycDec" value="RequestDocuments" /> <span>Request documents</span></label>
-                <label><input type="radio" name="kycDec" value="Reject" /> <span>Reject</span></label>
-              </div>
-              <div class="field"><label data-i18n="field.comment">Comment</label><textarea id="kycDecComment" rows="4" placeholder="Optional for approve, mandatory for reject/request documents"></textarea></div>
-              <div class="form-actions"><button class="btn btn-ghost" onclick="showList('kyc')" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitKycDecision()" data-i18n="btn.submitdecision">Submit decision</button></div>
-            </div>
-          </div>
-        </div>
+        <div class="table-wrap"><table class="data">
+          <thead><tr><th>Application ID</th><th>Applicant</th><th>Screening ref.</th><th>Stage</th><th>Waiting</th><th></th></tr></thead>
+          <tbody>
+            <tr><td class="mono">APP-2026-0041</td><td>Daw Su Su Hlaing</td><td class="mono">SCR-88213</td><td><span class="pill pill-warning">KYC Review</span></td><td>2 days</td><td><a href="#" data-i18n="btn.decide">Decide</a></td></tr>
+            <tr><td class="mono">APP-2026-0042</td><td>Everbright Logistics Ltd.</td><td class="mono">—</td><td><span class="pill pill-info">Pending Documents</span></td><td>4 hours</td><td><a href="#" data-i18n="btn.decide">Decide</a></td></tr>
+          </tbody>
+        </table></div>
       </section>
 
       <!-- ============ SHAREHOLDERS ============ -->
       <section class="page" id="page-shareholders">
-        <div class="list-view" id="shareholders-list">
-          <div class="page-header">
-            <div><h1 data-i18n="page.shareholders.title">Registered Shareholders</h1><p data-i18n="page.shareholders.sub">Section 5.3 · Shareholder register with current holdings.</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportShareholders()">⬇ Export</button></div>
-          </div>
-          <div class="filter-row">
-            <select id="shGroupFilter" onchange="shareholderPager.applySearch(document.getElementById('shSearch').value)"><option value="">All groups</option><option>BOD</option><option>Staff</option><option>Public</option><option>Private &amp; Public Companies</option><option>States &amp; Divisions Co-operatives</option></select>
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="shSearch" placeholder="Search by name or ID" oninput="shareholderPager.applySearch(this.value)" /></div>
-          </div>
-          <div class="table-wrap"><table class="data" id="shareholdersTable">
-            <thead><tr><th>Shareholder ID</th><th>Name</th><th>Type</th><th>Group</th><th>Share class</th><th class="num">Shares held</th><th></th></tr></thead>
-            <tbody></tbody>
-            <tfoot><tr><td colspan="6" style="font-weight:700;">Total (full register)</td><td class="num" style="font-weight:700;" id="shTotalShares">—</td></tr></tfoot>
-          </table></div>
-          <div class="pager" id="shPager"></div>
+        <div class="page-header">
+          <div><h1 data-i18n="page.shareholders.title">Registered Shareholders</h1><p data-i18n="page.shareholders.sub">Section 5.3 · Shareholder register with current holdings.</p></div>
+          <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportShareholders()">⬇ Export</button></div>
         </div>
-        <div class="detail-view hidden" id="shareholders-detail">
-          <div class="page-header">
-            <div><h1 id="shDetailId">—</h1><p id="shDetailSub">—</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('shareholders')" data-i18n="btn.backtolist">← Back to list</button></div>
-          </div>
-          <div class="grid-2">
-            <div class="card">
-              <h3 style="margin-bottom:14px;">Shareholder details</h3>
-              <dl class="kv-list">
-                <dt>Shareholder ID</dt><dd class="mono" id="shDetailIdField">—</dd>
-                <dt>Name</dt><dd id="shDetailNameField">—</dd>
-                <dt>Type</dt><dd id="shDetailType">—</dd>
-                <dt>Shareholder group</dt><dd id="shDetailGroup">—</dd>
-                <dt>NRC / Registration No.</dt><dd class="mono" id="shDetailNrc">—</dd>
-                <dt>Address</dt><dd id="shDetailAddress">—</dd>
-              </dl>
-            </div>
-            <div class="card">
-              <h3 style="margin-bottom:14px;">Holding summary</h3>
-              <dl class="kv-list">
-                <dt>Share class</dt><dd id="shDetailClass">—</dd>
-                <dt>Shares held</dt><dd class="mono" id="shDetailShares">—</dd>
-                <dt>Paid-up capital</dt><dd class="mono" id="shDetailCapital">—</dd>
-                <dt>Status</dt><dd id="shDetailStatus">—</dd>
-                <dt>KYC status</dt><dd id="shDetailKyc">—</dd>
-              </dl>
-            </div>
-          </div>
+        <div class="filter-row">
+          <select id="shGroupFilter" onchange="shareholderPager.applySearch(document.getElementById('shSearch').value)"><option value="">All groups</option><option>BOD</option><option>Staff</option><option>Public</option><option>Private &amp; Public Companies</option><option>States &amp; Divisions Co-operatives</option></select>
+          <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="shSearch" placeholder="Search by name or ID" oninput="shareholderPager.applySearch(this.value)" /></div>
         </div>
+        <div class="table-wrap"><table class="data" id="shareholdersTable">
+          <thead><tr><th>Shareholder ID</th><th>Name</th><th>Type</th><th>Group</th><th>Share class</th><th class="num">Shares held</th></tr></thead>
+          <tbody></tbody>
+          <tfoot><tr><td colspan="5" style="font-weight:700;">Total (full register)</td><td class="num" style="font-weight:700;" id="shTotalShares">—</td></tr></tfoot>
+        </table></div>
+        <div class="pager" id="shPager"></div>
       </section>
 
       <!-- ============ CERTIFICATES ============ -->
@@ -2996,32 +2928,10 @@
       return !v || r.group === v;
     },
     rowFn: function(r){
-      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td><td>' + esc(r.group) + '</td><td>' + esc(r.shareClass) + '</td><td class="num">' + fmtNum(r.shares) + '</td><td><a href="#" onclick="viewShareholder(\'' + r.id + '\');return false;" data-i18n="btn.view">View</a></td></tr>';
+      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td><td>' + esc(r.group) + '</td><td>' + esc(r.shareClass) + '</td><td class="num">' + fmtNum(r.shares) + '</td></tr>';
     }
   });
   document.getElementById('shTotalShares').textContent = fmtNum(ALL_SHAREHOLDERS.reduce(function(s, r){ return s + r.shares; }, 0));
-
-  var PAR_VALUE = 10000;
-  function viewShareholder(id){
-    var record = null;
-    for(var i = 0; i < ALL_SHAREHOLDERS.length; i++){ if(ALL_SHAREHOLDERS[i].id === id){ record = ALL_SHAREHOLDERS[i]; break; } }
-    if(!record) return;
-    document.getElementById('shDetailId').textContent = record.id;
-    document.getElementById('shDetailSub').textContent = record.name + ' · ' + record.group;
-    document.getElementById('shDetailIdField').textContent = record.id;
-    document.getElementById('shDetailNameField').textContent = record.name;
-    document.getElementById('shDetailType').textContent = record.type;
-    document.getElementById('shDetailGroup').textContent = record.group;
-    document.getElementById('shDetailNrc').textContent = record.nrc || '—';
-    document.getElementById('shDetailAddress').textContent = record.address || '—';
-    document.getElementById('shDetailClass').textContent = record.shareClass;
-    document.getElementById('shDetailShares').textContent = fmtNum(record.shares) + ' shares';
-    document.getElementById('shDetailCapital').textContent = 'MMK ' + fmtNum(record.shares * PAR_VALUE);
-    document.getElementById('shDetailStatus').innerHTML = pill('Active');
-    document.getElementById('shDetailKyc').innerHTML = pill('Approved');
-    showDetail('shareholders');
-    logAudit('View', 'Shareholders', record.id, 'Viewed shareholder details for ' + record.name);
-  }
 
   var certPager = makePager({
     data: ALL_CERTS, pageSize: 50, tbodySel: '#certificatesTable tbody', pagerSel: '#certPagerBar',
@@ -3116,91 +3026,6 @@
       return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td><a href="#" onclick="showDetail(\'applications\');return false;" data-i18n="btn.view">View</a></td></tr>';
     }
   });
-
-  /* ---------- KYC queue: applications awaiting a compliance decision ---------- */
-  var KYC_DECIDED_TODAY = 2;
-  var currentKycId = null;
-
-  function renderKycKpis(){
-    var screening = 0, docs = 0;
-    for(var i = 0; i < ALL_APPLICATIONS.length; i++){
-      if(ALL_APPLICATIONS[i].stage === 'KYC Review') screening++;
-      else if(ALL_APPLICATIONS[i].stage === 'Pending Documents') docs++;
-    }
-    document.getElementById('kycKpiScreening').textContent = fmtNum(screening);
-    document.getElementById('kycKpiDocs').textContent = fmtNum(docs);
-    document.getElementById('kycKpiDecided').textContent = fmtNum(KYC_DECIDED_TODAY);
-  }
-
-  var kycPager = makePager({
-    data: ALL_APPLICATIONS, pageSize: 50, tbodySel: '#kycTable tbody', pagerSel: '#kycPagerBar',
-    searchFn: function(r, term){ return r.name.toLowerCase().indexOf(term) > -1 || r.id.toLowerCase().indexOf(term) > -1; },
-    extraFilter: function(r){ return r.stage === 'KYC Review' || r.stage === 'Pending Documents'; },
-    rowFn: function(r){
-      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td><a href="#" onclick="viewKycApplication(\'' + r.id + '\');return false;" data-i18n="btn.decide">Decide</a></td></tr>';
-    }
-  });
-  kycPager.applySearch(''); // makePager only applies extraFilter once applySearch runs, not on the initial render
-  renderKycKpis();
-
-  function screeningRefFor(id){
-    var n = 0;
-    for(var i = 0; i < id.length; i++) n = (n * 31 + id.charCodeAt(i)) >>> 0;
-    return 'SCR-' + (10000 + (n % 90000));
-  }
-
-  function viewKycApplication(id){
-    var record = null;
-    for(var i = 0; i < ALL_APPLICATIONS.length; i++){ if(ALL_APPLICATIONS[i].id === id){ record = ALL_APPLICATIONS[i]; break; } }
-    if(!record) return;
-    currentKycId = id;
-    document.getElementById('kycDetailId').textContent = record.id;
-    document.getElementById('kycDetailSub').textContent = record.name + ' · ' + record.type;
-    document.getElementById('kycDetailIdField').textContent = record.id;
-    document.getElementById('kycDetailName').textContent = record.name;
-    document.getElementById('kycDetailType').textContent = record.type;
-    document.getElementById('kycDetailStage').innerHTML = pill(record.stage);
-    document.getElementById('kycDetailDate').textContent = record.date;
-    document.getElementById('kycDetailScreeningRef').textContent = screeningRefFor(record.id);
-    document.getElementById('kycDecComment').value = '';
-    var approveRadio = document.querySelector('#kyc-detail input[name="kycDec"][value="Approve"]');
-    if(approveRadio) approveRadio.checked = true;
-    showDetail('kyc');
-    logAudit('View', 'KYC', record.id, 'Viewed KYC application details for ' + record.name);
-  }
-
-  function submitKycDecision(){
-    if(!currentKycId) return;
-    var record = null;
-    for(var i = 0; i < ALL_APPLICATIONS.length; i++){ if(ALL_APPLICATIONS[i].id === currentKycId){ record = ALL_APPLICATIONS[i]; break; } }
-    if(!record) return;
-
-    var checked = document.querySelector('#kyc-detail input[name="kycDec"]:checked');
-    var decision = checked ? checked.value : 'Approve';
-    var comment = document.getElementById('kycDecComment');
-    if((decision === 'Reject' || decision === 'RequestDocuments') && comment && !comment.value.trim()){
-      toast('A comment is required to ' + (decision === 'Reject' ? 'reject' : 'request documents for') + ' this application.', 'info');
-      return;
-    }
-
-    var oldStage = record.stage;
-    var newStage = decision === 'Approve' ? 'Approved' : decision === 'Reject' ? 'Rejected' : 'Pending Documents';
-    record.stage = newStage;
-    KYC_DECIDED_TODAY += 1;
-
-    var msg = decision === 'Approve'
-      ? 'KYC decision recorded — Approved. ' + record.id + ' moved to Approved.'
-      : decision === 'Reject'
-        ? 'KYC decision recorded — Rejected. ' + record.id + ' returned to the applicant.'
-        : 'KYC decision recorded — Documents requested. ' + record.id + ' remains pending documents.';
-    toast(msg);
-    logAudit('Decision', 'KYC', record.id, msg + (comment && comment.value.trim() ? ' Comment: ' + comment.value.trim() : '') + ' (was: ' + oldStage + ')');
-
-    renderKycKpis();
-    kycPager.applySearch(kycPager.state.term);
-    showList('kyc');
-    currentKycId = null;
-  }
 
   /* ---------- rebuild the 11 statutory reports from the full bulk dataset ---------- */
   var GROUP_ORDER = ['BOD', 'Private & Public Companies', 'Staff', 'States & Divisions Co-operatives', 'Public'];
