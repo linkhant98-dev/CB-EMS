@@ -510,10 +510,10 @@
         </button>
         <div class="dropdown-panel" id="notifDrop">
           <div class="dropdown-panel__head"><span data-i18n="notif.title">Notifications</span><a href="#" style="font-size:12px;font-weight:600;" onclick="go('notifications');toggleDrop('notifDrop');return false;" data-i18n="notif.viewall">View all</a></div>
-          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo1title">Approval pending — IS-2026-0018</div><div data-i18n="notif.demo1body">Issue Shares awaiting Head of IR decision.</div><div class="notif-time" data-i18n="time.12minago">12 minutes ago</div></div></div>
-          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo2title">KYC decision recorded</div><div data-i18n="notif.demo2body">APP-2026-0043 approved by Compliance Officer.</div><div class="notif-time" data-i18n="time.1hourago">1 hour ago</div></div></div>
-          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo3title">Delegation started</div><div data-i18n="notif.demo3body">Ko Nyein Chan delegated Head of IR to you (19–26 Jul).</div><div class="notif-time" data-i18n="time.3hoursago">3 hours ago</div></div></div>
-          <div class="notif-item read"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo4title">Reminder: step overdue</div><div data-i18n="notif.demo4body">TS-2026-0009 has been pending 24h+.</div><div class="notif-time" data-i18n="time.yesterday">Yesterday</div></div></div>
+          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title">Approval pending — IS-2026-0018</div><div>Issue Shares awaiting Head of IR decision.</div><div class="notif-time">12 minutes ago</div></div></div>
+          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title">KYC decision recorded</div><div>APP-2026-0043 approved by Compliance Officer.</div><div class="notif-time">1 hour ago</div></div></div>
+          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title">Delegation started</div><div>Ko Nyein Chan delegated Head of IR to you (19–26 Jul).</div><div class="notif-time">3 hours ago</div></div></div>
+          <div class="notif-item read"><span class="notif-dot"></span><div><div class="notif-title">Reminder: step overdue</div><div>TS-2026-0009 has been pending 24h+.</div><div class="notif-time">Yesterday</div></div></div>
           <div class="dropdown-panel__foot"><a href="#" onclick="go('notifications');toggleDrop('notifDrop');return false;" data-i18n="notif.opencenter">Open notification center</a></div>
         </div>
       </div>
@@ -544,7 +544,7 @@
       <section class="page active" id="page-dashboard">
         <div class="page-header page-header--dash" style="margin-bottom:10px;">
           <div><h1 data-i18n="dash.title">Good day, admin@ems.local</h1><p data-i18n="dash.subtitle" id="dashSubtitle">Investor Relations overview · Data as of 19 Jul 2026, 09:40</p></div>
-          <div class="page-header__actions no-print"><button class="btn btn-ghost" onclick="refreshDashboard()" data-i18n="btn.refresh">↻ Refresh</button><button class="btn btn-primary" onclick="downloadDashboardPdf()" data-i18n="btn.downloadpdf">⬇ Download PDF</button></div>
+          <div class="page-header__actions no-print"><button class="btn btn-ghost" onclick="refreshDashboard()" data-i18n="btn.refresh">↻ Refresh</button><button class="btn btn-primary" onclick="downloadDashboardPdf()">⬇ Download PDF</button></div>
         </div>
         <div class="cards-row cards-row--dash">
           <div class="card kpi-card accent">
@@ -579,11 +579,11 @@
 
         <div class="grid-2" style="margin-bottom:6px;">
           <div class="card dash-chart-card">
-            <div class="card-head"><div><h3 data-i18n="chart.byGroup">Shareholding by group</h3><div class="card-sub" data-i18n="chart.byGroup.sub">DB-01 · number of shares</div></div></div>
+            <div class="card-head"><div><h3 data-i18n="chart.byGroup">Shareholding by group</h3><div class="card-sub">DB-01 · number of shares</div></div></div>
             <div class="bars" id="dashGroupBars"></div>
           </div>
           <div class="card dash-chart-card">
-            <h3 data-i18n="chart.byGroupPct">Shareholding by group (%)</h3><div class="card-sub" style="margin-bottom:8px;" data-i18n="chart.byGroupPct.sub">DB-02 · percentage of issued shares</div>
+            <h3 data-i18n="chart.byGroupPct">Shareholding by group (%)</h3><div class="card-sub" style="margin-bottom:8px;">DB-02 · percentage of issued shares</div>
             <div class="donut-wrap">
               <div class="donut" id="dashDonut"></div>
               <div id="dashDonutLegend"></div>
@@ -593,15 +593,15 @@
 
         <div class="grid-3" style="margin-bottom:6px;">
           <div class="card dash-chart-card">
-            <h3 data-i18n="chart.paidupYearly">Yearly paid-up capital</h3><div class="card-sub" style="margin-bottom:8px;" data-i18n="chart.paidupYearly.sub">DB-03 · MMK, billions · cumulative</div>
+            <h3 data-i18n="chart.paidupYearly">Yearly paid-up capital</h3><div class="card-sub" style="margin-bottom:8px;">DB-03 · MMK, billions · cumulative</div>
             <div class="bars" id="dashPaidUpBars"></div>
           </div>
           <div class="card dash-chart-card">
-            <h3 data-i18n="chart.dividendYearly">Yearly dividend %</h3><div class="card-sub" style="margin-bottom:8px;" data-i18n="chart.dividendYearly.sub">DB-04 · declared rate</div>
+            <h3 data-i18n="chart.dividendYearly">Yearly dividend %</h3><div class="card-sub" style="margin-bottom:8px;">DB-04 · declared rate</div>
             <div class="bars" id="dashDividendYearlyBars"></div>
           </div>
           <div class="card dash-chart-card">
-            <h3 data-i18n="chart.dividendCompare">Dividend comparison</h3><div class="card-sub" style="margin-bottom:8px;" data-i18n="chart.dividendCompare.sub">DB-05 · this year vs. prior · MMK, millions</div>
+            <h3 data-i18n="chart.dividendCompare">Dividend comparison</h3><div class="card-sub" style="margin-bottom:8px;">DB-05 · this year vs. prior · MMK, millions</div>
             <div class="bars" id="dashDividendCompareBars"></div>
           </div>
         </div>
@@ -610,14 +610,14 @@
           <div class="card dash-chart-card">
             <div class="card-head"><h3 data-i18n="dash.myPending">My pending approvals</h3><a href="#" onclick="go('approvals');return false;" style="font-size:12.5px;" data-i18n="notif.viewall">View all</a></div>
             <div class="table-wrap"><table class="data dash-table">
-              <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.status">Status</th></tr></thead>
+              <thead><tr><th>Reference</th><th>Type</th><th>Status</th></tr></thead>
               <tbody id="dashPendingBody"></tbody>
             </table></div>
           </div>
           <div class="card dash-chart-card">
             <h3 data-i18n="dash.recentTx">Recent transactions</h3>
             <div class="table-wrap"><table class="data dash-table">
-              <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.status">Status</th></tr></thead>
+              <thead><tr><th>Reference</th><th>Type</th><th>Status</th></tr></thead>
               <tbody id="dashRecentTxBody"></tbody>
             </table></div>
           </div>
@@ -634,15 +634,15 @@
         <div class="list-view" id="applications-list">
           <div class="page-header">
             <div><h1 data-i18n="page.applications.title">Shareholder Applications</h1><p data-i18n="page.applications.sub">Onboarding &amp; KYC intake — personal, joint and corporate applicants.</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportApplications()" data-i18n="btn.export">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('applications')" data-i18n="btn.newapplication">+ New Application</button></div>
+            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportApplications()">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('applications')" data-i18n="btn.newapplication">+ New Application</button></div>
           </div>
           <div class="filter-row">
-            <select id="appStageFilter" onchange="appPager.applySearch(document.getElementById('appSearch').value)"><option value="" data-i18n="filter.allstages">All stages</option><option data-i18n="stage.draft">Draft</option><option data-i18n="stage.pendingdocs">Pending Documents</option><option data-i18n="stage.kycreview">KYC Review</option><option data-i18n="stage.approved">Approved</option><option data-i18n="stage.registered">Registered</option><option data-i18n="stage.rejected">Rejected</option></select>
-            <select id="appTypeFilter" onchange="appPager.applySearch(document.getElementById('appSearch').value)"><option value="" data-i18n="filter.alltypes">All types</option><option data-i18n="type.individual">Individual</option><option data-i18n="type.joint">Joint</option><option data-i18n="type.corporate">Corporate</option></select>
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="appSearch" data-i18n-placeholder="app.searchph" placeholder="Search applicant or ID" oninput="appPager.applySearch(this.value)" /></div>
+            <select id="appStageFilter" onchange="appPager.applySearch(document.getElementById('appSearch').value)"><option value="">All stages</option><option>Draft</option><option>Pending Documents</option><option>KYC Review</option><option>Approved</option><option>Registered</option><option>Rejected</option></select>
+            <select id="appTypeFilter" onchange="appPager.applySearch(document.getElementById('appSearch').value)"><option value="">All types</option><option>Individual</option><option>Joint</option><option>Corporate</option></select>
+            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="appSearch" placeholder="Search applicant or ID" oninput="appPager.applySearch(this.value)" /></div>
           </div>
           <div class="table-wrap"><table class="data" id="applicationsTable">
-            <thead><tr><th data-i18n="th.appid">Application ID</th><th data-i18n="th.applicant">Applicant</th><th data-i18n="th.type">Type</th><th data-i18n="th.stage">Stage</th><th data-i18n="th.submitted">Submitted</th><th></th></tr></thead>
+            <thead><tr><th>Application ID</th><th>Applicant</th><th>Type</th><th>Stage</th><th>Submitted</th><th></th></tr></thead>
             <tbody></tbody>
           </table></div>
           <div class="pager" id="appPagerBar"></div>
@@ -653,74 +653,74 @@
             <div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('applications')" data-i18n="btn.backtolist">← Back to list</button></div>
           </div>
           <div class="stepper" id="wizardStepper">
-            <div class="step" data-n="1"><span class="n">1</span> <span data-i18n="wz.step1">Applicant type</span></div>
-            <div class="step" data-n="2"><span class="n">2</span> <span data-i18n="wz.step2">Personal details</span></div>
-            <div class="step" data-n="3"><span class="n">3</span> <span data-i18n="wz.step3">Contact &amp; address</span></div>
-            <div class="step" data-n="4"><span class="n">4</span> <span data-i18n="wz.step4">Bank &amp; documents</span></div>
-            <div class="step" data-n="5"><span class="n">5</span> <span data-i18n="wz.step5">Review &amp; submit</span></div>
+            <div class="step" data-n="1"><span class="n">1</span> Applicant type</div>
+            <div class="step" data-n="2"><span class="n">2</span> Personal details</div>
+            <div class="step" data-n="3"><span class="n">3</span> Contact &amp; address</div>
+            <div class="step" data-n="4"><span class="n">4</span> Bank &amp; documents</div>
+            <div class="step" data-n="5"><span class="n">5</span> Review &amp; submit</div>
           </div>
           <div class="card">
 
             <div class="wizard-step" data-step="1">
-              <div class="section-title" style="margin-top:0;" data-i18n="wz.step1">Applicant type</div>
+              <div class="section-title" style="margin-top:0;">Applicant type</div>
               <div class="form-grid">
-                <div class="field"><label data-i18n="wz.applicanttype">Applicant type <span class="req">*</span></label><select id="wzApplicantType"><option data-i18n="type.individual">Individual</option><option data-i18n="type.joint">Joint</option><option data-i18n="type.corporate">Corporate</option></select></div>
-                <div class="field"><label data-i18n="wz.referralsource">Referral source</label><select id="wzReferral"><option data-i18n="referral.branch">Branch walk-in</option><option data-i18n="referral.existing">Existing shareholder</option><option data-i18n="referral.online">Online</option></select></div>
+                <div class="field"><label>Applicant type <span class="req">*</span></label><select id="wzApplicantType"><option>Individual</option><option>Joint</option><option>Corporate</option></select></div>
+                <div class="field"><label>Referral source</label><select id="wzReferral"><option>Branch walk-in</option><option>Existing shareholder</option><option>Online</option></select></div>
               </div>
             </div>
 
             <div class="wizard-step hidden" data-step="2">
-              <div class="section-title" style="margin-top:0;" data-i18n="wz.step2">Personal details</div>
+              <div class="section-title" style="margin-top:0;">Personal details</div>
               <div class="form-grid">
-                <div class="field"><label data-i18n="wz.namefull">Full name (English) <span class="req">*</span></label><input id="wzNameEn" placeholder="e.g. Daw Su Su Hlaing" value="Daw Su Su Hlaing" /></div>
-                <div class="field"><label data-i18n="wz.namemm">Full name (Myanmar)</label><input id="wzNameMy" class="mono" style="font-family:var(--font-my);" placeholder="ဒေါ်စုစုလှိုင်" value="ဒေါ်စုစုလှိုင်" /></div>
-                <div class="field"><label data-i18n="wz.nrc">NRC number <span class="req">*</span></label><input id="wzNrc" placeholder="12/MaHaTha(N)123456" value="12/MaHaTha(N)123456" /></div>
-                <div class="field"><label data-i18n="wz.dob">Date of birth <span class="req">*</span></label><input type="date" id="wzDob" value="1988-04-12" /></div>
-                <div class="field"><label data-i18n="wz.nationality">Nationality</label><input id="wzNationality" value="Myanmar" /></div>
-                <div class="field"><label data-i18n="wz.occupation">Occupation</label><input id="wzOccupation" value="Business owner" /></div>
+                <div class="field"><label>Full name (English) <span class="req">*</span></label><input id="wzNameEn" placeholder="e.g. Daw Su Su Hlaing" value="Daw Su Su Hlaing" /></div>
+                <div class="field"><label>Full name (Myanmar)</label><input id="wzNameMy" class="mono" style="font-family:var(--font-my);" placeholder="ဒေါ်စုစုလှိုင်" value="ဒေါ်စုစုလှိုင်" /></div>
+                <div class="field"><label>NRC number <span class="req">*</span></label><input id="wzNrc" placeholder="12/MaHaTha(N)123456" value="12/MaHaTha(N)123456" /></div>
+                <div class="field"><label>Date of birth <span class="req">*</span></label><input type="date" id="wzDob" value="1988-04-12" /></div>
+                <div class="field"><label>Nationality</label><input id="wzNationality" value="Myanmar" /></div>
+                <div class="field"><label>Occupation</label><input id="wzOccupation" value="Business owner" /></div>
               </div>
             </div>
 
             <div class="wizard-step hidden" data-step="3">
-              <div class="section-title" style="margin-top:0;" data-i18n="wz.step3">Contact &amp; address</div>
+              <div class="section-title" style="margin-top:0;">Contact &amp; address</div>
               <div class="form-grid">
-                <div class="field"><label data-i18n="wz.mobile">Mobile number <span class="req">*</span></label><input id="wzMobile" value="+95 9 4211 22334" /></div>
-                <div class="field"><label data-i18n="field.email">Email</label><input id="wzEmail" value="susu.hlaing@example.com" /></div>
-                <div class="field span-2"><label data-i18n="wz.regaddress">Registered address <span class="req">*</span></label><textarea id="wzAddress" rows="2">No. 24, Bo Aung Kyaw Street, Kyauktada Tsp, Yangon</textarea></div>
+                <div class="field"><label>Mobile number <span class="req">*</span></label><input id="wzMobile" value="+95 9 4211 22334" /></div>
+                <div class="field"><label>Email</label><input id="wzEmail" value="susu.hlaing@example.com" /></div>
+                <div class="field span-2"><label>Registered address <span class="req">*</span></label><textarea id="wzAddress" rows="2">No. 24, Bo Aung Kyaw Street, Kyauktada Tsp, Yangon</textarea></div>
               </div>
             </div>
 
             <div class="wizard-step hidden" data-step="4">
-              <div class="section-title" style="margin-top:0;" data-i18n="wz.bankdetails">Bank details</div>
+              <div class="section-title" style="margin-top:0;">Bank details</div>
               <div class="form-grid">
-                <div class="field"><label data-i18n="wz.bankname">Bank name <span class="req">*</span></label><select id="wzBankName"><option>CB Bank</option><option>KBZ Bank</option><option>AYA Bank</option></select></div>
-                <div class="field"><label data-i18n="wz.acctnumber">Account number <span class="req">*</span></label><input id="wzBankAcct" placeholder="e.g. 0012345678901" value="0012345678901" /></div>
-                <div class="field span-2"><label data-i18n="wz.acctname">Account name <span class="req">*</span></label><input id="wzBankAcctName" value="Daw Su Su Hlaing" /></div>
+                <div class="field"><label>Bank name <span class="req">*</span></label><select id="wzBankName"><option>CB Bank</option><option>KBZ Bank</option><option>AYA Bank</option></select></div>
+                <div class="field"><label>Account number <span class="req">*</span></label><input id="wzBankAcct" placeholder="e.g. 0012345678901" value="0012345678901" /></div>
+                <div class="field span-2"><label>Account name <span class="req">*</span></label><input id="wzBankAcctName" value="Daw Su Su Hlaing" /></div>
               </div>
-              <div class="section-title" data-i18n="wz.supportingdocs">Supporting documents</div>
+              <div class="section-title">Supporting documents</div>
               <div class="form-grid">
-                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocNrc" checked /> <span data-i18n="doc.nrccopy">NRC Copy</span></label></div>
-                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocPhoto" checked /> <span data-i18n="doc.photo">Passport Photo</span></label></div>
-                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocAddr" /> <span data-i18n="doc.address">Proof of Address</span></label></div>
+                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocNrc" checked /> NRC Copy</label></div>
+                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocPhoto" checked /> Passport Photo</label></div>
+                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocAddr" /> Proof of Address</label></div>
               </div>
             </div>
 
             <div class="wizard-step hidden" data-step="5">
-              <div class="section-title" style="margin-top:0;" data-i18n="wz.step5">Review &amp; submit</div>
+              <div class="section-title" style="margin-top:0;">Review &amp; submit</div>
               <dl class="cert-dl" id="wzReview" style="max-width:560px;"></dl>
               <div class="field" style="margin-top:10px;">
                 <label style="display:flex; align-items:flex-start; gap:8px; font-weight:500;">
                   <input type="checkbox" id="wzDeclaration" style="margin-top:3px;" />
-                  <span data-i18n="wz.declaration">I confirm the information provided is accurate and the applicant has consented to processing under the KYC policy.</span>
+                  <span>I confirm the information provided is accurate and the applicant has consented to processing under the KYC policy.</span>
                 </label>
               </div>
             </div>
 
             <div class="form-actions">
-              <button class="btn btn-ghost hidden" id="wzBackBtn" onclick="wizardBack()" data-i18n="btn.back">← Back</button>
+              <button class="btn btn-ghost hidden" id="wzBackBtn" onclick="wizardBack()">← Back</button>
               <button class="btn btn-ghost" onclick="saveDraft('applications')" data-i18n="btn.savedraft">Save draft</button>
-              <button class="btn btn-primary" id="wzContinueBtn" onclick="wizardContinue()" data-i18n="btn.continue">Continue →</button>
-              <button class="btn btn-primary hidden" id="wzSubmitBtn" onclick="wizardSubmit()" data-i18n="btn.submitapplication">Submit application</button>
+              <button class="btn btn-primary" id="wzContinueBtn" onclick="wizardContinue()">Continue →</button>
+              <button class="btn btn-primary hidden" id="wzSubmitBtn" onclick="wizardSubmit()">Submit application</button>
             </div>
           </div>
         </div>
@@ -731,15 +731,15 @@
         <div class="list-view" id="kyc-list">
           <div class="page-header"><div><h1 data-i18n="page.kyc.title">KYC Queue</h1><p data-i18n="page.kyc.sub">Applications awaiting a compliance decision.</p></div></div>
           <div class="cards-row">
-            <div class="card kpi-card"><div class="kpi-label" data-i18n="kyc.screening">Awaiting screening</div><div class="kpi-value" id="kycKpiScreening">—</div></div>
-            <div class="card kpi-card"><div class="kpi-label" data-i18n="kyc.pendingdocs">Pending documents</div><div class="kpi-value" id="kycKpiDocs">—</div></div>
-            <div class="card kpi-card"><div class="kpi-label" data-i18n="kyc.decidedtoday">Decided today</div><div class="kpi-value" id="kycKpiDecided">—</div></div>
+            <div class="card kpi-card"><div class="kpi-label">Awaiting screening</div><div class="kpi-value" id="kycKpiScreening">—</div></div>
+            <div class="card kpi-card"><div class="kpi-label">Pending documents</div><div class="kpi-value" id="kycKpiDocs">—</div></div>
+            <div class="card kpi-card"><div class="kpi-label">Decided today</div><div class="kpi-value" id="kycKpiDecided">—</div></div>
           </div>
           <div class="filter-row">
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="kycSearch" data-i18n-placeholder="kyc.searchph" placeholder="Search applicant or ID" oninput="kycPager.applySearch(this.value)" /></div>
+            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="kycSearch" placeholder="Search applicant or ID" oninput="kycPager.applySearch(this.value)" /></div>
           </div>
           <div class="table-wrap"><table class="data" id="kycTable">
-            <thead><tr><th data-i18n="th.appid">Application ID</th><th data-i18n="th.applicant">Applicant</th><th data-i18n="th.type">Type</th><th data-i18n="th.stage">Stage</th><th data-i18n="th.submitted">Submitted</th><th></th></tr></thead>
+            <thead><tr><th>Application ID</th><th>Applicant</th><th>Type</th><th>Stage</th><th>Submitted</th><th></th></tr></thead>
             <tbody></tbody>
           </table></div>
           <div class="pager" id="kycPagerBar"></div>
@@ -751,24 +751,24 @@
           </div>
           <div class="grid-2">
             <div class="card">
-              <h3 style="margin-bottom:14px;" data-i18n="kyc.appdetails">Application details</h3>
+              <h3 style="margin-bottom:14px;">Application details</h3>
               <dl class="kv-list">
-                <dt data-i18n="th.appid">Application ID</dt><dd class="mono" id="kycDetailIdField">—</dd>
-                <dt data-i18n="th.applicant">Applicant</dt><dd id="kycDetailName">—</dd>
-                <dt data-i18n="th.type">Type</dt><dd id="kycDetailType">—</dd>
-                <dt data-i18n="kyc.currentstage">Current stage</dt><dd id="kycDetailStage">—</dd>
-                <dt data-i18n="th.submitted">Submitted</dt><dd id="kycDetailDate">—</dd>
-                <dt data-i18n="kyc.screeningref">Screening ref.</dt><dd class="mono" id="kycDetailScreeningRef">—</dd>
+                <dt>Application ID</dt><dd class="mono" id="kycDetailIdField">—</dd>
+                <dt>Applicant</dt><dd id="kycDetailName">—</dd>
+                <dt>Type</dt><dd id="kycDetailType">—</dd>
+                <dt>Current stage</dt><dd id="kycDetailStage">—</dd>
+                <dt>Submitted</dt><dd id="kycDetailDate">—</dd>
+                <dt>Screening ref.</dt><dd class="mono" id="kycDetailScreeningRef">—</dd>
               </dl>
             </div>
             <div class="card">
               <h3 style="margin-bottom:14px;" data-i18n="approvals.decision">Decision</h3>
               <div class="decision-panel">
-                <label><input type="radio" name="kycDec" value="Approve" checked /> <span data-i18n="decision.approve">Approve</span></label>
-                <label><input type="radio" name="kycDec" value="RequestDocuments" /> <span data-i18n="kyc.requestdocs">Request documents</span></label>
-                <label><input type="radio" name="kycDec" value="Reject" /> <span data-i18n="decision.reject">Reject</span></label>
+                <label><input type="radio" name="kycDec" value="Approve" checked /> <span>Approve</span></label>
+                <label><input type="radio" name="kycDec" value="RequestDocuments" /> <span>Request documents</span></label>
+                <label><input type="radio" name="kycDec" value="Reject" /> <span>Reject</span></label>
               </div>
-              <div class="field"><label data-i18n="field.comment">Comment</label><textarea id="kycDecComment" rows="4" data-i18n-placeholder="kyc.commentph" placeholder="Optional for approve, mandatory for reject/request documents"></textarea></div>
+              <div class="field"><label data-i18n="field.comment">Comment</label><textarea id="kycDecComment" rows="4" placeholder="Optional for approve, mandatory for reject/request documents"></textarea></div>
               <div class="form-actions"><button class="btn btn-ghost" onclick="showList('kyc')" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitKycDecision()" data-i18n="btn.submitdecision">Submit decision</button></div>
             </div>
           </div>
@@ -780,16 +780,16 @@
         <div class="list-view" id="shareholders-list">
           <div class="page-header">
             <div><h1 data-i18n="page.shareholders.title">Registered Shareholders</h1><p data-i18n="page.shareholders.sub">Section 5.3 · Shareholder register with current holdings.</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportShareholders()" data-i18n="btn.export">⬇ Export</button></div>
+            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportShareholders()">⬇ Export</button></div>
           </div>
           <div class="filter-row">
-            <select id="shGroupFilter" onchange="shareholderPager.applySearch(document.getElementById('shSearch').value)"><option value="" data-i18n="filter.allgroups">All groups</option><option data-i18n="grp.bod">BOD</option><option data-i18n="grp.staff">Staff</option><option data-i18n="grp.public">Public</option><option data-i18n="grp.companies">Private &amp; Public Companies</option><option data-i18n="grp.coops">States &amp; Divisions Co-operatives</option></select>
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="shSearch" data-i18n-placeholder="sh.searchph" placeholder="Search by name or ID" oninput="shareholderPager.applySearch(this.value)" /></div>
+            <select id="shGroupFilter" onchange="shareholderPager.applySearch(document.getElementById('shSearch').value)"><option value="">All groups</option><option>BOD</option><option>Staff</option><option>Public</option><option>Private &amp; Public Companies</option><option>States &amp; Divisions Co-operatives</option></select>
+            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="shSearch" placeholder="Search by name or ID" oninput="shareholderPager.applySearch(this.value)" /></div>
           </div>
           <div class="table-wrap"><table class="data" id="shareholdersTable">
-            <thead><tr><th data-i18n="th.shid">Shareholder ID</th><th data-i18n="th.name">Name</th><th data-i18n="th.type">Type</th><th data-i18n="th.group">Group</th><th data-i18n="th.shareclass">Share class</th><th class="num" data-i18n="th.sharesheld">Shares held</th><th></th></tr></thead>
+            <thead><tr><th>Shareholder ID</th><th>Name</th><th>Type</th><th>Group</th><th>Share class</th><th class="num">Shares held</th><th></th></tr></thead>
             <tbody></tbody>
-            <tfoot><tr><td colspan="6" style="font-weight:700;" data-i18n="sh.totalregister">Total (full register)</td><td class="num" style="font-weight:700;" id="shTotalShares">—</td></tr></tfoot>
+            <tfoot><tr><td colspan="6" style="font-weight:700;">Total (full register)</td><td class="num" style="font-weight:700;" id="shTotalShares">—</td></tr></tfoot>
           </table></div>
           <div class="pager" id="shPager"></div>
         </div>
@@ -800,24 +800,24 @@
           </div>
           <div class="grid-2">
             <div class="card">
-              <h3 style="margin-bottom:14px;" data-i18n="sh.details">Shareholder details</h3>
+              <h3 style="margin-bottom:14px;">Shareholder details</h3>
               <dl class="kv-list">
-                <dt data-i18n="th.shid">Shareholder ID</dt><dd class="mono" id="shDetailIdField">—</dd>
-                <dt data-i18n="th.name">Name</dt><dd id="shDetailNameField">—</dd>
-                <dt data-i18n="th.type">Type</dt><dd id="shDetailType">—</dd>
-                <dt data-i18n="sh.group">Shareholder group</dt><dd id="shDetailGroup">—</dd>
-                <dt data-i18n="sh.nrc">NRC / Registration No.</dt><dd class="mono" id="shDetailNrc">—</dd>
-                <dt data-i18n="th.address">Address</dt><dd id="shDetailAddress">—</dd>
+                <dt>Shareholder ID</dt><dd class="mono" id="shDetailIdField">—</dd>
+                <dt>Name</dt><dd id="shDetailNameField">—</dd>
+                <dt>Type</dt><dd id="shDetailType">—</dd>
+                <dt>Shareholder group</dt><dd id="shDetailGroup">—</dd>
+                <dt>NRC / Registration No.</dt><dd class="mono" id="shDetailNrc">—</dd>
+                <dt>Address</dt><dd id="shDetailAddress">—</dd>
               </dl>
             </div>
             <div class="card">
-              <h3 style="margin-bottom:14px;" data-i18n="sh.holdingsummary">Holding summary</h3>
+              <h3 style="margin-bottom:14px;">Holding summary</h3>
               <dl class="kv-list">
-                <dt data-i18n="th.shareclass">Share class</dt><dd id="shDetailClass">—</dd>
-                <dt data-i18n="th.sharesheld">Shares held</dt><dd class="mono" id="shDetailShares">—</dd>
-                <dt data-i18n="sh.paidupcapital">Paid-up capital</dt><dd class="mono" id="shDetailCapital">—</dd>
-                <dt data-i18n="th.status">Status</dt><dd id="shDetailStatus">—</dd>
-                <dt data-i18n="sh.kycstatus">KYC status</dt><dd id="shDetailKyc">—</dd>
+                <dt>Share class</dt><dd id="shDetailClass">—</dd>
+                <dt>Shares held</dt><dd class="mono" id="shDetailShares">—</dd>
+                <dt>Paid-up capital</dt><dd class="mono" id="shDetailCapital">—</dd>
+                <dt>Status</dt><dd id="shDetailStatus">—</dd>
+                <dt>KYC status</dt><dd id="shDetailKyc">—</dd>
               </dl>
             </div>
           </div>
@@ -827,23 +827,23 @@
       <!-- ============ CERTIFICATES ============ -->
       <section class="page" id="page-certificates">
         <div class="list-view" id="certificates-list">
-          <div class="page-header"><div><h1 data-i18n="page.certificates.title">Certificates</h1><p data-i18n="page.certificates.sub">Share certificate register — print-ready certificates with barcode &amp; QR verification.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="exportCertificates()" data-i18n="btn.export">⬇ Export</button></div></div>
+          <div class="page-header"><div><h1 data-i18n="page.certificates.title">Certificates</h1><p data-i18n="page.certificates.sub">Share certificate register — print-ready certificates with barcode &amp; QR verification.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="exportCertificates()">⬇ Export</button></div></div>
           <div class="filter-row">
-            <select id="certStatusFilter" onchange="certPager.applySearch(document.getElementById('certSearch').value)"><option value="" data-i18n="filter.allstatuses">All statuses</option><option data-i18n="status.active">Active</option><option data-i18n="status.printed">Printed</option><option data-i18n="status.cancelled">Cancelled</option></select>
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="certSearch" data-i18n-placeholder="cert.searchph" placeholder="Search by certificate no. or holder" oninput="certPager.applySearch(this.value)" /></div>
+            <select id="certStatusFilter" onchange="certPager.applySearch(document.getElementById('certSearch').value)"><option value="">All statuses</option><option>Active</option><option>Printed</option><option>Cancelled</option></select>
+            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="certSearch" placeholder="Search by certificate no. or holder" oninput="certPager.applySearch(this.value)" /></div>
           </div>
           <div class="table-wrap"><table class="data" id="certificatesTable">
-            <thead><tr><th data-i18n="th.certno">Certificate No.</th><th data-i18n="th.holder">Holder</th><th data-i18n="th.class">Class</th><th class="num" data-i18n="th.quantity">Quantity</th><th data-i18n="th.issuedate">Issue date</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
+            <thead><tr><th>Certificate No.</th><th>Holder</th><th>Class</th><th class="num">Quantity</th><th>Issue date</th><th>Status</th><th></th></tr></thead>
             <tbody></tbody>
           </table></div>
           <div class="pager" id="certPagerBar"></div>
         </div>
         <div class="detail-view hidden" id="certificates-detail">
           <div class="page-header">
-            <div><h1>CERT-2026-000001</h1><p>Daw Khin Thazin · <span data-i18n="shareclass.ordinary">Ordinary</span> shares</p></div>
+            <div><h1>CERT-2026-000001</h1><p>Daw Khin Thazin · Ordinary shares</p></div>
             <div class="page-header__actions">
               <button class="btn btn-ghost" onclick="showList('certificates')" data-i18n="btn.backtolist">← Back to list</button>
-              <button class="btn btn-ghost" onclick="go('issue'); showReceipt();" data-i18n="btn.viewreceipt">⬇ View Receipt</button>
+              <button class="btn btn-ghost" onclick="go('issue'); showReceipt();">⬇ View Receipt</button>
               <button class="btn btn-primary" onclick="printCertificate()" data-i18n="btn.downloadpdf">⬇ Download PDF</button>
             </div>
           </div>
@@ -854,14 +854,14 @@
               <div class="cert-mm" style="font-weight:700; margin-bottom:2px;">အစုရှယ်ယာလက်မှတ်</div>
               <div style="font-size:10.5px; color:#8A7F60; margin-bottom:12px;">Counterfoil · လက်ခံဖြတ်ပိုင်း</div>
               <dl class="cert-dl2">
-                <dt>Shareholder ID · ရှယ်ယာရှင်အမှတ်</dt><dd class="mono">SH-24000001</dd>
+                <dt>Shareholder ID</dt><dd class="mono">SH-24000001</dd>
                 <dt>Certificate date · ရက်စွဲ</dt><dd>10 Jan 2026</dd>
                 <dt>Name · အမည်</dt><dd>Daw Khin Thazin<br/><span class="cert-mm">ဒေါ်ခင်သဇင်</span></dd>
-                <dt>NRC No. · မှတ်ပုံတင်အမှတ်</dt><dd class="mono">12/OuKaTha(N)098234</dd>
+                <dt>NRC No.</dt><dd class="mono">12/OuKaTha(N)098234</dd>
                 <dt>Address · နေရပ်လိပ်စာ</dt><dd class="cert-mm" style="font-weight:400;">အမှတ်(52)၊ ရွှေတောင်လမ်း၊ ဗဟန်းမြို့နယ်၊ ရန်ကုန်တိုင်းဒေသကြီး။</dd>
-                <dt>Certificate No. · လက်မှတ်အမှတ်</dt><dd class="mono">CERT-2026-000001</dd>
-                <dt>Serial No. (from – to) · အမှတ်စဉ် (မှ – သို့)</dt><dd class="mono">1 – 8,200</dd>
-                <dt>Shares · ရှယ်ယာအရေအတွက်</dt><dd>8,200 ordinary shares</dd>
+                <dt>Certificate No.</dt><dd class="mono">CERT-2026-000001</dd>
+                <dt>Serial No. (from – to)</dt><dd class="mono">1 – 8,200</dd>
+                <dt>Shares</dt><dd>8,200 ordinary shares</dd>
               </dl>
               <div style="display:flex; gap:14px; margin-top:22px;">
                 <div style="flex:1;" class="cert-sig-line">Director<br/>ဒါရိုက်တာ</div>
@@ -884,17 +884,17 @@
                 </div>
                 <div style="display:flex; gap:28px; flex-wrap:wrap;">
                   <dl class="cert-dl2" style="flex:1; min-width:230px;">
-                    <dt>Shareholder · ရှယ်ယာရှင်</dt><dd>Daw Khin Thazin <span class="cert-mm">(ဒေါ်ခင်သဇင်)</span></dd>
-                    <dt>NRC No. · မှတ်ပုံတင်အမှတ်</dt><dd class="mono">12/OuKaTha(N)098234</dd>
+                    <dt>Shareholder</dt><dd>Daw Khin Thazin <span class="cert-mm">(ဒေါ်ခင်သဇင်)</span></dd>
+                    <dt>NRC No.</dt><dd class="mono">12/OuKaTha(N)098234</dd>
                     <dt>Address · နေရပ်လိပ်စာ</dt><dd class="cert-mm" style="font-weight:400;">အမှတ်(52)၊ ရွှေတောင်လမ်း၊ ဗဟန်းမြို့နယ်၊ ရန်ကုန်တိုင်းဒေသကြီး။</dd>
-                    <dt>Share serial no. (from – to) · အမှတ်စဉ် (မှ – သို့)</dt><dd class="mono">1 – 8,200</dd>
-                    <dt>Par value / share · မျက်နှာစာတန်ဖိုး / ရှယ်ယာ</dt><dd>MMK 10,000</dd>
+                    <dt>Share serial no. (from – to)</dt><dd class="mono">1 – 8,200</dd>
+                    <dt>Par value / share</dt><dd>MMK 10,000</dd>
                   </dl>
                   <dl class="cert-dl2" style="flex:1; min-width:200px; text-align:right;">
-                    <dt>Share Certificate No. · ရှယ်ယာလက်မှတ်အမှတ်</dt><dd class="mono">CERT-2026-000001</dd>
-                    <dt>No. of shares · ရှယ်ယာအရေအတွက်</dt><dd>8,200 shares</dd>
-                    <dt>Shareholder ID · ရှယ်ယာရှင်အမှတ်</dt><dd class="mono">SH-24000001</dd>
-                    <dt>Issue date · ထုတ်ပေးသည့်ရက်စွဲ</dt><dd>10 Jan 2026</dd>
+                    <dt>Share Certificate No.</dt><dd class="mono">CERT-2026-000001</dd>
+                    <dt>No. of shares</dt><dd>8,200 shares</dd>
+                    <dt>Shareholder ID</dt><dd class="mono">SH-24000001</dd>
+                    <dt>Issue date</dt><dd>10 Jan 2026</dd>
                   </dl>
                 </div>
                 <div style="margin-top:14px; padding-top:14px; border-top:1px solid #E3D9BC; font-size:12px; line-height:1.7; color:#4A422C;">
@@ -925,20 +925,20 @@
         <div class="list-view" id="issue-list">
           <div class="page-header">
             <div><h1 data-i18n="page.issue.title">Issue Shares</h1><p data-i18n="page.issue.sub">Capital/premium calculation, payment validation and ledger posting.</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportIssue()" data-i18n="btn.export">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('issue')" data-i18n="btn.newissuance">+ New Issuance</button></div>
+            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportIssue()">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('issue')" data-i18n="btn.newissuance">+ New Issuance</button></div>
           </div>
           <div class="filter-row">
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="issueSearch" data-i18n-placeholder="issue.searchph" placeholder="Search by reference or shareholder" oninput="issuePager.applySearch(this.value)" /></div>
+            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="issueSearch" placeholder="Search by reference or shareholder" oninput="issuePager.applySearch(this.value)" /></div>
           </div>
           <div class="table-wrap"><table class="data" id="issueTable">
-            <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.shareholder">Shareholder</th><th data-i18n="th.class">Class</th><th class="num" data-i18n="th.quantity">Quantity</th><th class="num" data-i18n="th.amount">Amount</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
+            <thead><tr><th>Reference</th><th>Shareholder</th><th>Class</th><th class="num">Quantity</th><th class="num">Amount</th><th>Status</th><th></th></tr></thead>
             <tbody></tbody>
           </table></div>
           <div class="pager" id="issuePagerBar"></div>
         </div>
         <div class="detail-view hidden" id="issue-receipt">
           <div class="page-header">
-            <div><h1>Receipt · ငွေလက်ခံလွှာ · IS-2026-0016</h1><p>Daw Khin Thazin · <span data-i18n="shareclass.ordinary">Ordinary</span> shares</p></div>
+            <div><h1>Receipt · IS-2026-0016</h1><p>Daw Khin Thazin · Ordinary shares</p></div>
             <div class="page-header__actions">
               <button class="btn btn-ghost" onclick="hideReceipt()" data-i18n="btn.backtolist">← Back to list</button>
               <button class="btn btn-primary" onclick="printReceipt()" data-i18n="btn.downloadpdf">⬇ Download PDF</button>
@@ -966,7 +966,7 @@
                 <dt>Name · အမည်</dt><dd>Daw Khin Thazin <span class="cert-mm">(ဒေါ်ခင်သဇင်)</span></dd>
                 <dt>NRC No. · မှတ်ပုံတင်အမှတ်</dt><dd class="mono">12/OuKaTha(N)098234</dd>
                 <dt>Address · နေရပ်လိပ်စာ</dt><dd class="cert-mm" style="font-weight:400;">အမှတ်(52)၊ ရွှေတောင်လမ်း၊ ဗဟန်းမြို့နယ်၊ ရန်ကုန်တိုင်းဒေသကြီး။</dd>
-                <dt>Email / Phone · အီးမေးလ် / ဖုန်း</dt><dd>khinthazin@example.com · 09-4500 123 456</dd>
+                <dt>Email / Phone</dt><dd>khinthazin@example.com · 09-4500 123 456</dd>
               </dl>
               <div class="table-wrap" style="margin-top:14px;"><table class="data">
                 <tbody>
@@ -996,20 +996,20 @@
         <div class="detail-view hidden" id="issue-detail">
           <div class="page-header"><div><h1 data-i18n="page.issue.new.title">New Share Issuance</h1><p data-i18n="page.issue.new.sub">Section 7.1 · Capital &amp; premium calculation.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('issue')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="card">
-            <div class="section-title" data-i18n="issue.details">Issuance details</div>
+            <div class="section-title">Issuance details</div>
             <div class="form-grid">
-              <div class="field"><label data-i18n="wz.shareholder">Shareholder <span class="req">*</span></label><select><option>Golden Delta Trading Co., Ltd. — SH-24000003</option></select></div>
-              <div class="field"><label data-i18n="wz.shareclass">Share class <span class="req">*</span></label><select><option data-i18n="shareclass.ordinary">Ordinary</option><option data-i18n="shareclass.preference">Preference</option></select></div>
-              <div class="field"><label data-i18n="wz.quantity">Quantity <span class="req">*</span></label><input class="num" value="1,500" /></div>
-              <div class="field"><label data-i18n="wz.parvalue">Par value / share</label><input class="num" value="10,000" disabled /></div>
-              <div class="field"><label data-i18n="wz.premiumvalue">Premium / share</label><input class="num" value="0" /></div>
-              <div class="field"><label data-i18n="wz.paymentref">Payment reference</label><input value="PAY-88213" /></div>
+              <div class="field"><label>Shareholder <span class="req">*</span></label><select><option>Golden Delta Trading Co., Ltd. — SH-24000003</option></select></div>
+              <div class="field"><label>Share class <span class="req">*</span></label><select><option>Ordinary</option><option>Preference</option></select></div>
+              <div class="field"><label>Quantity <span class="req">*</span></label><input class="num" value="1,500" /></div>
+              <div class="field"><label>Par value / share</label><input class="num" value="10,000" disabled /></div>
+              <div class="field"><label>Premium / share</label><input class="num" value="0" /></div>
+              <div class="field"><label>Payment reference</label><input value="PAY-88213" /></div>
             </div>
-            <div class="section-title" data-i18n="calc.preview">Calculation preview</div>
+            <div class="section-title">Calculation preview</div>
             <div class="grid-3">
-              <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label" data-i18n="calc.capitalamount">Capital amount</div><div class="kpi-value">MMK 15.0M</div></div>
-              <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label" data-i18n="calc.premiumamount">Premium amount</div><div class="kpi-value">MMK 0</div></div>
-              <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label" data-i18n="calc.totalpayable">Total payable</div><div class="kpi-value">MMK 15.0M</div></div>
+              <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label">Capital amount</div><div class="kpi-value">MMK 15.0M</div></div>
+              <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label">Premium amount</div><div class="kpi-value">MMK 0</div></div>
+              <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label">Total payable</div><div class="kpi-value">MMK 15.0M</div></div>
             </div>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('issue')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('issue')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
@@ -1021,13 +1021,13 @@
         <div class="list-view" id="transfer-list">
           <div class="page-header">
             <div><h1 data-i18n="page.transfer.title">Transfer Shares</h1><p data-i18n="page.transfer.sub">Trade and non-trade transfers with balance validation.</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportTransfer()" data-i18n="btn.export">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('transfer')" data-i18n="btn.newtransfer">+ New Transfer</button></div>
+            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportTransfer()">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('transfer')" data-i18n="btn.newtransfer">+ New Transfer</button></div>
           </div>
           <div class="filter-row">
-            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="transferSearch" data-i18n-placeholder="transfer.searchph" placeholder="Search by reference or shareholder" oninput="transferPager.applySearch(this.value)" /></div>
+            <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="transferSearch" placeholder="Search by reference or shareholder" oninput="transferPager.applySearch(this.value)" /></div>
           </div>
           <div class="table-wrap"><table class="data" id="transferTable">
-            <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.from">From</th><th data-i18n="th.to">To</th><th class="num" data-i18n="th.quantity">Quantity</th><th data-i18n="th.type">Type</th><th data-i18n="th.status">Status</th></tr></thead>
+            <thead><tr><th>Reference</th><th>From</th><th>To</th><th class="num">Quantity</th><th>Type</th><th>Status</th></tr></thead>
             <tbody></tbody>
           </table></div>
           <div class="pager" id="transferPagerBar"></div>
@@ -1035,14 +1035,14 @@
         <div class="detail-view hidden" id="transfer-detail">
           <div class="page-header"><div><h1 data-i18n="page.transfer.new.title">New Share Transfer</h1><p data-i18n="page.transfer.new.sub">Section 7.2 · Available-balance validation, atomic debit/credit.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('transfer')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="card">
-            <div class="section-title" data-i18n="transfer.details">Transfer details</div>
+            <div class="section-title">Transfer details</div>
             <div class="form-grid">
-              <div class="field"><label data-i18n="transfer.type">Transfer type <span class="req">*</span></label><select><option data-i18n="type.trade">Trade</option><option data-i18n="type.nontrade">Non-trade</option></select></div>
-              <div class="field"><label data-i18n="wz.shareclass">Share class <span class="req">*</span></label><select><option data-i18n="shareclass.ordinary">Ordinary</option></select></div>
-              <div class="field"><label data-i18n="transfer.from">From shareholder <span class="req">*</span></label><select><option>U Zaw Min Htet — SH-24000002 (6,200 available)</option></select></div>
-              <div class="field"><label data-i18n="transfer.to">To shareholder <span class="req">*</span></label><select><option>Daw Khin Thazin — SH-24000001</option></select></div>
-              <div class="field"><label data-i18n="wz.quantity">Quantity <span class="req">*</span></label><input class="num" value="500" /></div>
-              <div class="field"><label data-i18n="transfer.consideration">Consideration (MMK)</label><input class="num" value="5,000,000" /></div>
+              <div class="field"><label>Transfer type <span class="req">*</span></label><select><option>Trade</option><option>Non-trade</option></select></div>
+              <div class="field"><label>Share class <span class="req">*</span></label><select><option>Ordinary</option></select></div>
+              <div class="field"><label>From shareholder <span class="req">*</span></label><select><option>U Zaw Min Htet — SH-24000002 (6,200 available)</option></select></div>
+              <div class="field"><label>To shareholder <span class="req">*</span></label><select><option>Daw Khin Thazin — SH-24000001</option></select></div>
+              <div class="field"><label>Quantity <span class="req">*</span></label><input class="num" value="500" /></div>
+              <div class="field"><label>Consideration (MMK)</label><input class="num" value="5,000,000" /></div>
             </div>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('transfer')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('transfer')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
@@ -1054,10 +1054,10 @@
         <div class="list-view" id="bonus-list">
           <div class="page-header">
             <div><h1 data-i18n="page.bonus.title">Bonus Shares</h1><p data-i18n="page.bonus.sub">Configurable ratio &amp; cash-remainder rate, batch versioning.</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportBonus()" data-i18n="btn.export">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('bonus')" data-i18n="btn.newbonus">+ New Bonus Batch</button></div>
+            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportBonus()">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('bonus')" data-i18n="btn.newbonus">+ New Bonus Batch</button></div>
           </div>
           <div class="table-wrap"><table class="data" id="bonusTable">
-            <thead><tr><th data-i18n="th.batch">Batch</th><th data-i18n="th.ratio">Ratio</th><th data-i18n="th.recorddate">Record date</th><th class="num" data-i18n="th.sharesissued">Shares issued</th><th data-i18n="th.status">Status</th></tr></thead>
+            <thead><tr><th>Batch</th><th>Ratio</th><th>Record date</th><th class="num">Shares issued</th><th>Status</th></tr></thead>
             <tbody></tbody>
           </table></div>
           <div class="pager" id="bonusPagerBar"></div>
@@ -1066,24 +1066,24 @@
           <div class="page-header"><div><h1 data-i18n="page.bonus.new.title">New Bonus Batch</h1><p data-i18n="page.bonus.new.sub">Section 7.3 · Ratio-based calculation, cash-remainder rate.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('bonus')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="card">
             <div class="form-grid">
-              <div class="field"><label data-i18n="bonus.ratio">Bonus ratio <span class="req">*</span></label><input value="6 : 1" /></div>
-              <div class="field"><label data-i18n="bonus.cashremainder">Cash remainder rate (MMK/share)</label><input class="num" value="5,000" /></div>
-              <div class="field"><label data-i18n="wz.recorddate">Record date <span class="req">*</span></label><input type="date" value="2026-07-19" /></div>
-              <div class="field"><label data-i18n="wz.shareclass">Share class <span class="req">*</span></label><select><option data-i18n="shareclass.ordinary">Ordinary</option></select></div>
+              <div class="field"><label>Bonus ratio <span class="req">*</span></label><input value="6 : 1" /></div>
+              <div class="field"><label>Cash remainder rate (MMK/share)</label><input class="num" value="5,000" /></div>
+              <div class="field"><label>Record date <span class="req">*</span></label><input type="date" value="2026-07-19" /></div>
+              <div class="field"><label>Share class <span class="req">*</span></label><select><option>Ordinary</option></select></div>
             </div>
             <div class="section-title" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
-              <span data-i18n="bonus.calcpreview">Calculation preview — select certificates to include</span>
+              <span>Calculation preview — select certificates to include</span>
               <span id="bonusSelectionSummary" style="font-weight:600; text-transform:none; letter-spacing:0; font-size:12.5px; color:var(--ink-600);"></span>
             </div>
             <div class="table-wrap"><table class="data">
-              <thead><tr><th style="width:34px;"><input type="checkbox" id="bonusSelectAll" checked onchange="toggleAllBonusRows(this)" /></th><th data-i18n="th.certno">Certificate No.</th><th data-i18n="th.shareholder">Shareholder</th><th class="num" data-i18n="bonus.current">Current</th><th class="num" data-i18n="bonus.bonusshares">Bonus shares</th><th class="num" data-i18n="bonus.remainder">Remainder (MMK)</th></tr></thead>
+              <thead><tr><th style="width:34px;"><input type="checkbox" id="bonusSelectAll" checked onchange="toggleAllBonusRows(this)" /></th><th>Certificate No.</th><th>Shareholder</th><th class="num">Current</th><th class="num">Bonus shares</th><th class="num">Remainder (MMK)</th></tr></thead>
               <tbody>
                 <tr><td><input type="checkbox" class="bonus-cert-check" checked onchange="updateBonusSelectionSummary()" /></td><td class="mono">CERT-2026-000001</td><td>Daw Khin Thazin</td><td class="num">8,200</td><td class="num">1,366</td><td class="num">20,000</td></tr>
                 <tr><td><input type="checkbox" class="bonus-cert-check" checked onchange="updateBonusSelectionSummary()" /></td><td class="mono">CERT-2026-000002</td><td>U Zaw Min Htet</td><td class="num">6,200</td><td class="num">1,033</td><td class="num">10,000</td></tr>
                 <tr><td><input type="checkbox" class="bonus-cert-check" checked onchange="updateBonusSelectionSummary()" /></td><td class="mono">CERT-2026-000003</td><td>Golden Delta Trading Co., Ltd.</td><td class="num">4,300</td><td class="num">716</td><td class="num">20,000</td></tr>
               </tbody>
             </table></div>
-            <p style="font-size:11.5px; color:var(--ink-400); margin:8px 2px 0;" data-i18n="bonus.note">Only shareholders whose certificate is checked will receive this bonus batch — uncheck to exclude a holder (e.g. a cancelled or transferred certificate) from the run.</p>
+            <p style="font-size:11.5px; color:var(--ink-400); margin:8px 2px 0;">Only shareholders whose certificate is checked will receive this bonus batch — uncheck to exclude a holder (e.g. a cancelled or transferred certificate) from the run.</p>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('bonus')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('bonus')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
         </div>
@@ -1094,10 +1094,10 @@
         <div class="list-view" id="dividends-list">
           <div class="page-header">
             <div><h1 data-i18n="page.dividends.title">Dividends</h1><p data-i18n="page.dividends.sub">Old/new share proration, settlement tracking.</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportDividends()" data-i18n="btn.export">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('dividends')" data-i18n="btn.newdividend">+ New Dividend Event</button></div>
+            <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportDividends()">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('dividends')" data-i18n="btn.newdividend">+ New Dividend Event</button></div>
           </div>
           <div class="table-wrap"><table class="data" id="dividendsTable">
-            <thead><tr><th data-i18n="th.event">Event</th><th data-i18n="th.rate">Rate</th><th data-i18n="th.recorddate">Record date</th><th class="num" data-i18n="th.totalmmk">Total (MMK)</th><th data-i18n="th.status">Status</th></tr></thead>
+            <thead><tr><th>Event</th><th>Rate</th><th>Record date</th><th class="num">Total (MMK)</th><th>Status</th></tr></thead>
             <tbody></tbody>
           </table></div>
           <div class="pager" id="dividendsPagerBar"></div>
@@ -1106,10 +1106,10 @@
           <div class="page-header"><div><h1 data-i18n="page.dividends.new.title">New Dividend Event</h1><p data-i18n="page.dividends.new.sub">Section 7.4 · Proration &amp; settlement tracking.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('dividends')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="card">
             <div class="form-grid">
-              <div class="field"><label data-i18n="dividend.rate">Dividend rate (MMK/share) <span class="req">*</span></label><input class="num" value="10,000" /></div>
-              <div class="field"><label data-i18n="wz.recorddate">Record date <span class="req">*</span></label><input type="date" value="2026-06-30" /></div>
-              <div class="field"><label data-i18n="wz.shareclass">Share class <span class="req">*</span></label><select><option data-i18n="shareclass.ordinary">Ordinary</option></select></div>
-              <div class="field"><label data-i18n="dividend.settlement">Settlement method</label><select><option data-i18n="settlement.cash">Cash</option><option data-i18n="settlement.transfer">Bank transfer</option><option data-i18n="settlement.reinvest">Reinvestment</option></select></div>
+              <div class="field"><label>Dividend rate (MMK/share) <span class="req">*</span></label><input class="num" value="10,000" /></div>
+              <div class="field"><label>Record date <span class="req">*</span></label><input type="date" value="2026-06-30" /></div>
+              <div class="field"><label>Share class <span class="req">*</span></label><select><option>Ordinary</option></select></div>
+              <div class="field"><label>Settlement method</label><select><option>Cash</option><option>Bank transfer</option><option>Reinvestment</option></select></div>
             </div>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('dividends')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('dividends')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
@@ -1121,33 +1121,33 @@
         <div class="list-view" id="approvals-list">
           <div class="page-header"><div><h1 data-i18n="page.approvals.title">My Pending Approvals</h1><p data-i18n="page.approvals.sub">Items awaiting your decision across all transaction types.</p></div></div>
           <div class="table-wrap"><table class="data" id="approvalsPendingTable">
-            <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.submittedby">Submitted by</th><th data-i18n="th.step">Step</th><th data-i18n="th.waiting">Waiting</th><th></th></tr></thead>
+            <thead><tr><th>Reference</th><th>Type</th><th>Submitted by</th><th>Step</th><th>Waiting</th><th></th></tr></thead>
             <tbody>
-              <tr data-ref="IS-2026-0018"><td class="mono">IS-2026-0018</td><td data-i18n="tx.issueshares">Issue Shares</td><td>M. Aung Aung</td><td><span class="pill pill-warning" data-i18n="approvals.progress.2of3headofir">2 of 3 — Head of IR</span></td><td>18 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
-              <tr><td class="mono">TS-2026-0009</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>M. Aung Aung</td><td><span class="pill pill-danger" data-i18n="approvals.progress.1of2compliance">1 of 2 — Compliance</span></td><td>26 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
-              <tr><td class="mono">APP-2026-0042</td><td data-i18n="approvals.kycdecision">KYC Decision</td><td>system</td><td><span class="pill pill-warning" data-i18n="approvals.progress.1of2compliance">1 of 2 — Compliance</span></td><td>4 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
-              <tr><td class="mono">BS-2026-0005</td><td data-i18n="tx.bonusshares">Bonus Shares</td><td>M. Aung Aung</td><td><span class="pill pill-warning" data-i18n="approvals.progress.1of2cfo">1 of 2 — CFO</span></td><td>2 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
+              <tr data-ref="IS-2026-0018"><td class="mono">IS-2026-0018</td><td>Issue Shares</td><td>M. Aung Aung</td><td><span class="pill pill-warning">2 of 3 — Head of IR</span></td><td>18 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;">Review</a></td></tr>
+              <tr><td class="mono">TS-2026-0009</td><td>Transfer Shares</td><td>M. Aung Aung</td><td><span class="pill pill-danger">1 of 2 — Compliance</span></td><td>26 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;">Review</a></td></tr>
+              <tr><td class="mono">APP-2026-0042</td><td>KYC Decision</td><td>system</td><td><span class="pill pill-warning">1 of 2 — Compliance</span></td><td>4 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;">Review</a></td></tr>
+              <tr><td class="mono">BS-2026-0005</td><td>Bonus Shares</td><td>M. Aung Aung</td><td><span class="pill pill-warning">1 of 2 — CFO</span></td><td>2 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;">Review</a></td></tr>
             </tbody>
           </table></div>
-          <div class="section-title" data-i18n="approvals.submittedbyme">Submitted by me</div>
+          <div class="section-title">Submitted by me</div>
           <div class="table-wrap"><table class="data">
-            <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.currentstep">Current step</th><th data-i18n="th.status">Status</th></tr></thead>
+            <thead><tr><th>Reference</th><th>Type</th><th>Current step</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td class="mono">DS-2026-0007</td><td data-i18n="tx.dividend">Dividend</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
-              <tr><td class="mono">TS-2026-0008</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
+              <tr><td class="mono">DS-2026-0007</td><td>Dividend</td><td>—</td><td><span class="pill pill-success">Fully approved</span></td></tr>
+              <tr><td class="mono">TS-2026-0008</td><td>Transfer Shares</td><td>—</td><td><span class="pill pill-success">Fully approved</span></td></tr>
             </tbody>
           </table></div>
         </div>
         <div class="detail-view hidden" id="approvals-detail">
-          <div class="page-header"><div><h1>IS-2026-0018</h1><p><span data-i18n="tx.issueshares">Issue Shares</span> · Golden Delta Trading Co., Ltd. · 1,500 <span data-i18n="shareclass.ordinary">Ordinary</span> shares · MMK 15.0M</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('approvals')" data-i18n="btn.backtolist">← Back to list</button></div></div>
+          <div class="page-header"><div><h1>IS-2026-0018</h1><p>Issue Shares · Golden Delta Trading Co., Ltd. · 1,500 Ordinary shares · MMK 15.0M</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('approvals')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="grid-2">
             <div class="card">
               <h3 style="margin-bottom:14px;" data-i18n="approvals.timeline">Approval timeline</h3>
               <ul class="timeline">
-                <li><span class="t-dot">✓</span><div class="t-body"><strong data-i18n="approvals.submitted">Submitted</strong><div class="t-meta">M. Aung Aung · 17 Jul 2026, 10:12</div></div></li>
-                <li><span class="t-dot">✓</span><div class="t-body"><strong data-i18n="approvals.step1">Step 1 — Branch Manager: Approved</strong><div class="t-meta">Daw Yamin Oo · 17 Jul 2026, 15:40</div><div class="t-comment" data-i18n="approvals.step1comment">Documents verified, payment confirmed.</div></div></li>
-                <li><span class="t-dot current">2</span><div class="t-body"><strong data-i18n="approvals.step2">Step 2 — Head of IR</strong><div class="t-meta" data-i18n="approvals.awaiting">Awaiting your decision</div></div></li>
-                <li><span class="t-dot pending">3</span><div class="t-body"><strong data-i18n="approvals.step3">Step 3 — CFO</strong><div class="t-meta" data-i18n="approvals.notreached">Not yet reached</div></div></li>
+                <li><span class="t-dot">✓</span><div class="t-body"><strong>Submitted</strong><div class="t-meta">M. Aung Aung · 17 Jul 2026, 10:12</div></div></li>
+                <li><span class="t-dot">✓</span><div class="t-body"><strong>Step 1 — Branch Manager: Approved</strong><div class="t-meta">Daw Yamin Oo · 17 Jul 2026, 15:40</div><div class="t-comment">Documents verified, payment confirmed.</div></div></li>
+                <li><span class="t-dot current">2</span><div class="t-body"><strong>Step 2 — Head of IR</strong><div class="t-meta">Awaiting your decision</div></div></li>
+                <li><span class="t-dot pending">3</span><div class="t-body"><strong>Step 3 — CFO</strong><div class="t-meta">Not yet reached</div></div></li>
               </ul>
             </div>
             <div class="card">
@@ -1157,7 +1157,7 @@
                 <label><input type="radio" name="dec" /> <span data-i18n="decision.reject">Reject</span></label>
                 <label><input type="radio" name="dec" /> <span data-i18n="decision.revert">Revert</span></label>
               </div>
-              <div class="field"><label data-i18n="field.comment">Comment</label><textarea rows="4" data-i18n-placeholder="approvals.commentph" placeholder="Optional for approve, mandatory for reject/revert"></textarea></div>
+              <div class="field"><label data-i18n="field.comment">Comment</label><textarea rows="4" placeholder="Optional for approve, mandatory for reject/revert"></textarea></div>
               <div class="form-actions"><button class="btn btn-ghost" onclick="showList('approvals')" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitApprovalDecision()" data-i18n="btn.submitdecision">Submit decision</button></div>
             </div>
           </div>
@@ -1168,11 +1168,11 @@
       <section class="page" id="page-submitted">
         <div class="page-header"><div><h1 data-i18n="page.submitted.title">Submitted by Me</h1><p data-i18n="page.submitted.sub">Track the approval progress of items you've submitted.</p></div></div>
         <div class="table-wrap"><table class="data">
-          <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.submitted">Submitted</th><th data-i18n="th.currentstep">Current step</th><th data-i18n="th.status">Status</th></tr></thead>
+          <thead><tr><th>Reference</th><th>Type</th><th>Submitted</th><th>Current step</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td class="mono">IS-2026-0018</td><td data-i18n="tx.issueshares">Issue Shares</td><td>17 Jul 2026</td><td>Head of IR</td><td><span class="pill pill-warning" data-i18n="status.inprogress">In progress</span></td></tr>
-            <tr><td class="mono">DS-2026-0007</td><td data-i18n="tx.dividend">Dividend</td><td>28 Jun 2026</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
-            <tr><td class="mono">TS-2026-0008</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>14 Jul 2026</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
+            <tr><td class="mono">IS-2026-0018</td><td>Issue Shares</td><td>17 Jul 2026</td><td>Head of IR</td><td><span class="pill pill-warning">In progress</span></td></tr>
+            <tr><td class="mono">DS-2026-0007</td><td>Dividend</td><td>28 Jun 2026</td><td>—</td><td><span class="pill pill-success">Fully approved</span></td></tr>
+            <tr><td class="mono">TS-2026-0008</td><td>Transfer Shares</td><td>14 Jul 2026</td><td>—</td><td><span class="pill pill-success">Fully approved</span></td></tr>
           </tbody>
         </table></div>
       </section>
@@ -1184,20 +1184,20 @@
           <div class="page-header__actions"><button class="btn btn-primary" onclick="toggleDrawerOpen('delDrawer')" data-i18n="btn.newdelegation">+ New Delegation</button></div>
         </div>
         <div class="table-wrap"><table class="data" id="delegationsTable">
-          <thead><tr><th data-i18n="th.to">To</th><th data-i18n="th.roledelegated">Role delegated</th><th data-i18n="th.start">Start</th><th data-i18n="th.end">End</th><th data-i18n="th.reason">Reason</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
+          <thead><tr><th>To</th><th>Role delegated</th><th>Start</th><th>End</th><th>Reason</th><th>Status</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Ko Nyein Chan</td><td data-i18n="role.headofir">Head of IR</td><td>19 Jul 2026</td><td>26 Jul 2026</td><td data-i18n="reason.annualleave">Annual leave</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" style="color:var(--danger);" data-i18n="btn.end">End</a></td></tr>
-            <tr><td>Daw Aye Aye Mon</td><td data-i18n="role.complianceofficer">Compliance Officer</td><td>02 Jun 2026</td><td>06 Jun 2026</td><td data-i18n="reason.training">Training</td><td><span class="pill pill-neutral" data-i18n="status.ended">Ended</span></td><td>—</td></tr>
+            <tr><td>Ko Nyein Chan</td><td>Head of IR</td><td>19 Jul 2026</td><td>26 Jul 2026</td><td>Annual leave</td><td><span class="pill pill-success">Active</span></td><td><a href="#" style="color:var(--danger);" data-i18n="btn.end">End</a></td></tr>
+            <tr><td>Daw Aye Aye Mon</td><td>Compliance Officer</td><td>02 Jun 2026</td><td>06 Jun 2026</td><td>Training</td><td><span class="pill pill-neutral">Ended</span></td><td>—</td></tr>
           </tbody>
         </table></div>
         <div class="card" id="delDrawer" style="display:none; margin-top:18px; max-width:520px;">
-          <div class="section-title" style="margin-top:0;" data-i18n="del.newdelegation">New delegation</div>
+          <div class="section-title" style="margin-top:0;">New delegation</div>
           <div class="form-grid">
-            <div class="field span-2"><label data-i18n="del.delegateto">Delegate to <span class="req">*</span></label><select><option>Ko Nyein Chan — Head of IR (backup)</option></select></div>
-            <div class="field span-2"><label data-i18n="del.approverrole">Approver role <span class="req">*</span></label><select><option data-i18n="role.headofir">Head of IR</option><option data-i18n="role.complianceofficer">Compliance Officer</option><option data-i18n="role.cfo">CFO</option></select></div>
-            <div class="field"><label data-i18n="del.startdate">Start date <span class="req">*</span></label><input type="date" /></div>
-            <div class="field"><label data-i18n="del.enddate">End date <span class="req">*</span></label><input type="date" /></div>
-            <div class="field span-2"><label data-i18n="th.reason">Reason <span class="req">*</span></label><input data-i18n-placeholder="del.reasonph" placeholder="e.g. Annual leave" /></div>
+            <div class="field span-2"><label>Delegate to <span class="req">*</span></label><select><option>Ko Nyein Chan — Head of IR (backup)</option></select></div>
+            <div class="field span-2"><label>Approver role <span class="req">*</span></label><select><option>Head of IR</option><option>Compliance Officer</option><option>CFO</option></select></div>
+            <div class="field"><label>Start date <span class="req">*</span></label><input type="date" /></div>
+            <div class="field"><label>End date <span class="req">*</span></label><input type="date" /></div>
+            <div class="field span-2"><label>Reason <span class="req">*</span></label><input placeholder="e.g. Annual leave" /></div>
           </div>
           <div class="form-actions"><button class="btn btn-ghost" onclick="toggleDrawerOpen('delDrawer')" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="createDelegation()" data-i18n="btn.createdelegation">Create delegation</button></div>
         </div>
@@ -1210,11 +1210,11 @@
           <div class="page-header__actions"><button class="btn btn-ghost" data-i18n="btn.markallread">Mark all read</button></div>
         </div>
         <div class="card" style="padding:0;">
-          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo1title">Approval pending — IS-2026-0018</div><div data-i18n="notif.demo1body">Issue Shares awaiting Head of IR decision.</div><div class="notif-time" data-i18n="time.12minago">12 minutes ago</div></div></div>
-          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo2title">KYC decision recorded</div><div data-i18n="notif.demo2body">APP-2026-0043 approved by Compliance Officer.</div><div class="notif-time" data-i18n="time.1hourago">1 hour ago</div></div></div>
-          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo3title">Delegation started</div><div data-i18n="notif.demo3body">Ko Nyein Chan delegated Head of IR to you (19–26 Jul).</div><div class="notif-time" data-i18n="time.3hoursago">3 hours ago</div></div></div>
-          <div class="notif-item read"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo4title">Reminder: step overdue</div><div data-i18n="notif.demo4body">TS-2026-0009 has been pending 24h+.</div><div class="notif-time" data-i18n="time.yesterday">Yesterday</div></div></div>
-          <div class="notif-item read"><span class="notif-dot"></span><div><div class="notif-title" data-i18n="notif.demo5title">Reconciliation flag</div><div data-i18n="notif.demo5body">Duplicate certificate number detected — CERT-2025-000098.</div><div class="notif-time" data-i18n="time.2daysago">2 days ago</div></div></div>
+          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title">Approval pending — IS-2026-0018</div><div>Issue Shares awaiting Head of IR decision.</div><div class="notif-time">12 minutes ago</div></div></div>
+          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title">KYC decision recorded</div><div>APP-2026-0043 approved by Compliance Officer.</div><div class="notif-time">1 hour ago</div></div></div>
+          <div class="notif-item"><span class="notif-dot"></span><div><div class="notif-title">Delegation started</div><div>Ko Nyein Chan delegated Head of IR to you (19–26 Jul).</div><div class="notif-time">3 hours ago</div></div></div>
+          <div class="notif-item read"><span class="notif-dot"></span><div><div class="notif-title">Reminder: step overdue</div><div>TS-2026-0009 has been pending 24h+.</div><div class="notif-time">Yesterday</div></div></div>
+          <div class="notif-item read"><span class="notif-dot"></span><div><div class="notif-title">Reconciliation flag</div><div>Duplicate certificate number detected — CERT-2025-000098.</div><div class="notif-time">2 days ago</div></div></div>
         </div>
       </section>
 
@@ -1226,12 +1226,12 @@
           <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end;">
             <div><label class="rpt-filter-label" data-i18n="filter.from">From</label><input type="date" id="rptDateFrom" class="rpt-filter-input" /></div>
             <div><label class="rpt-filter-label" data-i18n="filter.to">To</label><input type="date" id="rptDateTo" class="rpt-filter-input" /></div>
-            <div><label class="rpt-filter-label" data-i18n="filter.group">Group</label><select id="rptGroup" class="rpt-filter-input"><option value="All" data-i18n="filter.allgroups">All groups</option><option data-i18n="grp.bod">BOD</option><option data-i18n="grp.staff">Staff</option></select></div>
-            <div><label class="rpt-filter-label" data-i18n="filter.shareclass">Share class</label><select id="rptClass" class="rpt-filter-input"><option value="All" data-i18n="filter.allclasses">All classes</option><option data-i18n="shareclass.ordinary">Ordinary</option><option data-i18n="shareclass.preference">Preference</option></select></div>
+            <div><label class="rpt-filter-label" data-i18n="filter.group">Group</label><select id="rptGroup" class="rpt-filter-input"><option value="All">All groups</option><option>BOD</option><option>Staff</option></select></div>
+            <div><label class="rpt-filter-label" data-i18n="filter.shareclass">Share class</label><select id="rptClass" class="rpt-filter-input"><option value="All">All classes</option><option>Ordinary</option><option>Preference</option></select></div>
             <button class="btn btn-primary btn-sm" onclick="applyReportFilters()" data-i18n="btn.applyfilters">Apply filters</button>
             <button class="btn btn-ghost btn-sm" onclick="resetReportFilters()" data-i18n="btn.reset">Reset</button>
           </div>
-          <p style="font-size:11.5px; color:var(--ink-400); margin:10px 2px 0;" id="rptFilterSummary" data-i18n="rpt.nofilters">No filters applied — showing all rows. Date filters apply to reports with a date column; Group/Share class filter reports that have that column.</p>
+          <p style="font-size:11.5px; color:var(--ink-400); margin:10px 2px 0;" id="rptFilterSummary">No filters applied — showing all rows. Date filters apply to reports with a date column; Group/Share class filter reports that have that column.</p>
         </div>
 
         <div class="tabs">
@@ -1263,93 +1263,93 @@
           </div>
         </div>
         <div class="card print-target" style="margin-top:18px;" id="reportPreviewCard">
-          <div class="card-head"><h3 id="reportPreviewTitle">RPT-001 · Shareholder List — preview</h3><div style="display:flex;gap:8px;" class="no-print"><button class="btn btn-ghost btn-sm" onclick="exportExcel()" data-i18n="btn.excel">⬇ Excel</button><button class="btn btn-ghost btn-sm" onclick="exportPdf()" data-i18n="btn.pdf">⬇ PDF</button><button class="btn btn-ghost btn-sm" onclick="printReport()" data-i18n="btn.print">🖶 Print</button></div></div>
+          <div class="card-head"><h3 id="reportPreviewTitle">RPT-001 · Shareholder List — preview</h3><div style="display:flex;gap:8px;" class="no-print"><button class="btn btn-ghost btn-sm" onclick="exportExcel()">⬇ Excel</button><button class="btn btn-ghost btn-sm" onclick="exportPdf()">⬇ PDF</button><button class="btn btn-ghost btn-sm" onclick="printReport()">🖶 Print</button></div></div>
           <div class="table-wrap"><table class="data" id="reportPreviewTable">
             <thead id="reportPreviewHead"></thead>
             <tbody id="reportPreviewBody"></tbody>
           </table></div>
           <div class="pager no-print" id="reportPager"></div>
-          <p style="font-size:11.5px;color:var(--ink-400);margin:10px 2px 0;" id="reportPreviewNote" data-i18n="rpt.nrcmasked">NRC masked — viewer lacks the Reports.ViewSensitiveData permission.</p>
+          <p style="font-size:11.5px;color:var(--ink-400);margin:10px 2px 0;" id="reportPreviewNote">NRC masked — viewer lacks the Reports.ViewSensitiveData permission.</p>
         </div>
       </section>
 
       <!-- ============ USERS & ROLES ============ -->
       <section class="page" id="page-users">
-        <div class="page-header"><div><h1 data-i18n="page.users.title">Users and Roles</h1><p data-i18n="page.users.sub">Administration · account provisioning and role assignment.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="toggleUserDrawer()" data-i18n="btn.newuser">+ New User</button></div></div>
+        <div class="page-header"><div><h1 data-i18n="page.users.title">Users and Roles</h1><p data-i18n="page.users.sub">Administration · account provisioning and role assignment.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="toggleUserDrawer()">+ New User</button></div></div>
         <div class="table-wrap"><table class="data" id="usersTable">
-          <thead><tr><th data-i18n="th.user">User</th><th data-i18n="th.email">Email</th><th data-i18n="th.roles">Roles</th><th data-i18n="th.status">Status</th></tr></thead>
+          <thead><tr><th>User</th><th>Email</th><th>Roles</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>Admin</td><td class="mono">admin@ems.local</td><td><span class="pill pill-neutral" data-i18n="role.sysadmin">System Administrator</span></td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Daw Yamin Oo</td><td class="mono">yamin.oo@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.branchmanager">Branch Manager</span></td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Ko Nyein Chan</td><td class="mono">nyein.chan@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.headofir">Head of IR</span></td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Daw Aye Aye Mon</td><td class="mono">aye.mon@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.complianceofficer">Compliance Officer</span></td><td><span class="pill pill-warning" data-i18n="status.suspended">Suspended</span></td></tr>
+            <tr><td>Admin</td><td class="mono">admin@ems.local</td><td><span class="pill pill-neutral">System Administrator</span></td><td><span class="pill pill-success">Active</span></td></tr>
+            <tr><td>Daw Yamin Oo</td><td class="mono">yamin.oo@cbbank.com</td><td><span class="pill pill-neutral">Branch Manager</span></td><td><span class="pill pill-success">Active</span></td></tr>
+            <tr><td>Ko Nyein Chan</td><td class="mono">nyein.chan@cbbank.com</td><td><span class="pill pill-neutral">Head of IR</span></td><td><span class="pill pill-success">Active</span></td></tr>
+            <tr><td>Daw Aye Aye Mon</td><td class="mono">aye.mon@cbbank.com</td><td><span class="pill pill-neutral">Compliance Officer</span></td><td><span class="pill pill-warning">Suspended</span></td></tr>
           </tbody>
         </table></div>
         <div class="card" id="userDrawer" style="display:none; margin-top:18px; max-width:520px;">
-          <div class="section-title" style="margin-top:0;" data-i18n="user.newuser">New user</div>
+          <div class="section-title" style="margin-top:0;">New user</div>
           <div class="form-grid">
-            <div class="field span-2"><label data-i18n="wz.fullname">Full name <span class="req">*</span></label><input id="newUserName" placeholder="e.g. Daw Su Su Hlaing" /></div>
-            <div class="field span-2"><label data-i18n="field.email">Email <span class="req">*</span></label><input id="newUserEmail" placeholder="e.g. su.hlaing@cbbank.com" /></div>
-            <div class="field"><label data-i18n="user.role">Role <span class="req">*</span></label>
+            <div class="field span-2"><label>Full name <span class="req">*</span></label><input id="newUserName" placeholder="e.g. Daw Su Su Hlaing" /></div>
+            <div class="field span-2"><label>Email <span class="req">*</span></label><input id="newUserEmail" placeholder="e.g. su.hlaing@cbbank.com" /></div>
+            <div class="field"><label>Role <span class="req">*</span></label>
               <select id="newUserRole">
-                <option data-i18n="role.branchmanager">Branch Manager</option>
-                <option data-i18n="role.headofir">Head of IR</option>
-                <option data-i18n="role.complianceofficer">Compliance Officer</option>
-                <option data-i18n="role.cfo">CFO</option>
-                <option data-i18n="role.sysadmin">System Administrator</option>
+                <option>Branch Manager</option>
+                <option>Head of IR</option>
+                <option>Compliance Officer</option>
+                <option>CFO</option>
+                <option>System Administrator</option>
               </select>
             </div>
-            <div class="field"><label data-i18n="th.status">Status</label>
-              <select id="newUserStatus"><option data-i18n="status.active">Active</option><option data-i18n="status.suspended">Suspended</option></select>
+            <div class="field"><label>Status</label>
+              <select id="newUserStatus"><option>Active</option><option>Suspended</option></select>
             </div>
           </div>
-          <div class="form-actions"><button class="btn btn-ghost" onclick="toggleUserDrawer()" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitNewUser()" data-i18n="user.createuser">Create user</button></div>
+          <div class="form-actions"><button class="btn btn-ghost" onclick="toggleUserDrawer()">Cancel</button><button class="btn btn-primary" onclick="submitNewUser()">Create user</button></div>
         </div>
       </section>
 
       <!-- ============ APPROVAL MATRIX ============ -->
       <section class="page" id="page-matrix">
-        <div class="page-header"><div><h1 data-i18n="page.matrix.title">Approval Matrix</h1><p data-i18n="page.matrix.sub">Configurable, effective-dated routing per transaction type &amp; amount band.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="openMatrixDrawer()" data-i18n="matrix.newrule">+ New Rule</button></div></div>
+        <div class="page-header"><div><h1 data-i18n="page.matrix.title">Approval Matrix</h1><p data-i18n="page.matrix.sub">Configurable, effective-dated routing per transaction type &amp; amount band.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="openMatrixDrawer()">+ New Rule</button></div></div>
         <div class="table-wrap"><table class="data" id="matrixTable">
-          <thead><tr><th data-i18n="matrix.txtype">Transaction type</th><th data-i18n="matrix.amountband">Amount band</th><th data-i18n="matrix.route">Route</th><th data-i18n="matrix.effectivefrom">Effective from</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
+          <thead><tr><th>Transaction type</th><th>Amount band</th><th>Route</th><th>Effective from</th><th>Status</th><th></th></tr></thead>
           <tbody>
-            <tr><td data-i18n="tx.issueshares">Issue Shares</td><td>&le; MMK 10.0M</td><td>Branch Manager → Head of IR</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.issueshares">Issue Shares</td><td>&gt; MMK 10.0M</td><td>Branch Manager → Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.transfershares">Transfer Shares</td><td data-i18n="matrix.any">Any</td><td>Compliance Officer → Head of IR</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.bonusshares">Bonus Shares</td><td data-i18n="matrix.any">Any</td><td>Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.dividend">Dividend</td><td data-i18n="matrix.any">Any</td><td>Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
+            <tr><td>Issue Shares</td><td>&le; MMK 10.0M</td><td>Branch Manager → Head of IR</td><td>01 Jan 2026</td><td><span class="pill pill-success">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;">Edit</a></td></tr>
+            <tr><td>Issue Shares</td><td>&gt; MMK 10.0M</td><td>Branch Manager → Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;">Edit</a></td></tr>
+            <tr><td>Transfer Shares</td><td>Any</td><td>Compliance Officer → Head of IR</td><td>01 Jan 2026</td><td><span class="pill pill-success">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;">Edit</a></td></tr>
+            <tr><td>Bonus Shares</td><td>Any</td><td>Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;">Edit</a></td></tr>
+            <tr><td>Dividend</td><td>Any</td><td>Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;">Edit</a></td></tr>
           </tbody>
         </table></div>
         <div class="card" id="matrixDrawer" style="display:none; margin-top:18px; max-width:620px;">
-          <div class="section-title" style="margin-top:0;" id="matrixDrawerTitle" data-i18n="matrix.newruletitle">New approval rule</div>
+          <div class="section-title" style="margin-top:0;" id="matrixDrawerTitle">New approval rule</div>
           <div class="form-grid">
-            <div class="field"><label data-i18n="matrix.txtype">Transaction type <span class="req">*</span></label>
+            <div class="field"><label>Transaction type <span class="req">*</span></label>
               <select id="matrixType">
-                <option data-i18n="tx.issueshares">Issue Shares</option>
-                <option data-i18n="tx.transfershares">Transfer Shares</option>
-                <option data-i18n="tx.bonusshares">Bonus Shares</option>
-                <option data-i18n="tx.dividend">Dividend</option>
+                <option>Issue Shares</option>
+                <option>Transfer Shares</option>
+                <option>Bonus Shares</option>
+                <option>Dividend</option>
               </select>
             </div>
-            <div class="field"><label data-i18n="matrix.amountband">Amount band</label><input id="matrixBand" value="Any" /></div>
-            <div class="field span-2"><label data-i18n="matrix.routeseq">Route (approver sequence) <span class="req">*</span></label><input id="matrixRoute" placeholder="e.g. Branch Manager &#8594; Head of IR" /></div>
-            <div class="field"><label data-i18n="matrix.effectivefrom">Effective from <span class="req">*</span></label><input type="date" id="matrixDate" /></div>
-            <div class="field"><label data-i18n="th.status">Status</label><select id="matrixStatus"><option data-i18n="status.active">Active</option><option data-i18n="status.inactive">Inactive</option></select></div>
+            <div class="field"><label>Amount band</label><input id="matrixBand" value="Any" /></div>
+            <div class="field span-2"><label>Route (approver sequence) <span class="req">*</span></label><input id="matrixRoute" placeholder="e.g. Branch Manager &#8594; Head of IR" /></div>
+            <div class="field"><label>Effective from <span class="req">*</span></label><input type="date" id="matrixDate" /></div>
+            <div class="field"><label>Status</label><select id="matrixStatus"><option>Active</option><option>Inactive</option></select></div>
           </div>
-          <div class="form-actions"><button class="btn btn-ghost" onclick="closeMatrixDrawer()" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitMatrixRule()" data-i18n="matrix.saverule">Save rule</button></div>
+          <div class="form-actions"><button class="btn btn-ghost" onclick="closeMatrixDrawer()">Cancel</button><button class="btn btn-primary" onclick="submitMatrixRule()">Save rule</button></div>
         </div>
       </section>
 
       <!-- ============ PERMISSIONS ============ -->
       <section class="page" id="page-permissions">
-        <div class="page-header"><div><h1 data-i18n="page.permissions.title">Permissions</h1><p data-i18n="page.permissions.sub">Role × action grant matrix, layered over role-based access.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="savePermissions()" data-i18n="perm.savechanges">Save changes</button></div></div>
+        <div class="page-header"><div><h1 data-i18n="page.permissions.title">Permissions</h1><p data-i18n="page.permissions.sub">Role × action grant matrix, layered over role-based access.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="savePermissions()">Save changes</button></div></div>
         <div class="table-wrap"><table class="data perm-table">
-          <thead><tr><th data-i18n="th.role">Role</th><th>SA.Submit</th><th>IS.Submit</th><th>TS.Submit</th><th>BS.Submit</th><th>DS.Submit</th><th>Reports.View</th><th>Reports.Export</th><th>Reports.ViewSensitiveData</th></tr></thead>
+          <thead><tr><th>Role</th><th>SA.Submit</th><th>IS.Submit</th><th>TS.Submit</th><th>BS.Submit</th><th>DS.Submit</th><th>Reports.View</th><th>Reports.Export</th><th>Reports.ViewSensitiveData</th></tr></thead>
           <tbody>
-            <tr><td data-i18n="role.branchmanager">Branch Manager</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td></tr>
-            <tr><td data-i18n="role.headofir">Head of IR</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
-            <tr><td data-i18n="role.complianceofficer">Compliance Officer</td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td></tr>
-            <tr><td data-i18n="role.cfo">CFO</td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
+            <tr><td>Branch Manager</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td></tr>
+            <tr><td>Head of IR</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
+            <tr><td>Compliance Officer</td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td></tr>
+            <tr><td>CFO</td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
           </tbody>
         </table></div>
       </section>
@@ -1359,24 +1359,24 @@
         <div class="page-header"><div><h1 data-i18n="page.masterdata.title">Master Data</h1><p data-i18n="page.masterdata.sub">Groups, share classes, branches, departments, NRC prefixes, document &amp; reason codes.</p></div></div>
         <div class="drawer-layout">
           <ul class="drawer-list" id="mdList">
-            <li class="active" data-key="groups" onclick="loadMasterData('groups')"><span data-i18n="md.groups">Shareholder groups</span> <span class="count">3</span></li>
-            <li data-key="shareclasses" onclick="loadMasterData('shareclasses')"><span data-i18n="md.shareclasses">Share classes</span> <span class="count">2</span></li>
-            <li data-key="branches" onclick="loadMasterData('branches')"><span data-i18n="md.branches">Branches</span> <span class="count">14</span></li>
-            <li data-key="departments" onclick="loadMasterData('departments')"><span data-i18n="md.departments">Departments</span> <span class="count">6</span></li>
-            <li data-key="nrcprefixes" onclick="loadMasterData('nrcprefixes')"><span data-i18n="md.nrcprefixes">NRC prefixes</span> <span class="count">17</span></li>
-            <li data-key="documenttypes" onclick="loadMasterData('documenttypes')"><span data-i18n="md.doctypes">Document types</span> <span class="count">8</span></li>
-            <li data-key="reasoncodes" onclick="loadMasterData('reasoncodes')"><span data-i18n="md.reasoncodes">Reason codes</span> <span class="count">5</span></li>
+            <li class="active" data-key="groups" onclick="loadMasterData('groups')">Shareholder groups <span class="count">3</span></li>
+            <li data-key="shareclasses" onclick="loadMasterData('shareclasses')">Share classes <span class="count">2</span></li>
+            <li data-key="branches" onclick="loadMasterData('branches')">Branches <span class="count">14</span></li>
+            <li data-key="departments" onclick="loadMasterData('departments')">Departments <span class="count">6</span></li>
+            <li data-key="nrcprefixes" onclick="loadMasterData('nrcprefixes')">NRC prefixes <span class="count">17</span></li>
+            <li data-key="documenttypes" onclick="loadMasterData('documenttypes')">Document types <span class="count">8</span></li>
+            <li data-key="reasoncodes" onclick="loadMasterData('reasoncodes')">Reason codes <span class="count">5</span></li>
           </ul>
           <div class="card">
-            <div class="card-head"><h3 id="mdTitle">Shareholder groups</h3><button class="btn btn-primary btn-sm" onclick="toggleMasterDataDrawer()" data-i18n="btn.add">+ Add</button></div>
+            <div class="card-head"><h3 id="mdTitle">Shareholder groups</h3><button class="btn btn-primary btn-sm" onclick="toggleMasterDataDrawer()">+ Add</button></div>
             <div class="table-wrap"><table class="data">
               <thead id="mdHead"></thead>
               <tbody id="mdBody"></tbody>
             </table></div>
             <div class="card" id="mdAddDrawer" style="display:none; margin-top:14px; background:var(--surface-sunken); box-shadow:none;">
-              <div class="section-title" style="margin-top:0;" id="mdAddTitle" data-i18n="md.newentry">New entry</div>
+              <div class="section-title" style="margin-top:0;" id="mdAddTitle">New entry</div>
               <div class="form-grid" id="mdAddFields"></div>
-              <div class="form-actions"><button class="btn btn-ghost" onclick="toggleMasterDataDrawer()" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitMasterDataAdd()" data-i18n="btn.save">Save</button></div>
+              <div class="form-actions"><button class="btn btn-ghost" onclick="toggleMasterDataDrawer()">Cancel</button><button class="btn btn-primary" onclick="submitMasterDataAdd()">Save</button></div>
             </div>
           </div>
         </div>
@@ -1384,21 +1384,21 @@
 
       <!-- ============ AUDIT LOG ============ -->
       <section class="page" id="page-audit">
-        <div class="page-header"><div><h1 data-i18n="page.audit.title">Audit Log</h1><p data-i18n="page.audit.sub">Append-only record of every screen view and state-changing action, with full detail.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="exportAuditLog()" data-i18n="btn.export">⬇ Export</button></div></div>
+        <div class="page-header"><div><h1 data-i18n="page.audit.title">Audit Log</h1><p data-i18n="page.audit.sub">Append-only record of every screen view and state-changing action, with full detail.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="exportAuditLog()">⬇ Export</button></div></div>
         <div class="filter-row">
-          <input type="date" id="auditDateFrom" /><span style="color:var(--ink-400);" data-i18n="filter.to.lower">to</span><input type="date" id="auditDateTo" />
-          <select id="auditModuleFilter"><option value="All" data-i18n="filter.allmodules">All modules</option></select>
+          <input type="date" id="auditDateFrom" /><span style="color:var(--ink-400);">to</span><input type="date" id="auditDateTo" />
+          <select id="auditModuleFilter"><option value="All">All modules</option></select>
           <select id="auditActionFilter">
-            <option value="All" data-i18n="filter.allactions">All actions</option>
-            <option data-i18n="View">View</option><option data-i18n="Create">Create</option><option data-i18n="Update">Update</option><option data-i18n="Submit">Submit</option>
-            <option data-i18n="Decision">Decision</option><option data-i18n="Export">Export</option><option data-i18n="Print">Print</option><option data-i18n="Login">Login</option><option data-i18n="Logout">Logout</option><option data-i18n="audit.job">Job</option>
+            <option value="All">All actions</option>
+            <option>View</option><option>Create</option><option>Update</option><option>Submit</option>
+            <option>Decision</option><option>Export</option><option>Print</option><option>Login</option><option>Logout</option><option>Job</option>
           </select>
-          <input type="text" id="auditUserFilter" data-i18n-placeholder="audit.filterbyuser" placeholder="Filter by user…" style="min-width:180px;" />
-          <button class="btn btn-ghost btn-sm" onclick="applyAuditFilters()" data-i18n="btn.apply">Apply</button>
-          <button class="btn btn-ghost btn-sm" onclick="resetAuditFilters()" data-i18n="btn.reset">Reset</button>
+          <input type="text" id="auditUserFilter" placeholder="Filter by user…" style="min-width:180px;" />
+          <button class="btn btn-ghost btn-sm" onclick="applyAuditFilters()">Apply</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetAuditFilters()">Reset</button>
         </div>
         <div class="table-wrap"><table class="data" id="auditTable">
-          <thead><tr><th data-i18n="audit.timestamp">Timestamp</th><th data-i18n="th.user">User</th><th data-i18n="audit.action">Action</th><th data-i18n="th.module">Module</th><th data-i18n="audit.entityref">Entity Ref</th><th data-i18n="audit.details">Details</th><th data-i18n="audit.result">Result</th></tr></thead>
+          <thead><tr><th>Timestamp</th><th>User</th><th>Action</th><th>Module</th><th>Entity Ref</th><th>Details</th><th>Result</th></tr></thead>
           <tbody></tbody>
         </table></div>
         <div class="pager" id="auditPager"></div>
@@ -1512,9 +1512,7 @@
     window.scrollTo(0,0);
     if(typeof logAudit === 'function'){
       logAudit('View', AUDIT_MODULE_BY_PAGE[pageId] || pageId, null, 'Viewed ' + (PAGE_TITLES[pageId] || pageId) + ' screen');
-      if(pageId === 'audit'){ auditPage = 1; if(typeof populateAuditModuleFilter === 'function') populateAuditModuleFilter(); renderAuditTable(); }
-      if(pageId === 'masterdata' && typeof renderMasterDataTable === 'function') renderMasterDataTable();
-      if(pageId === 'reports' && typeof loadReport === 'function' && typeof currentReportCode !== 'undefined') loadReport(currentReportCode);
+      if(pageId === 'audit'){ auditPage = 1; renderAuditTable(); }
       if(pageId === 'dashboard' && typeof renderDashboardFromBulkData === 'function') renderDashboardFromBulkData();
     }
   }
@@ -1650,112 +1648,7 @@
       'rptcard.rpt008.title':'Dividend by Individual', 'rptcard.rpt008.sub':'Days-held proration per shareholder.',
       'rptcard.rpt009.title':'Dividend Record by Year', 'rptcard.rpt009.sub':'Historical provision &amp; settlement by financial year.',
       'rptcard.rpt010.title':'Share Price Report', 'rptcard.rpt010.sub':'Market, book &amp; BOD-approved value by period.',
-      'rptcard.rpt011.title':'Authorized vs. Paid-Up Capital', 'rptcard.rpt011.sub':'Authorized/issued capital and share summary.',
-
-      'View':'View', 'Create':'Create', 'Update':'Update', 'Submit':'Submit', 'Decision':'Decision',
-      'Export':'Export', 'Print':'Print', 'Login':'Login', 'Logout':'Logout',
-      'btn.export':'⬇ Export', 'btn.review':'Review', 'btn.receipt':'Receipt', 'btn.back':'← Back',
-      'btn.continue':'Continue →', 'btn.submitapplication':'Submit application', 'btn.excel':'⬇ Excel',
-      'btn.pdf':'⬇ PDF', 'btn.print':'🖶 Print', 'btn.newuser':'+ New User', 'btn.editrule':'Edit',
-      'btn.add':'+ Add', 'btn.apply':'Apply', 'btn.save':'Save', 'btn.viewreceipt':'⬇ View Receipt',
-      'th.reference':'Reference', 'th.type':'Type', 'th.status':'Status', 'th.applicant':'Applicant',
-      'th.appid':'Application ID', 'th.stage':'Stage', 'th.submitted':'Submitted', 'th.shid':'Shareholder ID',
-      'th.name':'Name', 'th.group':'Group', 'th.shareclass':'Share class', 'th.sharesheld':'Shares held',
-      'th.certno':'Certificate No.', 'th.holder':'Holder', 'th.class':'Class', 'th.quantity':'Quantity',
-      'th.issuedate':'Issue date', 'th.shareholder':'Shareholder', 'th.amount':'Amount', 'th.from':'From',
-      'th.to':'To', 'th.submittedby':'Submitted by', 'th.step':'Step', 'th.waiting':'Waiting',
-      'th.currentstep':'Current step', 'th.batch':'Batch', 'th.ratio':'Ratio', 'th.recorddate':'Record date',
-      'th.sharesissued':'Shares issued', 'th.event':'Event', 'th.rate':'Rate', 'th.totalmmk':'Total (MMK)',
-      'th.user':'User', 'th.email':'Email', 'th.roles':'Roles', 'th.role':'Role',
-      'th.roledelegated':'Role delegated', 'th.start':'Start', 'th.end':'End', 'th.reason':'Reason',
-      'th.module':'Module', 'th.address':'Address',
-      'status.active':'Active', 'status.printed':'Printed', 'status.cancelled':'Cancelled',
-      'status.suspended':'Suspended', 'status.inactive':'Inactive', 'status.ended':'Ended',
-      'status.fullyapproved':'Fully approved', 'status.inprogress':'In progress',
-      'type.individual':'Individual', 'type.joint':'Joint', 'type.corporate':'Corporate',
-      'type.trade':'Trade', 'type.nontrade':'Non-trade',
-      'shareclass.ordinary':'Ordinary', 'shareclass.preference':'Preference',
-      'stage.draft':'Draft', 'stage.pendingdocs':'Pending Documents', 'stage.kycreview':'KYC Review',
-      'stage.approved':'Approved', 'stage.registered':'Registered', 'stage.rejected':'Rejected',
-      'grp.bod':'BOD', 'grp.staff':'Staff', 'grp.public':'Public',
-      'grp.companies':'Private &amp; Public Companies', 'grp.coops':'States &amp; Divisions Co-operatives',
-      'filter.allgroups':'All groups', 'filter.allstages':'All stages', 'filter.alltypes':'All types',
-      'filter.allstatuses':'All statuses', 'filter.allclasses':'All classes', 'filter.allmodules':'All modules',
-      'filter.allactions':'All actions', 'filter.to.lower':'to',
-      'tx.issueshares':'Issue Shares', 'tx.transfershares':'Transfer Shares', 'tx.bonusshares':'Bonus Shares',
-      'tx.dividend':'Dividend',
-      'wz.step1':'Applicant type', 'wz.step2':'Personal details', 'wz.step3':'Contact &amp; address',
-      'wz.step4':'Bank &amp; documents', 'wz.step5':'Review &amp; submit',
-      'wz.applicanttype':'Applicant type', 'wz.referralsource':'Referral source',
-      'wz.namefull':'Full name (English)', 'wz.namemm':'Full name (Myanmar)', 'wz.nrc':'NRC number',
-      'wz.dob':'Date of birth', 'wz.nationality':'Nationality', 'wz.occupation':'Occupation',
-      'wz.mobile':'Mobile number', 'wz.regaddress':'Registered address', 'wz.bankdetails':'Bank details',
-      'wz.bankname':'Bank name', 'wz.acctnumber':'Account number', 'wz.acctname':'Account name',
-      'wz.supportingdocs':'Supporting documents',
-      'wz.declaration':'I confirm the information provided is accurate and the applicant has consented to processing under the KYC policy.',
-      'wz.shareholder':'Shareholder', 'wz.shareclass':'Share class', 'wz.quantity':'Quantity',
-      'wz.parvalue':'Par value / share', 'wz.premiumvalue':'Premium / share', 'wz.paymentref':'Payment reference',
-      'wz.recorddate':'Record date', 'wz.fullname':'Full name',
-      'referral.branch':'Branch walk-in', 'referral.existing':'Existing shareholder', 'referral.online':'Online',
-      'doc.nrccopy':'NRC Copy', 'doc.photo':'Passport Photo', 'doc.address':'Proof of Address',
-      'calc.preview':'Calculation preview', 'calc.capitalamount':'Capital amount',
-      'calc.premiumamount':'Premium amount', 'calc.totalpayable':'Total payable',
-      'transfer.details':'Transfer details', 'transfer.type':'Transfer type',
-      'transfer.from':'From shareholder', 'transfer.to':'To shareholder',
-      'transfer.consideration':'Consideration (MMK)', 'transfer.searchph':'Search by reference or shareholder',
-      'bonus.ratio':'Bonus ratio', 'bonus.cashremainder':'Cash remainder rate (MMK/share)',
-      'bonus.calcpreview':'Calculation preview — select certificates to include', 'bonus.current':'Current',
-      'bonus.bonusshares':'Bonus shares', 'bonus.remainder':'Remainder (MMK)',
-      'bonus.note':'Only shareholders whose certificate is checked will receive this bonus batch — uncheck to exclude a holder (e.g. a cancelled or transferred certificate) from the run.',
-      'dividend.rate':'Dividend rate (MMK/share)', 'dividend.settlement':'Settlement method',
-      'settlement.cash':'Cash', 'settlement.transfer':'Bank transfer', 'settlement.reinvest':'Reinvestment',
-      'approvals.kycdecision':'KYC Decision', 'approvals.submittedbyme':'Submitted by me',
-      'approvals.submitted':'Submitted', 'approvals.step1':'Step 1 — Branch Manager: Approved',
-      'approvals.step1comment':'Documents verified, payment confirmed.', 'approvals.step2':'Step 2 — Head of IR',
-      'approvals.awaiting':'Awaiting your decision', 'approvals.step3':'Step 3 — CFO',
-      'approvals.notreached':'Not yet reached', 'approvals.commentph':'Optional for approve, mandatory for reject/revert',
-      'role.branchmanager':'Branch Manager', 'role.headofir':'Head of IR',
-      'role.complianceofficer':'Compliance Officer', 'role.cfo':'CFO', 'role.sysadmin':'System Administrator',
-      'reason.annualleave':'Annual leave', 'reason.training':'Training',
-      'del.newdelegation':'New delegation', 'del.delegateto':'Delegate to', 'del.approverrole':'Approver role',
-      'del.startdate':'Start date', 'del.enddate':'End date', 'del.reasonph':'e.g. Annual leave',
-      'user.newuser':'New user', 'user.role':'Role', 'user.createuser':'Create user',
-      'matrix.newrule':'+ New Rule', 'matrix.txtype':'Transaction type', 'matrix.amountband':'Amount band',
-      'matrix.route':'Route', 'matrix.effectivefrom':'Effective from', 'matrix.any':'Any',
-      'matrix.routeseq':'Route (approver sequence)', 'matrix.saverule':'Save rule',
-      'perm.savechanges':'Save changes',
-      'md.groups':'Shareholder groups', 'md.shareclasses':'Share classes', 'md.branches':'Branches',
-      'md.departments':'Departments', 'md.nrcprefixes':'NRC prefixes', 'md.doctypes':'Document types',
-      'md.reasoncodes':'Reason codes',
-      'audit.timestamp':'Timestamp', 'audit.action':'Action', 'audit.entityref':'Entity Ref',
-      'audit.details':'Details', 'audit.result':'Result', 'audit.filterbyuser':'Filter by user…',
-      'audit.job':'Job',
-      'notif.demo1title':'Approval pending — IS-2026-0018', 'notif.demo1body':'Issue Shares awaiting Head of IR decision.',
-      'notif.demo2title':'KYC decision recorded', 'notif.demo2body':'APP-2026-0043 approved by Compliance Officer.',
-      'notif.demo3title':'Delegation started', 'notif.demo3body':'Ko Nyein Chan delegated Head of IR to you (19–26 Jul).',
-      'notif.demo4title':'Reminder: step overdue', 'notif.demo4body':'TS-2026-0009 has been pending 24h+.',
-      'notif.demo5title':'Reconciliation flag', 'notif.demo5body':'Duplicate certificate number detected — CERT-2025-000098.',
-      'time.12minago':'12 minutes ago', 'time.1hourago':'1 hour ago', 'time.3hoursago':'3 hours ago',
-      'time.yesterday':'Yesterday', 'time.2daysago':'2 days ago',
-      'kyc.screening':'Awaiting screening', 'kyc.pendingdocs':'Pending documents', 'kyc.decidedtoday':'Decided today',
-      'kyc.searchph':'Search applicant or ID', 'kyc.appdetails':'Application details',
-      'kyc.currentstage':'Current stage', 'kyc.screeningref':'Screening ref.', 'kyc.requestdocs':'Request documents',
-      'kyc.commentph':'Optional for approve, mandatory for reject/request documents',
-      'sh.searchph':'Search by name or ID', 'sh.totalregister':'Total (full register)',
-      'sh.details':'Shareholder details', 'sh.group':'Shareholder group', 'sh.nrc':'NRC / Registration No.',
-      'sh.holdingsummary':'Holding summary', 'sh.paidupcapital':'Paid-up capital', 'sh.kycstatus':'KYC status',
-      'app.searchph':'Search applicant or ID', 'cert.searchph':'Search by certificate no. or holder',
-      'issue.searchph':'Search by reference or shareholder', 'issue.details':'Issuance details',
-      'rpt.nofilters':'No filters applied — showing all rows. Date filters apply to reports with a date column; Group/Share class filter reports that have that column.',
-      'rpt.nrcmasked':'NRC masked — viewer lacks the Reports.ViewSensitiveData permission.',
-      'chart.byGroup.sub':'DB-01 · number of shares', 'chart.byGroupPct.sub':'DB-02 · percentage of issued shares',
-      'chart.paidupYearly.sub':'DB-03 · MMK, billions · cumulative', 'chart.dividendYearly.sub':'DB-04 · declared rate',
-      'chart.dividendCompare.sub':'DB-05 · this year vs. prior · MMK, millions',
-      'field.email':'Email',
-      'approvals.progress.2of3headofir':'2 of 3 — Head of IR', 'approvals.progress.1of2compliance':'1 of 2 — Compliance',
-      'approvals.progress.1of2cfo':'1 of 2 — CFO',
-      'matrix.newruletitle':'New approval rule', 'matrix.editruletitle':'Edit approval rule',
-      'md.newentry':'New entry'
+      'rptcard.rpt011.title':'Authorized vs. Paid-Up Capital', 'rptcard.rpt011.sub':'Authorized/issued capital and share summary.'
     },
     my: {
       'nav.dashboard':'ဒက်ရှ်ဘုတ်', 'nav.grp.shareholder':'ရှယ်ယာရှင် စီမံခန့်ခွဲမှု', 'nav.applications':'လျှောက်လွှာများ',
@@ -1825,113 +1718,7 @@
       'rptcard.rpt008.title':'တစ်ဦးချင်း အမြတ်ဝေစု', 'rptcard.rpt008.sub':'ရှယ်ယာရှင်တစ်ဦးချင်းစီ ပိုင်ဆိုင်ရက်အလိုက် ခွဲဝေမှု။',
       'rptcard.rpt009.title':'နှစ်အလိုက် အမြတ်ဝေစုမှတ်တမ်း', 'rptcard.rpt009.sub':'ဘဏ္ဍာနှစ်အလိုက် လျာထားငွေနှင့် ရှင်းလင်းမှု မှတ်တမ်း။',
       'rptcard.rpt010.title':'ရှယ်ယာဈေးနှုန်း အစီရင်ခံစာ', 'rptcard.rpt010.sub':'ကာလအလိုက် ဈေးကွက်တန်ဖိုး၊ စာရင်းတန်ဖိုးနှင့် ဒါရိုက်တာအဖွဲ့အတည်ပြုတန်ဖိုး။',
-      'rptcard.rpt011.title':'သတ်မှတ်ရင်းနှီးငွေနှင့် ပေးသွင်းပြီးရင်းနှီးငွေ', 'rptcard.rpt011.sub':'သတ်မှတ်/ထုတ်ဝေပြီး ရင်းနှီးငွေနှင့် ရှယ်ယာ အကျဉ်းချုပ်။',
-
-      'View':'ကြည့်ရှုမှု', 'Create':'ဖန်တီးမှု', 'Update':'ပြင်ဆင်မှု', 'Submit':'တင်သွင်းမှု', 'Decision':'ဆုံးဖြတ်ချက်',
-      'Export':'ထုတ်ယူမှု', 'Print':'ပရင့်ထုတ်မှု', 'Login':'ဝင်ရောက်မှု', 'Logout':'ထွက်ခွာမှု',
-      'btn.export':'⬇ ထုတ်ယူမည်', 'btn.review':'သုံးသပ်ရန်', 'btn.receipt':'ငွေလက်ခံဖြတ်ပိုင်း', 'btn.back':'← နောက်သို့',
-      'btn.continue':'ဆက်လက်ရန် →', 'btn.submitapplication':'လျှောက်လွှာတင်သွင်းမည်', 'btn.excel':'⬇ Excel',
-      'btn.pdf':'⬇ PDF', 'btn.print':'🖶 ပရင့်ထုတ်ရန်', 'btn.newuser':'+ အသုံးပြုသူအသစ်', 'btn.editrule':'ပြင်ဆင်ရန်',
-      'btn.add':'+ ထည့်ရန်', 'btn.apply':'သုံးမည်', 'btn.save':'သိမ်းမည်', 'btn.viewreceipt':'⬇ ငွေလက်ခံဖြတ်ပိုင်းကြည့်ရန်',
-      'th.reference':'ကိုးကားနံပါတ်', 'th.type':'အမျိုးအစား', 'th.status':'အခြေအနေ', 'th.applicant':'လျှောက်ထားသူ',
-      'th.appid':'လျှောက်လွှာအမှတ်', 'th.stage':'အဆင့်', 'th.submitted':'တင်သွင်းသည့်ရက်', 'th.shid':'ရှယ်ယာရှင်အမှတ်',
-      'th.name':'အမည်', 'th.group':'အုပ်စု', 'th.shareclass':'ရှယ်ယာအတန်းအစား', 'th.sharesheld':'ပိုင်ဆိုင်သည့်ရှယ်ယာ',
-      'th.certno':'လက်မှတ်အမှတ်', 'th.holder':'ပိုင်ရှင်', 'th.class':'အတန်းအစား', 'th.quantity':'အရေအတွက်',
-      'th.issuedate':'ထုတ်ပေးသည့်ရက်', 'th.shareholder':'ရှယ်ယာရှင်', 'th.amount':'ပမာဏ', 'th.from':'မှ',
-      'th.to':'သို့', 'th.submittedby':'တင်သွင်းသူ', 'th.step':'အဆင့်', 'th.waiting':'စောင့်ဆိုင်းဆဲ',
-      'th.currentstep':'လက်ရှိအဆင့်', 'th.batch':'အသုတ်', 'th.ratio':'အချိုး', 'th.recorddate':'မှတ်တမ်းရက်စွဲ',
-      'th.sharesissued':'ထုတ်ပေးသည့်ရှယ်ယာ', 'th.event':'အစီအစဉ်', 'th.rate':'နှုန်း', 'th.totalmmk':'စုစုပေါင်း (ကျပ်)',
-      'th.user':'အသုံးပြုသူ', 'th.email':'အီးမေးလ်', 'th.roles':'အခန်းကဏ္ဍများ', 'th.role':'အခန်းကဏ္ဍ',
-      'th.roledelegated':'လွှဲအပ်သည့်အခန်းကဏ္ဍ', 'th.start':'စတင်ရက်', 'th.end':'ပြီးဆုံးရက်', 'th.reason':'အကြောင်းရင်း',
-      'th.module':'အပိုင်း', 'th.address':'လိပ်စာ',
-      'status.active':'အသုံးပြုနေဆဲ', 'status.printed':'ပုံနှိပ်ပြီး', 'status.cancelled':'ပယ်ဖျက်ပြီး',
-      'status.suspended':'ရပ်ဆိုင်းထား', 'status.inactive':'အသုံးမပြုတော့', 'status.ended':'ပြီးဆုံးပြီး',
-      'status.fullyapproved':'အပြည့်အဝ အတည်ပြုပြီး', 'status.inprogress':'ဆောင်ရွက်ဆဲ',
-      'type.individual':'တစ်ဦးချင်း', 'type.joint':'ပူးတွဲ', 'type.corporate':'ကော်ပိုရိတ်',
-      'type.trade':'ကုန်သွယ်မှု', 'type.nontrade':'ကုန်သွယ်မှုမဟုတ်',
-      'shareclass.ordinary':'သာမန်', 'shareclass.preference':'ဦးစားပေး',
-      'stage.draft':'မူကြမ်း', 'stage.pendingdocs':'စာရွက်စာတမ်း စောင့်ဆိုင်းဆဲ', 'stage.kycreview':'KYC စိစစ်ဆဲ',
-      'stage.approved':'အတည်ပြုပြီး', 'stage.registered':'မှတ်ပုံတင်ပြီး', 'stage.rejected':'ငြင်းပယ်ပြီး',
-      'grp.bod':'ဒါရိုက်တာအဖွဲ့', 'grp.staff':'ဝန်ထမ်း', 'grp.public':'အများပြည်သူ',
-      'grp.companies':'ပုဂ္ဂလိကနှင့် အများပိုင်ကုမ္ပဏီများ', 'grp.coops':'ပြည်နယ်/တိုင်း သမဝါယမများ',
-      'filter.allgroups':'အုပ်စုအားလုံး', 'filter.allstages':'အဆင့်အားလုံး', 'filter.alltypes':'အမျိုးအစားအားလုံး',
-      'filter.allstatuses':'အခြေအနေအားလုံး', 'filter.allclasses':'အတန်းအစားအားလုံး', 'filter.allmodules':'အပိုင်းအားလုံး',
-      'filter.allactions':'လုပ်ဆောင်ချက်အားလုံး', 'filter.to.lower':'အထိ',
-      'tx.issueshares':'ရှယ်ယာထုတ်ပေးခြင်း', 'tx.transfershares':'ရှယ်ယာလွှဲပြောင်းခြင်း', 'tx.bonusshares':'အပိုရှယ်ယာ',
-      'tx.dividend':'အမြတ်ဝေစု',
-      'wz.step1':'လျှောက်ထားသူအမျိုးအစား', 'wz.step2':'ကိုယ်ရေးအချက်အလက်', 'wz.step3':'ဆက်သွယ်ရန်နှင့် လိပ်စာ',
-      'wz.step4':'ဘဏ်နှင့် စာရွက်စာတမ်းများ', 'wz.step5':'သုံးသပ်ပြီး တင်သွင်းမည်',
-      'wz.applicanttype':'လျှောက်ထားသူအမျိုးအစား', 'wz.referralsource':'ညွှန်းဆိုသူ အရင်းအမြစ်',
-      'wz.namefull':'အမည်အပြည့်အစုံ (အင်္ဂလိပ်)', 'wz.namemm':'အမည်အပြည့်အစုံ (မြန်မာ)', 'wz.nrc':'မှတ်ပုံတင်အမှတ်',
-      'wz.dob':'မွေးသက္ကရာဇ်', 'wz.nationality':'လူမျိုး', 'wz.occupation':'အလုပ်အကိုင်',
-      'wz.mobile':'မိုဘိုင်းဖုန်းနံပါတ်', 'wz.regaddress':'မှတ်ပုံတင်လိပ်စာ', 'wz.bankdetails':'ဘဏ်အချက်အလက်',
-      'wz.bankname':'ဘဏ်အမည်', 'wz.acctnumber':'အကောင့်နံပါတ်', 'wz.acctname':'အကောင့်အမည်',
-      'wz.supportingdocs':'အထောက်အထား စာရွက်စာတမ်းများ',
-      'wz.declaration':'ဖော်ပြထားသော အချက်အလက်များမှန်ကန်ပြီး လျှောက်ထားသူသည် KYC မူဝါဒအရ လုပ်ဆောင်ခြင်းကို သဘောတူညီကြောင်း အတည်ပြုပါသည်။',
-      'wz.shareholder':'ရှယ်ယာရှင်', 'wz.shareclass':'ရှယ်ယာအတန်းအစား', 'wz.quantity':'အရေအတွက်',
-      'wz.parvalue':'မျက်နှာစာတန်ဖိုး / ရှယ်ယာ', 'wz.premiumvalue':'ပရီမီယံ / ရှယ်ယာ', 'wz.paymentref':'ငွေပေးချေမှု ကိုးကားနံပါတ်',
-      'wz.recorddate':'မှတ်တမ်းရက်စွဲ', 'wz.fullname':'အမည်အပြည့်အစုံ',
-      'referral.branch':'ဌာနခွဲသို့ လာရောက်လျှောက်ထား', 'referral.existing':'လက်ရှိ ရှယ်ယာရှင်', 'referral.online':'အွန်လိုင်း',
-      'doc.nrccopy':'မှတ်ပုံတင်မိတ္တူ', 'doc.photo':'ပတ်စ်ပို့ဓာတ်ပုံ', 'doc.address':'နေရပ်လိပ်စာအထောက်အထား',
-      'calc.preview':'တွက်ချက်မှု ကြိုတင်ကြည့်ရှုခြင်း', 'calc.capitalamount':'အရင်းအနှီးပမာဏ',
-      'calc.premiumamount':'ပရီမီယံပမာဏ', 'calc.totalpayable':'ပေးချေရမည့် စုစုပေါင်း',
-      'transfer.details':'လွှဲပြောင်းမှု အသေးစိတ်', 'transfer.type':'လွှဲပြောင်းမှု အမျိုးအစား',
-      'transfer.from':'လွှဲပြောင်းမည့် ရှယ်ယာရှင်', 'transfer.to':'လက်ခံမည့် ရှယ်ယာရှင်',
-      'transfer.consideration':'အစားထိုးပေးချေမှု (ကျပ်)', 'transfer.searchph':'ကိုးကားနံပါတ် သို့မဟုတ် ရှယ်ယာရှင်ဖြင့် ရှာရန်',
-      'bonus.ratio':'အပိုရှယ်ယာ အချိုး', 'bonus.cashremainder':'ငွေကျန်နှုန်း (ကျပ်/ရှယ်ယာ)',
-      'bonus.calcpreview':'တွက်ချက်မှု ကြိုတင်ကြည့်ရှုခြင်း — ထည့်သွင်းမည့် လက်မှတ်များကို ရွေးပါ', 'bonus.current':'လက်ရှိ',
-      'bonus.bonusshares':'အပိုရှယ်ယာ', 'bonus.remainder':'ကျန်ငွေ (ကျပ်)',
-      'bonus.note':'လက်မှတ်ကို အမှန်ခြစ်ထားသည့် ရှယ်ယာရှင်များသာ ဤအပိုရှယ်ယာအသုတ်ကို ရရှိမည်ဖြစ်သည် — ပယ်ဖျက်ပြီး သို့မဟုတ် လွှဲပြောင်းပြီးသား လက်မှတ်ကဲ့သို့ ပိုင်ရှင်တစ်ဦးကို ဤလုပ်ဆောင်ချက်မှ ဖယ်ထုတ်ရန် အမှန်ခြစ်ကို ဖြုတ်ပါ။',
-      'dividend.rate':'အမြတ်ဝေစု နှုန်း (ကျပ်/ရှယ်ယာ)', 'dividend.settlement':'ရှင်းလင်းမှု နည်းလမ်း',
-      'settlement.cash':'ငွေသား', 'settlement.transfer':'ဘဏ်လွှဲ', 'settlement.reinvest':'ပြန်လည်ရင်းနှီးမြှုပ်နှံမှု',
-      'approvals.kycdecision':'KYC ဆုံးဖြတ်ချက်', 'approvals.submittedbyme':'ကျွန်ုပ်တင်သွင်းထားသည်များ',
-      'approvals.submitted':'တင်သွင်းသည့်ရက်', 'approvals.step1':'အဆင့် ၁ — ဌာနခွဲမန်နေဂျာ: အတည်ပြုပြီး',
-      'approvals.step1comment':'စာရွက်စာတမ်းများ စိစစ်ပြီး၊ ငွေပေးချေမှု အတည်ပြုပြီး။', 'approvals.step2':'အဆင့် ၂ — ရင်းနှီးမြှုပ်နှံသူဆက်ဆံရေးဌာနမှူး',
-      'approvals.awaiting':'သင့်ဆုံးဖြတ်ချက်ကို စောင့်ဆိုင်းနေသည်', 'approvals.step3':'အဆင့် ၃ — ဘဏ္ဍာရေးအရာရှိချုပ်',
-      'approvals.notreached':'မရောက်ရှိသေးပါ', 'approvals.commentph':'အတည်ပြုရန် မဖြစ်မနေမလို၊ ငြင်းပယ်/ပြန်ပို့ရန် မဖြစ်မနေလိုအပ်သည်',
-      'role.branchmanager':'ဌာနခွဲမန်နေဂျာ', 'role.headofir':'ရင်းနှီးမြှုပ်နှံသူဆက်ဆံရေးဌာနမှူး',
-      'role.complianceofficer':'လိုက်နာမှုအရာရှိ', 'role.cfo':'ဘဏ္ဍာရေးအရာရှိချုပ်', 'role.sysadmin':'စနစ်စီမံခန့်ခွဲသူ',
-      'reason.annualleave':'နှစ်ခွင့်', 'reason.training':'သင်တန်း',
-      'del.newdelegation':'လွှဲအပ်မှုအသစ်', 'del.delegateto':'လွှဲအပ်မည့်သူ', 'del.approverrole':'အတည်ပြုသူ အခန်းကဏ္ဍ',
-      'del.startdate':'စတင်ရက်စွဲ', 'del.enddate':'ပြီးဆုံးရက်စွဲ', 'del.reasonph':'ဥပမာ - နှစ်ခွင့်',
-      'user.newuser':'အသုံးပြုသူအသစ်', 'user.role':'အခန်းကဏ္ဍ', 'user.createuser':'အသုံးပြုသူဖန်တီးမည်',
-      'matrix.newrule':'+ စည်းမျဉ်းအသစ်', 'matrix.txtype':'ငွေလွှဲမှု အမျိုးအစား', 'matrix.amountband':'ပမာဏအပိုင်းအခြား',
-      'matrix.route':'လမ်းကြောင်း', 'matrix.effectivefrom':'အာဏာတည်သည့်ရက်', 'matrix.any':'မည်သည့်',
-      'matrix.routeseq':'လမ်းကြောင်း (အတည်ပြုသူ အစီအစဉ်)', 'matrix.saverule':'စည်းမျဉ်းသိမ်းမည်',
-      'perm.savechanges':'ပြောင်းလဲမှုများ သိမ်းမည်',
-      'md.groups':'ရှယ်ယာရှင်အုပ်စုများ', 'md.shareclasses':'ရှယ်ယာအတန်းအစားများ', 'md.branches':'ဌာနခွဲများ',
-      'md.departments':'ဌာနများ', 'md.nrcprefixes':'မှတ်ပုံတင် ရှေ့ဆက်များ', 'md.doctypes':'စာရွက်စာတမ်း အမျိုးအစားများ',
-      'md.reasoncodes':'အကြောင်းရင်းကုဒ်များ',
-      'audit.timestamp':'အချိန်တံဆိပ်', 'audit.action':'လုပ်ဆောင်ချက်', 'audit.entityref':'အကိုးအကား',
-      'audit.details':'အသေးစိတ်', 'audit.result':'ရလဒ်', 'audit.filterbyuser':'အသုံးပြုသူဖြင့် စစ်ထုတ်ရန်…',
-      'audit.job':'အလုပ်',
-      'notif.demo1title':'အတည်ပြုရန်ကျန် — IS-2026-0018', 'notif.demo1body':'ရှယ်ယာထုတ်ပေးခြင်းသည် ရင်းနှီးမြှုပ်နှံသူဆက်ဆံရေးဌာနမှူး၏ ဆုံးဖြတ်ချက်ကို စောင့်ဆိုင်းနေသည်။',
-      'notif.demo2title':'KYC ဆုံးဖြတ်ချက် မှတ်တမ်းတင်ပြီး', 'notif.demo2body':'APP-2026-0043 ကို လိုက်နာမှုအရာရှိမှ အတည်ပြုပြီးပါပြီ။',
-      'notif.demo3title':'လွှဲအပ်မှု စတင်ပြီး', 'notif.demo3body':'Ko Nyein Chan သည် ရင်းနှီးမြှုပ်နှံသူဆက်ဆံရေးဌာနမှူးရာထူးကို သင့်ထံသို့ လွှဲအပ်ခဲ့သည် (Jul 19–26)။',
-      'notif.demo4title':'သတိပေးချက်: အဆင့်ကျော်လွန်နေပြီ', 'notif.demo4body':'TS-2026-0009 သည် ၂၄ နာရီကျော် စောင့်ဆိုင်းနေဆဲဖြစ်သည်။',
-      'notif.demo5title':'ချိန်ညှိမှု အမှတ်အသား', 'notif.demo5body':'ထပ်နေသော လက်မှတ်နံပါတ် တွေ့ရှိခဲ့သည် — CERT-2025-000098။',
-      'time.12minago':'၁၂ မိနစ်က', 'time.1hourago':'၁ နာရီက', 'time.3hoursago':'၃ နာရီက',
-      'time.yesterday':'မနေ့က', 'time.2daysago':'၂ ရက်က',
-      'kyc.screening':'စိစစ်မှု စောင့်ဆိုင်းဆဲ', 'kyc.pendingdocs':'စာရွက်စာတမ်း စောင့်ဆိုင်းဆဲ', 'kyc.decidedtoday':'ယနေ့ဆုံးဖြတ်ပြီး',
-      'kyc.searchph':'လျှောက်ထားသူ သို့မဟုတ် အမှတ်ဖြင့် ရှာရန်', 'kyc.appdetails':'လျှောက်လွှာ အသေးစိတ်',
-      'kyc.currentstage':'လက်ရှိအဆင့်', 'kyc.screeningref':'စိစစ်မှု ကိုးကားနံပါတ်', 'kyc.requestdocs':'စာရွက်စာတမ်း တောင်းခံရန်',
-      'kyc.commentph':'အတည်ပြုရန် မဖြစ်မနေမလို၊ ငြင်းပယ်/စာရွက်စာတမ်းတောင်းခံရန် မဖြစ်မနေလိုအပ်သည်',
-      'sh.searchph':'အမည် သို့မဟုတ် အမှတ်ဖြင့် ရှာရန်', 'sh.totalregister':'စုစုပေါင်း (မှတ်ပုံတင်စာရင်းအပြည့်)',
-      'sh.details':'ရှယ်ယာရှင် အသေးစိတ်', 'sh.group':'ရှယ်ယာရှင် အုပ်စု', 'sh.nrc':'မှတ်ပုံတင်/မှတ်ပုံတင်အမှတ်',
-      'sh.holdingsummary':'ပိုင်ဆိုင်မှု အကျဉ်းချုပ်', 'sh.paidupcapital':'ငွေပေးသွင်းပြီးအရင်းအနှီး', 'sh.kycstatus':'KYC အခြေအနေ',
-      'app.searchph':'လျှောက်ထားသူ သို့မဟုတ် အမှတ်ဖြင့် ရှာရန်', 'cert.searchph':'လက်မှတ်အမှတ် သို့မဟုတ် ပိုင်ရှင်ဖြင့် ရှာရန်',
-      'issue.searchph':'ကိုးကားနံပါတ် သို့မဟုတ် ရှယ်ယာရှင်ဖြင့် ရှာရန်', 'issue.details':'ထုတ်ပေးမှု အသေးစိတ်',
-      'rpt.nofilters':'စစ်ထုတ်မှု မသုံးထားပါ — အတန်းအားလုံးကို ပြသနေသည်။ ရက်စွဲစစ်ထုတ်မှုသည် ရက်စွဲကော်လံပါသည့် အစီရင်ခံစာများကို သက်ရောက်ပြီး၊ အုပ်စု/ရှယ်ယာအတန်းအစားသည် ထိုကော်လံပါသည့် အစီရင်ခံစာများကို စစ်ထုတ်ပါသည်။',
-      'rpt.nrcmasked':'မှတ်ပုံတင်အမှတ် ဖုံးကွယ်ထား — ကြည့်ရှုသူတွင် Reports.ViewSensitiveData ခွင့်ပြုချက် မရှိပါ။',
-      'chart.byGroup.sub':'DB-01 · ရှယ်ယာအရေအတွက်', 'chart.byGroupPct.sub':'DB-02 · ထုတ်ပေးပြီးရှယ်ယာ ရာခိုင်နှုန်း',
-      'chart.paidupYearly.sub':'DB-03 · ကျပ်၊ ဘီလီယံ · စုစုပေါင်း', 'chart.dividendYearly.sub':'DB-04 · ကြေညာနှုန်း',
-      'chart.dividendCompare.sub':'DB-05 · ယခုနှစ် နှင့် ယခင်နှစ် နှိုင်းယှဉ်ချက် · ကျပ်သန်း',
-      'field.email':'အီးမေးလ်',
-      'approvals.progress.2of3headofir':'၃ ခုအနက် ၂ ခု — ရင်းနှီးမြှုပ်နှံသူဆက်ဆံရေးဌာနမှူး',
-      'approvals.progress.1of2compliance':'၂ ခုအနက် ၁ ခု — လိုက်နာရေး',
-      'approvals.progress.1of2cfo':'၂ ခုအနက် ၁ ခု — ဘဏ္ဍာရေးအရာရှိချုပ်',
-      'matrix.newruletitle':'အတည်ပြုမှု စည်းမျဉ်းအသစ်', 'matrix.editruletitle':'အတည်ပြုမှု စည်းမျဉ်း ပြင်ဆင်ရန်',
-      'md.newentry':'အသစ်ထည့်ရန်'
+      'rptcard.rpt011.title':'သတ်မှတ်ရင်းနှီးငွေနှင့် ပေးသွင်းပြီးရင်းနှီးငွေ', 'rptcard.rpt011.sub':'သတ်မှတ်/ထုတ်ဝေပြီး ရင်းနှီးငွေနှင့် ရှယ်ယာ အကျဉ်းချုပ်။'
     }
   };
   var currentLang = 'en';
@@ -1939,14 +1726,6 @@
     root.querySelectorAll('[data-i18n]').forEach(function(el){
       var key = el.getAttribute('data-i18n');
       if(I18N[currentLang] && I18N[currentLang][key]) el.textContent = I18N[currentLang][key];
-    });
-    root.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
-      var key = el.getAttribute('data-i18n-placeholder');
-      if(I18N[currentLang] && I18N[currentLang][key]) el.setAttribute('placeholder', I18N[currentLang][key]);
-    });
-    root.querySelectorAll('[data-i18n-value]').forEach(function(el){
-      var key = el.getAttribute('data-i18n-value');
-      if(I18N[currentLang] && I18N[currentLang][key]) el.value = I18N[currentLang][key];
     });
   }
   function setLang(code){
@@ -1956,23 +1735,6 @@
     applyLangToElement(document);
     var activePage = document.querySelector('.page.active');
     if(activePage) updateBreadcrumb(activePage.id.replace('page-', ''));
-    refreshDynamicContent();
-  }
-
-  // Re-renders every JS-generated table/widget so pills, group names, share classes and other
-  // translated small-vocabulary text switch immediately on language toggle, not just on next reload.
-  function refreshDynamicContent(){
-    [shareholderPager, certPager, issuePager, transferPager, bonusPager, dividendsPager, appPager, kycPager]
-      .forEach(function(p){ if(typeof p !== 'undefined' && p) p.render(); });
-    if(typeof renderKycKpis === 'function') renderKycKpis();
-    var isActive = function(pageId){ var el = document.getElementById('page-' + pageId); return el && el.classList.contains('active'); };
-    if(isActive('dashboard') && typeof renderDashboardFromBulkData === 'function') renderDashboardFromBulkData();
-    if(isActive('audit') && typeof renderAuditTable === 'function'){
-      if(typeof populateAuditModuleFilter === 'function') populateAuditModuleFilter();
-      renderAuditTable();
-    }
-    if(isActive('masterdata') && typeof renderMasterDataTable === 'function') renderMasterDataTable();
-    if(isActive('reports') && typeof loadReport === 'function' && typeof currentReportCode !== 'undefined') loadReport(currentReportCode);
   }
 
   function makeBarcode(elId){
@@ -2143,14 +1905,11 @@
   function populateAuditModuleFilter(){
     var sel = document.getElementById('auditModuleFilter');
     if(!sel) return;
-    var prevValue = sel.value || 'All';
     var seen = {};
     var modules = [];
     AUDIT_LOG.forEach(function(e){ if(!seen[e.module]){ seen[e.module] = true; modules.push(e.module); } });
     modules.sort();
-    sel.innerHTML = '<option value="All">' + esc(I18N[currentLang]['filter.allmodules']) + '</option>' +
-      modules.map(function(m){ return '<option value="' + esc(m) + '">' + esc(xlate(m)) + '</option>'; }).join('');
-    sel.value = prevValue;
+    sel.innerHTML = '<option value="All">All modules</option>' + modules.map(function(m){ return '<option>' + esc(m) + '</option>'; }).join('');
   }
 
   function renderAuditTable(){
@@ -2163,20 +1922,18 @@
     if(tbody){
       tbody.innerHTML = pageRows.map(function(e){
         var resultCls = e.result === 'Success' ? 'pill-success' : 'pill-danger';
-        return '<tr><td class="mono">' + fmtAuditTs(e.ts) + '</td><td>' + esc(e.user) + '</td><td>' + esc(xlate(e.action)) + '</td><td>' + esc(xlate(e.module)) + '</td>' +
-          '<td class="mono">' + esc(e.entityRef) + '</td><td>' + esc(e.detail) + '</td><td><span class="pill ' + resultCls + '">' + esc(xlate(e.result)) + '</span></td></tr>';
+        return '<tr><td class="mono">' + fmtAuditTs(e.ts) + '</td><td>' + esc(e.user) + '</td><td>' + esc(e.action) + '</td><td>' + esc(e.module) + '</td>' +
+          '<td class="mono">' + esc(e.entityRef) + '</td><td>' + esc(e.detail) + '</td><td><span class="pill ' + resultCls + '">' + esc(e.result) + '</span></td></tr>';
       }).join('');
     }
     var pagerEl = document.getElementById('auditPager');
     if(pagerEl){
-      var auditBtnLabels = pagerButtonLabels();
-      var entriesText = currentLang === 'my' ? (fmtNum(filtered.length) + ' ခု') : (fmtNum(filtered.length) + ' entr' + (filtered.length === 1 ? 'y' : 'ies'));
       pagerEl.innerHTML =
-        '<span>' + entriesText + '</span>' +
+        '<span>' + fmtNum(filtered.length) + ' entr' + (filtered.length === 1 ? 'y' : 'ies') + '</span>' +
         '<div style="display:flex;gap:8px;align-items:center;">' +
-        '<button data-act="prev"' + (auditPage <= 1 ? ' disabled' : '') + '>' + auditBtnLabels.prev + '</button>' +
-        '<span>' + pagerPageText(auditPage, totalPages) + '</span>' +
-        '<button data-act="next"' + (auditPage >= totalPages ? ' disabled' : '') + '>' + auditBtnLabels.next + '</button>' +
+        '<button data-act="prev"' + (auditPage <= 1 ? ' disabled' : '') + '>‹ Prev</button>' +
+        '<span>Page ' + fmtNum(auditPage) + ' / ' + fmtNum(totalPages) + '</span>' +
+        '<button data-act="next"' + (auditPage >= totalPages ? ' disabled' : '') + '>Next ›</button>' +
         '</div>';
       pagerEl.querySelectorAll('button').forEach(function(btn){
         btn.onclick = function(){
@@ -2225,52 +1982,13 @@
     return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
   }
   function selText(select){ return select.options[select.selectedIndex] ? select.options[select.selectedIndex].text : ''; }
-
-  // Small, fixed vocabulary (statuses, types, groups, roles) reused across every list/table in the
-  // app - translated centrally here so every pill/plain-text cell switches language in one place,
-  // rather than needing a data-i18n attribute on every generated table cell.
-  var LABELS_MY = {
-    'Draft':'မူကြမ်း', 'Submitted':'တင်သွင်းပြီး', 'Pending Documents':'စာရွက်စာတမ်း စောင့်ဆိုင်းဆဲ',
-    'KYC Review':'KYC စိစစ်ဆဲ', 'KYC Pending':'KYC စောင့်ဆိုင်းဆဲ', 'Pending Approval':'အတည်ပြုရန်ကျန်',
-    'Approved':'အတည်ပြုပြီး', 'KYC Approved':'KYC အတည်ပြုပြီး', 'Rejected':'ငြင်းပယ်ပြီး',
-    'KYC Rejected':'KYC ငြင်းပယ်ပြီး', 'Registered':'မှတ်ပုံတင်ပြီး', 'Posted':'စာရင်းသွင်းပြီး',
-    'Active':'အသုံးပြုနေဆဲ', 'Printed':'ပုံနှိပ်ပြီး', 'Cancelled':'ပယ်ဖျက်ပြီး', 'Overdue':'သတ်မှတ်ချိန်လွန်',
-    'Settled':'ရှင်းလင်းပြီး', 'Completed':'ပြီးစီး', 'Fully approved':'အပြည့်အဝ အတည်ပြုပြီး',
-    'In progress':'ဆောင်ရွက်ဆဲ', 'Suspended':'ရပ်ဆိုင်းထား', 'Ended':'ပြီးဆုံးပြီး', 'Waiting':'စောင့်ဆိုင်းဆဲ',
-    'Reverted':'ပြန်ပို့ပြီး', 'Archived':'သိမ်းဆည်းပြီး', 'Processing':'ဆောင်ရွက်နေဆဲ', 'Posting Error':'စာရင်းသွင်းမှု အမှား',
-    'Individual':'တစ်ဦးချင်း', 'Joint':'ပူးတွဲ', 'Corporate':'ကော်ပိုရိတ်',
-    'Ordinary':'သာမန်', 'Preference':'ဦးစားပေး',
-    'Trade':'ကုန်သွယ်မှု', 'Non-trade':'ကုန်သွယ်မှုမဟုတ်',
-    'BOD':'ဒါရိုက်တာအဖွဲ့', 'Staff':'ဝန်ထမ်း', 'Public':'အများပြည်သူ',
-    'Private & Public Companies':'ပုဂ္ဂလိကနှင့် အများပိုင်ကုမ္ပဏီများ',
-    'States & Divisions Co-operatives':'ပြည်နယ်/တိုင်း သမဝါယမများ',
-    'Branch walk-in':'ဌာနခွဲသို့ လာရောက်လျှောက်ထား', 'Existing shareholder':'လက်ရှိ ရှယ်ယာရှင်', 'Online':'အွန်လိုင်း',
-    'Branch Manager':'ဌာနခွဲမန်နေဂျာ', 'Compliance Officer':'လိုက်နာမှုအရာရှိ',
-    'Head of IR':'ရင်းနှီးမြှုပ်နှံသူဆက်ဆံရေးဌာနမှူး', 'CFO':'ဘဏ္ဍာရေးအရာရှိချုပ်',
-    'System Administrator':'စနစ်စီမံခန့်ခွဲသူ',
-    'NRC Copy':'မှတ်ပုံတင်မိတ္တူ', 'Passport Photo':'ပတ်စ်ပို့ဓာတ်ပုံ', 'Proof of Address':'နေရပ်လိပ်စာအထောက်အထား',
-    'Success':'အောင်မြင်', 'Failure':'မအောင်မြင်',
-    'Create':'ဖန်တီးမှု', 'Decision':'ဆုံးဖြတ်ချက်', 'Export':'ထုတ်ယူမှု', 'Login':'ဝင်ရောက်မှု',
-    'Logout':'ထွက်ခွာမှု', 'Print':'ပရင့်ထုတ်မှု', 'Submit':'တင်သွင်းမှု', 'Update':'ပြင်ဆင်မှု', 'View':'ကြည့်ရှုမှု',
-    'Applications':'လျှောက်လွှာများ', 'Approval Matrix':'အတည်ပြုမှုဇယား', 'Approvals':'အတည်ပြုချက်များ',
-    'Audit Log':'စစ်ဆေးမှတ်တမ်း', 'Certificates':'ရှယ်ယာလက်မှတ်များ', 'Dashboard':'ဒက်ရှ်ဘုတ်',
-    'Delegations':'လွှဲအပ်ခြင်းများ', 'Issue Shares':'ရှယ်ယာထုတ်ပေးခြင်း', 'KYC':'KYC',
-    'Master Data':'အခြေခံဒေတာ', 'Permissions':'ခွင့်ပြုချက်များ', 'Reports':'အစီရင်ခံစာများ',
-    'Security':'လုံခြုံရေး', 'System':'စနစ်', 'Shareholders':'ရှယ်ယာရှင်များ', 'Users & Roles':'အသုံးပြုသူနှင့် အခန်းကဏ္ဍများ',
-    'Transfer Shares':'ရှယ်ယာလွှဲပြောင်းခြင်း', 'Bonus Shares':'အပိုရှယ်ယာ', 'Dividend':'အမြတ်ဝေစု', 'Dividends':'အမြတ်ဝေစုများ',
-    'Notifications':'အသိပေးချက်များ', 'KYC / Application':'KYC / လျှောက်လွှာ'
-  };
-  function xlate(s){
-    if(currentLang !== 'my' || s == null) return s;
-    return LABELS_MY.hasOwnProperty(s) ? LABELS_MY[s] : s;
-  }
   function pill(status){
     var cls = (status === 'Draft' || status === 'Printed') ? 'pill-neutral'
       : (status === 'Pending Approval' || status === 'KYC Review') ? 'pill-warning'
       : (status === 'Pending Documents' || status === 'Submitted') ? 'pill-info'
       : (status === 'Rejected' || status === 'Overdue' || status === 'Cancelled') ? 'pill-danger'
       : 'pill-success';
-    return '<span class="pill ' + cls + '">' + esc(xlate(status)) + '</span>';
+    return '<span class="pill ' + cls + '">' + status + '</span>';
   }
   function fmtDate(iso){
     var parts = (iso || '').split('-');
@@ -2561,7 +2279,7 @@
   var matrixEditingRow = null;
   function openMatrixDrawer(){
     matrixEditingRow = null;
-    document.getElementById('matrixDrawerTitle').textContent = I18N[currentLang]['matrix.newruletitle'];
+    document.getElementById('matrixDrawerTitle').textContent = 'New approval rule';
     document.getElementById('matrixType').selectedIndex = 0;
     document.getElementById('matrixBand').value = 'Any';
     document.getElementById('matrixRoute').value = '';
@@ -2578,7 +2296,7 @@
     var tr = link.closest('tr');
     var cells = tr.querySelectorAll('td');
     matrixEditingRow = tr;
-    document.getElementById('matrixDrawerTitle').textContent = I18N[currentLang]['matrix.editruletitle'];
+    document.getElementById('matrixDrawerTitle').textContent = 'Edit approval rule';
     var typeSel = document.getElementById('matrixType');
     var typeText = cells[0].textContent.trim();
     for(var i = 0; i < typeSel.options.length; i++){ if(typeSel.options[i].text === typeText) typeSel.selectedIndex = i; }
@@ -2677,30 +2395,16 @@
     }
   };
   var mdCurrentKey = 'groups';
-  var MD_KEY_I18N = {
-    groups: 'md.groups', shareclasses: 'md.shareclasses', branches: 'md.branches',
-    departments: 'md.departments', nrcprefixes: 'md.nrcprefixes', documenttypes: 'md.doctypes', reasoncodes: 'md.reasoncodes'
-  };
-  var MD_COL_MY = {
-    'Code':'ကုဒ်', 'Name':'အမည်', 'Status':'အခြေအနေ', 'Members':'အဖွဲ့ဝင်အရေအတွက်', 'Township':'မြို့နယ်',
-    'Par Value (MMK)':'မျက်နှာစာတန်ဖိုး (ကျပ်)', 'Region / State':'ဒေသ / ပြည်နယ်', 'Prefix':'ရှေ့ဆက်',
-    'Required':'လိုအပ်သည်', 'Applies To':'သက်ဆိုင်သည့်နေရာ', 'Description':'ဖော်ပြချက်'
-  };
-  var MD_ADD_TITLE_MY = {
-    groups:'ရှယ်ယာရှင်အုပ်စု အသစ်', shareclasses:'ရှယ်ယာအတန်းအစား အသစ်', branches:'ဌာနခွဲ အသစ်',
-    departments:'ဌာန အသစ်', nrcprefixes:'NRC ရှေ့ဆက် အသစ်', documenttypes:'စာရွက်စာတမ်း အမျိုးအစား အသစ်', reasoncodes:'အကြောင်းရင်းကုဒ် အသစ်'
-  };
-  function mdColLabel(c){ return (currentLang === 'my' && MD_COL_MY.hasOwnProperty(c)) ? MD_COL_MY[c] : c; }
 
   function renderMasterDataTable(){
     var def = MASTER_DATA[mdCurrentKey];
-    document.getElementById('mdTitle').textContent = (I18N[currentLang] && I18N[currentLang][MD_KEY_I18N[mdCurrentKey]]) || def.title;
+    document.getElementById('mdTitle').textContent = def.title;
     document.getElementById('mdHead').innerHTML = '<tr>' + def.cols.map(function(c, i){
-      return '<th' + (def.numCols.indexOf(i) !== -1 ? ' class="num"' : '') + '>' + esc(mdColLabel(c)) + '</th>';
+      return '<th' + (def.numCols.indexOf(i) !== -1 ? ' class="num"' : '') + '>' + c + '</th>';
     }).join('') + '</tr>';
     document.getElementById('mdBody').innerHTML = def.rows.map(function(row){
       return '<tr>' + row.map(function(cell, i){
-        if(def.cols[i] === 'Status') return '<td><span class="pill pill-success">' + esc(xlate(cell)) + '</span></td>';
+        if(def.cols[i] === 'Status') return '<td><span class="pill pill-success">' + esc(cell) + '</span></td>';
         var cls = def.numCols.indexOf(i) !== -1 ? 'num' : (i === 0 ? 'mono' : '');
         return '<td' + (cls ? ' class="' + cls + '"' : '') + '>' + esc(cell) + '</td>';
       }).join('') + '</tr>';
@@ -2718,11 +2422,9 @@
 
   function buildMasterDataAddFields(){
     var def = MASTER_DATA[mdCurrentKey];
-    document.getElementById('mdAddTitle').textContent = currentLang === 'my'
-      ? MD_ADD_TITLE_MY[mdCurrentKey]
-      : 'New ' + def.title.toLowerCase().replace(/ies$/, 'y').replace(/s$/, '');
+    document.getElementById('mdAddTitle').textContent = 'New ' + def.title.toLowerCase().replace(/ies$/, 'y').replace(/s$/, '');
     document.getElementById('mdAddFields').innerHTML = def.addable.map(function(colName){
-      return '<div class="field"><label>' + esc(mdColLabel(colName)) + ' <span class="req">*</span></label><input data-field="' + colName + '" /></div>';
+      return '<div class="field"><label>' + colName + ' <span class="req">*</span></label><input data-field="' + colName + '" /></div>';
     }).join('');
   }
 
@@ -2936,8 +2638,7 @@
     var start = (reportPage - 1) * REPORT_PAGE_SIZE;
     var toShow = fullRender ? filtered : filtered.slice(start, start + REPORT_PAGE_SIZE);
     if(filtered.length === 0){
-      var noRowsText = currentLang === 'my' ? 'လက်ရှိစစ်ထုတ်မှုနှင့် ကိုက်ညီသည့် အတန်း မရှိပါ။' : 'No rows match the current filters.';
-      body.innerHTML = '<tr><td colspan="' + report.cols.length + '" class="empty-note">' + noRowsText + '</td></tr>';
+      body.innerHTML = '<tr><td colspan="' + report.cols.length + '" class="empty-note">No rows match the current filters.</td></tr>';
     } else {
       body.innerHTML = toShow.map(function(row){
         return '<tr>' + row.map(function(cell, i){
@@ -2950,10 +2651,8 @@
     var anyFilter = reportFilters.dateFrom || reportFilters.dateTo || reportFilters.group !== 'All' || reportFilters.shareClass !== 'All';
     var summary = document.getElementById('rptFilterSummary');
     summary.textContent = anyFilter
-      ? (currentLang === 'my'
-          ? (report.title.split(' · ')[0] + ' အတွက် ' + fmtNum(report.rows.length) + ' ခုအနက် ' + fmtNum(filtered.length) + ' အတန်းကို ပြသနေသည်။')
-          : ('Showing ' + filtered.length + ' of ' + report.rows.length + ' rows for ' + report.title.split(' · ')[0] + '.'))
-      : I18N[currentLang]['rpt.nofilters'];
+      ? ('Showing ' + filtered.length + ' of ' + report.rows.length + ' rows for ' + report.title.split(' · ')[0] + '.')
+      : 'No filters applied — showing all rows. Date filters apply to reports with a date column; Group/Share class filter reports that have that column.';
     if(!fullRender) renderReportPager(filtered.length, totalPages);
     return filtered;
   }
@@ -2964,18 +2663,14 @@
     if(totalFiltered <= REPORT_PAGE_SIZE){ pagerEl.innerHTML = ''; return; }
     var start = (reportPage - 1) * REPORT_PAGE_SIZE;
     var shownTo = Math.min(start + REPORT_PAGE_SIZE, totalFiltered);
-    var rptLabels = pagerButtonLabels();
-    var rowsNote = currentLang === 'my'
-      ? (pagerSummaryText(start + 1, shownTo, totalFiltered) + ' — ထုတ်ယူမှုတွင် အတန်းအားလုံး ပါဝင်သည်။')
-      : (pagerSummaryText(start + 1, shownTo, totalFiltered).replace('record(s)', 'row(s)') + ' — exports include all rows.');
     pagerEl.innerHTML =
-      '<span>' + rowsNote + '</span>' +
+      '<span>Showing ' + fmtNum(start + 1) + '–' + fmtNum(shownTo) + ' of ' + fmtNum(totalFiltered) + ' row(s) — exports include all rows.</span>' +
       '<div class="pager-btns">' +
-        '<button data-act="first"' + (reportPage <= 1 ? ' disabled' : '') + '>' + rptLabels.first + '</button>' +
-        '<button data-act="prev"' + (reportPage <= 1 ? ' disabled' : '') + '>' + rptLabels.prev + '</button>' +
-        '<span>' + pagerPageText(reportPage, totalPages) + '</span>' +
-        '<button data-act="next"' + (reportPage >= totalPages ? ' disabled' : '') + '>' + rptLabels.next + '</button>' +
-        '<button data-act="last"' + (reportPage >= totalPages ? ' disabled' : '') + '>' + rptLabels.last + '</button>' +
+        '<button data-act="first"' + (reportPage <= 1 ? ' disabled' : '') + '>« First</button>' +
+        '<button data-act="prev"' + (reportPage <= 1 ? ' disabled' : '') + '>‹ Prev</button>' +
+        '<span>Page ' + fmtNum(reportPage) + ' / ' + fmtNum(totalPages) + '</span>' +
+        '<button data-act="next"' + (reportPage >= totalPages ? ' disabled' : '') + '>Next ›</button>' +
+        '<button data-act="last"' + (reportPage >= totalPages ? ' disabled' : '') + '>Last »</button>' +
       '</div>';
     pagerEl.querySelectorAll('button').forEach(function(btn){
       btn.onclick = function(){
@@ -2997,7 +2692,7 @@
     document.querySelectorAll('.report-card').forEach(function(c){
       c.classList.toggle('selected', c.getAttribute('data-report') === code);
     });
-    document.getElementById('reportPreviewTitle').textContent = report.title + (currentLang === 'my' ? ' — ကြိုတင်ကြည့်ရှုခြင်း' : ' — preview');
+    document.getElementById('reportPreviewTitle').textContent = report.title + ' — preview';
     var head = document.getElementById('reportPreviewHead');
     head.innerHTML = '<tr>' + report.cols.map(function(c, i){
       return '<th' + (report.numCols.indexOf(i) !== -1 ? ' class="num"' : '') + '>' + esc(c) + '</th>';
@@ -3244,19 +2939,6 @@
   var ALL_DIVIDENDS = HERO_DIVIDENDS.concat(BULK_DIVIDENDS);
 
   /* ---------- generic client-side pager (keeps huge arrays off the DOM) ---------- */
-  function pagerSummaryText(from, to, total){
-    return currentLang === 'my'
-      ? 'စုစုပေါင်း ' + fmtNum(total) + ' ခုအနက် ' + fmtNum(from) + '–' + fmtNum(to) + ' ကို ပြသနေသည်'
-      : 'Showing ' + fmtNum(from) + '–' + fmtNum(to) + ' of ' + fmtNum(total) + ' record(s)';
-  }
-  function pagerPageText(page, totalPages){
-    return (currentLang === 'my' ? 'စာမျက်နှာ ' : 'Page ') + fmtNum(page) + ' / ' + fmtNum(totalPages);
-  }
-  function pagerButtonLabels(){
-    return currentLang === 'my'
-      ? { first:'« ပထမဆုံး', prev:'‹ ယခင်', next:'နောက် ›', last:'နောက်ဆုံး »' }
-      : { first:'« First', prev:'‹ Prev', next:'Next ›', last:'Last »' };
-  }
   function makePager(cfg){
     var state = { page: 1, pageSize: cfg.pageSize || 50, filtered: cfg.data, term: '' };
     function applySearch(term){
@@ -3276,22 +2958,20 @@
       var pageRows = state.filtered.slice(start, start + state.pageSize);
       var tbody = document.querySelector(cfg.tbodySel);
       if(!tbody) return;
-      var noMatchesText = currentLang === 'my' ? 'ကိုက်ညီသည့် မှတ်တမ်း မရှိပါ။' : 'No matching records.';
-      tbody.innerHTML = pageRows.length ? pageRows.map(cfg.rowFn).join('') : '<tr><td colspan="8" style="text-align:center; color:var(--ink-400); padding:24px;">' + noMatchesText + '</td></tr>';
+      tbody.innerHTML = pageRows.length ? pageRows.map(cfg.rowFn).join('') : '<tr><td colspan="8" style="text-align:center; color:var(--ink-400); padding:24px;">No matching records.</td></tr>';
       if(typeof currentLang !== 'undefined' && currentLang !== 'en') applyLangToElement(tbody);
       var pagerEl = document.querySelector(cfg.pagerSel);
       if(!pagerEl) return;
       var shownFrom = state.filtered.length ? start + 1 : 0;
       var shownTo = Math.min(start + state.pageSize, state.filtered.length);
-      var btnLabels = pagerButtonLabels();
       pagerEl.innerHTML =
-        '<span>' + pagerSummaryText(shownFrom, shownTo, state.filtered.length) + '</span>' +
+        '<span>Showing ' + fmtNum(shownFrom) + '–' + fmtNum(shownTo) + ' of ' + fmtNum(state.filtered.length) + ' record(s)</span>' +
         '<div class="pager-btns">' +
-          '<button data-act="first"' + (state.page <= 1 ? ' disabled' : '') + '>' + btnLabels.first + '</button>' +
-          '<button data-act="prev"' + (state.page <= 1 ? ' disabled' : '') + '>' + btnLabels.prev + '</button>' +
-          '<span>' + pagerPageText(state.page, totalPages) + '</span>' +
-          '<button data-act="next"' + (state.page >= totalPages ? ' disabled' : '') + '>' + btnLabels.next + '</button>' +
-          '<button data-act="last"' + (state.page >= totalPages ? ' disabled' : '') + '>' + btnLabels.last + '</button>' +
+          '<button data-act="first"' + (state.page <= 1 ? ' disabled' : '') + '>« First</button>' +
+          '<button data-act="prev"' + (state.page <= 1 ? ' disabled' : '') + '>‹ Prev</button>' +
+          '<span>Page ' + fmtNum(state.page) + ' / ' + fmtNum(totalPages) + '</span>' +
+          '<button data-act="next"' + (state.page >= totalPages ? ' disabled' : '') + '>Next ›</button>' +
+          '<button data-act="last"' + (state.page >= totalPages ? ' disabled' : '') + '>Last »</button>' +
         '</div>';
       pagerEl.querySelectorAll('button').forEach(function(btn){
         btn.onclick = function(){
@@ -3316,7 +2996,7 @@
       return !v || r.group === v;
     },
     rowFn: function(r){
-      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + esc(xlate(r.group)) + '</td><td>' + esc(xlate(r.shareClass)) + '</td><td class="num">' + fmtNum(r.shares) + '</td><td><a href="#" onclick="viewShareholder(\'' + r.id + '\');return false;" data-i18n="btn.view">View</a></td></tr>';
+      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td><td>' + esc(r.group) + '</td><td>' + esc(r.shareClass) + '</td><td class="num">' + fmtNum(r.shares) + '</td><td><a href="#" onclick="viewShareholder(\'' + r.id + '\');return false;" data-i18n="btn.view">View</a></td></tr>';
     }
   });
   document.getElementById('shTotalShares').textContent = fmtNum(ALL_SHAREHOLDERS.reduce(function(s, r){ return s + r.shares; }, 0));
@@ -3327,15 +3007,15 @@
     for(var i = 0; i < ALL_SHAREHOLDERS.length; i++){ if(ALL_SHAREHOLDERS[i].id === id){ record = ALL_SHAREHOLDERS[i]; break; } }
     if(!record) return;
     document.getElementById('shDetailId').textContent = record.id;
-    document.getElementById('shDetailSub').textContent = record.name + ' · ' + xlate(record.group);
+    document.getElementById('shDetailSub').textContent = record.name + ' · ' + record.group;
     document.getElementById('shDetailIdField').textContent = record.id;
     document.getElementById('shDetailNameField').textContent = record.name;
-    document.getElementById('shDetailType').textContent = xlate(record.type);
-    document.getElementById('shDetailGroup').textContent = xlate(record.group);
+    document.getElementById('shDetailType').textContent = record.type;
+    document.getElementById('shDetailGroup').textContent = record.group;
     document.getElementById('shDetailNrc').textContent = record.nrc || '—';
     document.getElementById('shDetailAddress').textContent = record.address || '—';
-    document.getElementById('shDetailClass').textContent = xlate(record.shareClass);
-    document.getElementById('shDetailShares').textContent = fmtNum(record.shares) + (currentLang === 'my' ? ' ရှယ်ယာ' : ' shares');
+    document.getElementById('shDetailClass').textContent = record.shareClass;
+    document.getElementById('shDetailShares').textContent = fmtNum(record.shares) + ' shares';
     document.getElementById('shDetailCapital').textContent = 'MMK ' + fmtNum(record.shares * PAR_VALUE);
     document.getElementById('shDetailStatus').innerHTML = pill('Active');
     document.getElementById('shDetailKyc').innerHTML = pill('Approved');
@@ -3351,7 +3031,7 @@
       return !v || r.status === v;
     },
     rowFn: function(r){
-      return '<tr><td class="mono">' + esc(r.no) + '</td><td>' + esc(r.holder) + '</td><td>' + esc(xlate(r.cls)) + '</td><td class="num">' + fmtNum(r.qty) + '</td><td>' + esc(r.date) + '</td><td>' + pill(r.status) + '</td><td><a href="#" onclick="showDetail(\'certificates\');return false;" data-i18n="btn.view">View</a></td></tr>';
+      return '<tr><td class="mono">' + esc(r.no) + '</td><td>' + esc(r.holder) + '</td><td>' + esc(r.cls) + '</td><td class="num">' + fmtNum(r.qty) + '</td><td>' + esc(r.date) + '</td><td>' + pill(r.status) + '</td><td><a href="#" onclick="showDetail(\'certificates\');return false;" data-i18n="btn.view">View</a></td></tr>';
     }
   });
 
@@ -3360,8 +3040,8 @@
     searchFn: function(r, term){ return r.name.toLowerCase().indexOf(term) > -1 || r.ref.toLowerCase().indexOf(term) > -1; },
     rowFn: function(r){
       var amt = r.amount >= 1000000 ? 'MMK ' + (r.amount / 1000000).toFixed(1) + 'M' : 'MMK ' + fmtNum(r.amount);
-      var action = r.status === 'Posted' ? '<a href="#" onclick="showReceipt();return false;" data-i18n="btn.receipt">Receipt</a>' : '—';
-      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.name) + '</td><td>' + esc(xlate(r.cls)) + '</td><td class="num">' + fmtNum(r.qty) + '</td><td class="num">' + amt + '</td><td>' + pill(r.status) + '</td><td>' + action + '</td></tr>';
+      var action = r.status === 'Posted' ? '<a href="#" onclick="showReceipt();return false;">Receipt</a>' : '—';
+      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.cls) + '</td><td class="num">' + fmtNum(r.qty) + '</td><td class="num">' + amt + '</td><td>' + pill(r.status) + '</td><td>' + action + '</td></tr>';
     }
   });
 
@@ -3369,7 +3049,7 @@
     data: ALL_TRANSFER, pageSize: 50, tbodySel: '#transferTable tbody', pagerSel: '#transferPagerBar',
     searchFn: function(r, term){ return r.from.toLowerCase().indexOf(term) > -1 || r.to.toLowerCase().indexOf(term) > -1 || r.ref.toLowerCase().indexOf(term) > -1; },
     rowFn: function(r){
-      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.from) + '</td><td>' + esc(r.to) + '</td><td class="num">' + fmtNum(r.qty) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.status) + '</td></tr>';
+      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.from) + '</td><td>' + esc(r.to) + '</td><td class="num">' + fmtNum(r.qty) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.status) + '</td></tr>';
     }
   });
 
@@ -3433,7 +3113,7 @@
       return (!stageVal || r.stage === stageVal) && (!typeVal || r.type === typeVal);
     },
     rowFn: function(r){
-      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td><a href="#" onclick="showDetail(\'applications\');return false;" data-i18n="btn.view">View</a></td></tr>';
+      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td><a href="#" onclick="showDetail(\'applications\');return false;" data-i18n="btn.view">View</a></td></tr>';
     }
   });
 
@@ -3457,7 +3137,7 @@
     searchFn: function(r, term){ return r.name.toLowerCase().indexOf(term) > -1 || r.id.toLowerCase().indexOf(term) > -1; },
     extraFilter: function(r){ return r.stage === 'KYC Review' || r.stage === 'Pending Documents'; },
     rowFn: function(r){
-      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td><a href="#" onclick="viewKycApplication(\'' + r.id + '\');return false;" data-i18n="btn.decide">Decide</a></td></tr>';
+      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td><a href="#" onclick="viewKycApplication(\'' + r.id + '\');return false;" data-i18n="btn.decide">Decide</a></td></tr>';
     }
   });
   kycPager.applySearch(''); // makePager only applies extraFilter once applySearch runs, not on the initial render
@@ -3475,10 +3155,10 @@
     if(!record) return;
     currentKycId = id;
     document.getElementById('kycDetailId').textContent = record.id;
-    document.getElementById('kycDetailSub').textContent = record.name + ' · ' + xlate(record.type);
+    document.getElementById('kycDetailSub').textContent = record.name + ' · ' + record.type;
     document.getElementById('kycDetailIdField').textContent = record.id;
     document.getElementById('kycDetailName').textContent = record.name;
-    document.getElementById('kycDetailType').textContent = xlate(record.type);
+    document.getElementById('kycDetailType').textContent = record.type;
     document.getElementById('kycDetailStage').innerHTML = pill(record.stage);
     document.getElementById('kycDetailDate').textContent = record.date;
     document.getElementById('kycDetailScreeningRef').textContent = screeningRefFor(record.id);
@@ -3656,14 +3336,6 @@
     'BOD': 'BOD', 'Staff': 'Staff', 'Public': 'Public',
     'Private & Public Companies': 'Companies', 'States & Divisions Co-operatives': 'Co-operatives'
   };
-  var DASH_GROUP_SHORT_MY = {
-    'BOD': 'ဒါရိုက်တာအဖွဲ့', 'Staff': 'ဝန်ထမ်း', 'Public': 'အများပြည်သူ',
-    'Private & Public Companies': 'ကုမ္ပဏီများ', 'States & Divisions Co-operatives': 'သမဝါယမများ'
-  };
-  function dashGroupLabel(name){
-    var map = currentLang === 'my' ? DASH_GROUP_SHORT_MY : DASH_GROUP_SHORT;
-    return map[name] || name;
-  }
 
   function fmtMoneyCompact(amountInMmk){
     if(amountInMmk >= 1e9) return 'MMK ' + (amountInMmk / 1e9).toFixed(1) + 'B';
@@ -3715,7 +3387,7 @@
     document.getElementById('kpiApplications').textContent = fmtNum(appsInProgress);
 
     // ---- DB-01: shareholding by group (bars, number of shares) ----
-    dashBars('dashGroupBars', groupList.map(function(g){ return {label: dashGroupLabel(g.name), value: g.shares}; }), fmtNum);
+    dashBars('dashGroupBars', groupList.map(function(g){ return {label: DASH_GROUP_SHORT[g.name] || g.name, value: g.shares}; }), fmtNum);
 
     // ---- DB-02: shareholding by group (%) — donut + legend ----
     var acc = 0;
@@ -3726,7 +3398,7 @@
     document.getElementById('dashDonut').style.background = 'conic-gradient(' + stops + ')';
     document.getElementById('dashDonutLegend').innerHTML = groupList.map(function(g, i){
       return '<div class="legend-item"><span class="legend-swatch" style="background:' + DASH_GROUP_COLORS[i % DASH_GROUP_COLORS.length] + ';"></span>' +
-        esc(dashGroupLabel(g.name)) + ' — ' + g.pct.toFixed(1) + '%</div>';
+        esc(DASH_GROUP_SHORT[g.name] || g.name) + ' — ' + g.pct.toFixed(1) + '%</div>';
     }).join('');
 
     // ---- DB-03: yearly paid-up capital — cumulative issuance by year (from ALL_ISSUE's embedded year),
@@ -3766,10 +3438,9 @@
       .concat(pendingTransfer.slice(0, 2).map(function(r){ return {ref: r.ref, type: 'Transfer Shares', status: r.status, page: 'transfer'}; }))
       .concat(pendingKyc.slice(0, 2).map(function(r){ return {ref: r.id, type: 'KYC / Application', status: r.stage, page: 'kyc'}; }))
       .slice(0, 2);
-    var nothingPendingText = currentLang === 'my' ? 'စောင့်ဆိုင်းရန် မရှိပါ။' : 'Nothing pending.';
     document.getElementById('dashPendingBody').innerHTML = pendingRows.length ? pendingRows.map(function(r){
-      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.status) + '</td></tr>';
-    }).join('') : '<tr><td colspan="3" style="text-align:center;color:var(--ink-400);padding:16px;">' + nothingPendingText + '</td></tr>';
+      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.status) + '</td></tr>';
+    }).join('') : '<tr><td colspan="3" style="text-align:center;color:var(--ink-400);padding:16px;">Nothing pending.</td></tr>';
 
     // ---- recent transactions (most recently posted/settled across all four transaction types) ----
     var recentRows = ALL_ISSUE.filter(function(r){ return r.status === 'Posted'; }).slice(0, 2).map(function(r){ return {ref: r.ref, type: 'Issue Shares', status: r.status}; })
@@ -3778,14 +3449,14 @@
       .concat(ALL_DIVIDENDS.slice(0, 1).map(function(r){ return {ref: r.event, type: 'Dividend', status: r.status}; }))
       .slice(0, 2);
     document.getElementById('dashRecentTxBody').innerHTML = recentRows.map(function(r){
-      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.status) + '</td></tr>';
+      return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(r.type) + '</td><td>' + pill(r.status) + '</td></tr>';
     }).join('');
 
     // ---- recent activity — straight off the same audit trail the Audit Log screen shows ----
     var recentAudit = AUDIT_LOG.slice(0, 2);
     document.getElementById('dashActivityFeed').innerHTML = recentAudit.map(function(e){
       return '<div style="border-bottom:1px solid var(--border);padding-bottom:4px;">' +
-        '<div style="display:flex;justify-content:space-between;gap:8px;"><strong>' + esc(xlate(e.action)) + ' · ' + esc(xlate(e.module)) + '</strong><span class="mono" style="color:var(--ink-400);white-space:nowrap;">' + fmtAuditTs(e.ts).slice(5) + '</span></div>' +
+        '<div style="display:flex;justify-content:space-between;gap:8px;"><strong>' + esc(e.action) + ' · ' + esc(e.module) + '</strong><span class="mono" style="color:var(--ink-400);white-space:nowrap;">' + fmtAuditTs(e.ts).slice(5) + '</span></div>' +
         '<div style="color:var(--ink-600);">' + esc(e.detail) + '</div>' +
         '<div style="color:var(--ink-400);">' + esc(e.user) + '</div>' +
       '</div>';
@@ -3795,11 +3466,8 @@
 
   function refreshDashboard(){
     renderDashboardFromBulkData();
-    var ts = fmtAuditTs(new Date()).replace(' ', ', ').slice(0, -3);
-    document.getElementById('dashSubtitle').textContent = currentLang === 'my'
-      ? 'ရင်းနှီးမြှုပ်နှံသူဆက်ဆံရေး ခြုံငုံသုံးသပ်ချက် · ဒေတာရက်စွဲ ' + ts
-      : 'Investor Relations overview · Data as of ' + ts;
-    toast(currentLang === 'my' ? 'ဒက်ရှ်ဘုတ်ကို ပြန်လည်စတင်ပြီးပါပြီ။' : 'Dashboard refreshed.');
+    document.getElementById('dashSubtitle').textContent = 'Investor Relations overview · Data as of ' + fmtAuditTs(new Date()).replace(' ', ', ').slice(0, -3);
+    toast('Dashboard refreshed.');
   }
 
   function downloadDashboardPdf(){
