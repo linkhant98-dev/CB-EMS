@@ -405,13 +405,6 @@
   .step.current{color:var(--ink-900); font-weight:700;}
   .step.current .n{background:var(--navy-800); color:#fff;}
 
-  .sa-flow-step{background:var(--surface-sunken); border:1px solid var(--border); border-radius:999px; padding:5px 12px; font-weight:600; color:var(--ink-700); white-space:nowrap; margin:3px 0;}
-  .sa-flow-step--end{background:var(--gold-100); border-color:var(--gold-500); color:var(--gold-ink);}
-  .sa-flow-arrow{color:var(--ink-400); padding:0 6px; font-weight:700;}
-  .acct-trail{display:flex; flex-wrap:wrap; align-items:center; gap:0; margin:2px 0;}
-  .acct-trail .sa-flow-step{font-size:11.5px; padding:4px 10px;}
-  .acct-trail-branch{display:flex; flex-direction:column; gap:6px; margin:4px 0;}
-
   .empty-note{color:var(--ink-400); font-size:13px; padding:22px; text-align:center;}
   .mobile-toggle{display:none;}
   @media (max-width:860px){
@@ -722,10 +715,7 @@
       <section class="page active" id="page-dashboard">
         <div class="page-header page-header--dash" style="margin-bottom:10px;">
           <div><h1 data-i18n="dash.title">Good day, admin@ems.local</h1><p data-i18n="dash.subtitle" id="dashSubtitle">Investor Relations overview · Data as of 19 Jul 2026, 09:40</p></div>
-          <div class="page-header__actions no-print">
-            <select id="dashGroupFilter" onchange="renderDashboardFromBulkData()" style="margin-right:4px;"></select>
-            <button class="btn btn-ghost" onclick="refreshDashboard()" data-i18n="btn.refresh">↻ Refresh</button><button class="btn btn-primary" onclick="downloadDashboardPdf()" data-i18n="btn.downloadpdf">⬇ Download PDF</button>
-          </div>
+          <div class="page-header__actions no-print"><button class="btn btn-ghost" onclick="refreshDashboard()" data-i18n="btn.refresh">↻ Refresh</button><button class="btn btn-primary" onclick="downloadDashboardPdf()" data-i18n="btn.downloadpdf">⬇ Download PDF</button></div>
         </div>
         <div class="cards-row cards-row--dash">
           <div class="card kpi-card accent">
@@ -818,19 +808,8 @@
             <div><h1 data-i18n="page.applications.title">Shareholder Applications</h1><p data-i18n="page.applications.sub">Onboarding &amp; KYC intake — personal, joint and corporate applicants.</p></div>
             <div class="page-header__actions"><button class="btn btn-ghost" onclick="exportApplications()" data-i18n="btn.export">⬇ Export</button><button class="btn btn-primary" onclick="showDetail('applications')" data-i18n="btn.newapplication">+ New Application</button></div>
           </div>
-          <div class="card" style="padding:14px 18px;margin-bottom:14px;">
-            <div style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-400);margin-bottom:10px;" data-i18n="app.saflow.title">Section 4.2.1 · Shareholder Application (SA) process flow</div>
-            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0;font-size:12px;">
-              <span class="sa-flow-step" data-i18n="app.saflow.maker">1. Data Entry by Maker</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step" data-i18n="app.saflow.checker">2. Review by Checker</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step" data-i18n="app.saflow.dgm">3. Submit to DGM</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step" data-i18n="app.saflow.kyc">4. KYC Approval (reviewed every 6 months)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step sa-flow-step--end" data-i18n="app.saflow.tempid">5. Temporary Shareholder ID</span>
-            </div>
-            <p style="font-size:11.5px;color:var(--ink-400);margin:10px 2px 0;" data-i18n="app.saflow.note">Maker/Checker is embedded directly in this operational flow — every application is entered by a Maker, reviewed by a Checker, then submitted to the DGM before it reaches KYC. Wrong data at any stage can be Sent Back for correction and Resubmitted by the Maker.</p>
-          </div>
           <div class="filter-row">
-            <select id="appStageFilter" onchange="appPager.applySearch(document.getElementById('appSearch').value)"><option value="" data-i18n="filter.allstages">All stages</option><option data-i18n="stage.draft">Draft</option><option data-i18n="stage.checkerreview">Checker Review</option><option data-i18n="stage.dgmreview">Submitted to DGM</option><option data-i18n="stage.pendingdocs">Pending Documents</option><option data-i18n="stage.kycreview">KYC Review</option><option data-i18n="stage.sentback">Sent Back</option><option data-i18n="stage.approved">Approved</option><option data-i18n="stage.registered">Registered</option><option data-i18n="stage.rejected">Rejected</option></select>
+            <select id="appStageFilter" onchange="appPager.applySearch(document.getElementById('appSearch').value)"><option value="" data-i18n="filter.allstages">All stages</option><option data-i18n="stage.draft">Draft</option><option data-i18n="stage.pendingdocs">Pending Documents</option><option data-i18n="stage.kycreview">KYC Review</option><option data-i18n="stage.approved">Approved</option><option data-i18n="stage.registered">Registered</option><option data-i18n="stage.rejected">Rejected</option></select>
             <select id="appTypeFilter" onchange="appPager.applySearch(document.getElementById('appSearch').value)"><option value="" data-i18n="filter.alltypes">All types</option><option data-i18n="type.individual">Individual</option><option data-i18n="type.joint">Joint</option><option data-i18n="type.corporate">Corporate</option></select>
             <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="appSearch" data-i18n-placeholder="app.searchph" placeholder="Search applicant or ID" oninput="appPager.applySearch(this.value)" /></div>
           </div>
@@ -839,36 +818,6 @@
             <tbody></tbody>
           </table></div>
           <div class="pager" id="appPagerBar"></div>
-        </div>
-        <div class="detail-view hidden" id="applications-review">
-          <div class="page-header">
-            <div><h1 id="appReviewId">—</h1><p id="appReviewSub">—</p></div>
-            <div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('applications')" data-i18n="btn.backtolist">← Back to list</button></div>
-          </div>
-          <div class="grid-2">
-            <div class="card">
-              <h3 style="margin-bottom:14px;" data-i18n="app.review.details">Application details</h3>
-              <dl class="kv-list">
-                <dt data-i18n="th.appid">Application ID</dt><dd class="mono" id="appReviewIdField">—</dd>
-                <dt data-i18n="th.applicant">Applicant</dt><dd id="appReviewName">—</dd>
-                <dt data-i18n="th.type">Type</dt><dd id="appReviewType">—</dd>
-                <dt data-i18n="app.review.currentstage">Current stage</dt><dd id="appReviewStage">—</dd>
-                <dt data-i18n="app.review.group">Shareholder group</dt><dd id="appReviewGroup">—</dd>
-                <dt class="hidden" id="appReviewKycRow" data-i18n="sh.kycstatus">KYC status</dt><dd class="hidden" id="appReviewKyc">—</dd>
-              </dl>
-              <p class="hidden" id="appReviewCorpNote" style="font-size:11.5px;color:var(--warning);margin-top:10px;" data-i18n="app.review.corpkycmandatory">Corporate applicant — KYC Approval status is Mandatory (not Optional) before this case can proceed to the DGM.</p>
-            </div>
-            <div class="card">
-              <h3 style="margin-bottom:14px;" data-i18n="approvals.decision">Decision</h3>
-              <div class="decision-panel">
-                <label><input type="radio" name="appReviewDec" value="Forward" checked onchange="toggleAppReviewFields()" /> <span id="appReviewForwardLabel" data-i18n="app.review.forward.checker">Approve &amp; submit to DGM</span></label>
-                <label><input type="radio" name="appReviewDec" value="SendBack" onchange="toggleAppReviewFields()" /> <span data-i18n="app.review.sendback">Send back to Maker (data incorrect)</span></label>
-                <label><input type="radio" name="appReviewDec" value="Reject" onchange="toggleAppReviewFields()" /> <span data-i18n="decision.reject">Reject</span></label>
-              </div>
-              <div class="field"><label data-i18n="field.comment">Comment</label><textarea id="appReviewComment" rows="4" data-i18n-placeholder="app.review.commentph" placeholder="Optional to approve, mandatory to send back or reject"></textarea></div>
-              <div class="form-actions"><button class="btn btn-ghost" onclick="showList('applications')" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitApplicationReview()" data-i18n="btn.submitdecision">Submit decision</button></div>
-            </div>
-          </div>
         </div>
         <div class="detail-view hidden" id="applications-detail">
           <div class="page-header">
@@ -887,64 +836,20 @@
             <div class="wizard-step" data-step="1">
               <div class="section-title" style="margin-top:0;" data-i18n="wz.step1">Applicant type</div>
               <div class="form-grid">
-                <div class="field"><label data-i18n="wz.applicanttype">Applicant type <span class="req">*</span></label><select id="wzApplicantType" onchange="toggleWizardApplicantFields()"><option data-i18n="type.individual">Individual</option><option data-i18n="type.joint">Joint</option><option data-i18n="type.corporate">Corporate</option></select></div>
+                <div class="field"><label data-i18n="wz.applicanttype">Applicant type <span class="req">*</span></label><select id="wzApplicantType"><option data-i18n="type.individual">Individual</option><option data-i18n="type.joint">Joint</option><option data-i18n="type.corporate">Corporate</option></select></div>
                 <div class="field"><label data-i18n="wz.referralsource">Referral source</label><select id="wzReferral"><option data-i18n="referral.branch">Branch walk-in</option><option data-i18n="referral.existing">Existing shareholder</option><option data-i18n="referral.online">Online</option></select></div>
               </div>
             </div>
 
             <div class="wizard-step hidden" data-step="2">
-              <div id="wzPersonalFields">
-                <div class="section-title" style="margin-top:0;" data-i18n="wz.step2">Personal details</div>
-                <div class="form-grid">
-                  <div class="field"><label data-i18n="wz.namefull">Full name (English) <span class="req">*</span></label><input id="wzNameEn" placeholder="e.g. Daw Su Su Hlaing" value="Daw Su Su Hlaing" /></div>
-                  <div class="field"><label data-i18n="wz.namemm">Full name (Myanmar)</label><input id="wzNameMy" class="mono" style="font-family:var(--font-my);" placeholder="ဒေါ်စုစုလှိုင်" value="ဒေါ်စုစုလှိုင်" /></div>
-                  <div class="field"><label data-i18n="wz.nrc">NRC number <span class="req">*</span></label><input id="wzNrc" placeholder="12/MaHaTha(N)123456" value="12/MaHaTha(N)123456" /></div>
-                  <div class="field"><label data-i18n="wz.dob">Date of birth <span class="req">*</span></label><input type="date" id="wzDob" value="1988-04-12" /></div>
-                  <div class="field"><label data-i18n="wz.nationality">Nationality</label><input id="wzNationality" value="Myanmar" /></div>
-                  <div class="field"><label data-i18n="wz.occupation">Occupation</label><input id="wzOccupation" value="Business owner" /></div>
-                </div>
-              </div>
-              <div id="wzCorporateFields" class="hidden">
-                <div class="section-title" style="margin-top:0;" data-i18n="wz.corpdetails">Corporate details</div>
-                <div class="form-grid">
-                  <div class="field span-2"><label data-i18n="wz.corpname">Company / Corporate name <span class="req">*</span></label><input id="wzCorpName" placeholder="e.g. Golden Delta Trading Co., Ltd." value="Golden Delta Trading Co., Ltd." /></div>
-                  <div class="field"><label data-i18n="wz.corpregno">Registration No. <span class="req">*</span></label><input id="wzCorpRegNo" placeholder="112189319" value="112189319" /></div>
-                  <div class="field"><label data-i18n="wz.corpincdate">Date of incorporation</label><input type="date" id="wzCorpIncDate" value="1998-07-15" /></div>
-                  <div class="field"><label data-i18n="wz.corptype">Type of institution</label><input id="wzCorpType" placeholder="e.g. Banking, Trading" value="Trading" /></div>
-                  <div class="field"><label data-i18n="wz.corpnature">Nature of business</label><input id="wzCorpNature" placeholder="e.g. Financial Services" value="General Trading" /></div>
-                  <div class="field"><label data-i18n="wz.corpsourceoffund">Source of fund</label><input id="wzCorpSourceOfFund" placeholder="e.g. Retained Earnings" value="Retained Earnings" /></div>
-                  <div class="field"><label data-i18n="wz.corppaidup">Paid-up capital (MMK)</label><input id="wzCorpPaidUp" placeholder="2,000,000,000" value="2,000,000,000" /></div>
-                  <div class="field"><label data-i18n="wz.corpboardres">Board resolution dated</label><input type="date" id="wzCorpBoardResDate" value="2026-06-15" /></div>
-                </div>
-
-                <div class="section-title" data-i18n="wz.corpbodtitle">Board of Directors / Principal Officers</div>
-                <div class="table-wrap"><table class="data" id="wzCorpBodTable">
-                  <thead><tr><th data-i18n="wz.col.name">Name</th><th data-i18n="wz.col.nrc">NRC No.</th><th data-i18n="wz.col.resaddr">Residential address</th><th></th></tr></thead>
-                  <tbody>
-                    <tr><td><input value="U Thaw Ka" /></td><td><input class="mono" value="4/SGG(N)10033" /></td><td><input value="27/28 Junction City, Yangon" /></td><td><a href="#" onclick="removeCorpSubRow(this);return false;" data-i18n="wz.removerow">Remove</a></td></tr>
-                  </tbody>
-                </table></div>
-                <button type="button" class="btn btn-ghost btn-sm" style="margin-top:8px;" onclick="addCorpSubRow('wzCorpBodTable',3)" data-i18n="wz.addrow">+ Add row</button>
-
-                <div class="section-title" data-i18n="wz.corpauthtitle">Authorized Persons to Operate the Account</div>
-                <div class="table-wrap"><table class="data" id="wzCorpAuthTable">
-                  <thead><tr><th data-i18n="wz.col.name">Name</th><th data-i18n="wz.col.nrc">NRC No.</th><th data-i18n="wz.col.designation">Designation</th><th></th></tr></thead>
-                  <tbody>
-                    <tr><td><input value="U Baw Ka" /></td><td><input class="mono" value="5/KPN(N)103332" /></td><td><input value="CEO" /></td><td><a href="#" onclick="removeCorpSubRow(this);return false;" data-i18n="wz.removerow">Remove</a></td></tr>
-                  </tbody>
-                </table></div>
-                <button type="button" class="btn btn-ghost btn-sm" style="margin-top:8px;" onclick="addCorpSubRow('wzCorpAuthTable',3)" data-i18n="wz.addrow">+ Add row</button>
-
-                <div class="section-title" data-i18n="wz.corpowntitle">Company Ownership</div>
-                <div class="table-wrap"><table class="data" id="wzCorpOwnTable">
-                  <thead><tr><th data-i18n="wz.col.ownername">Owner name</th><th data-i18n="wz.col.nrc">NRC No.</th><th data-i18n="wz.col.ownpct">% of shareholding</th><th></th></tr></thead>
-                  <tbody>
-                    <tr><td><input value="U Thaw Ka" /></td><td><input class="mono" value="4/SGG(N)10033" /></td><td><input class="num" value="50" oninput="updateCorpOwnershipTotal()" /></td><td><a href="#" onclick="removeCorpSubRow(this);updateCorpOwnershipTotal();return false;" data-i18n="wz.removerow">Remove</a></td></tr>
-                    <tr><td><input value="Daw Thin Thin" /></td><td><input class="mono" value="12/MaHaTha(N)234567" /></td><td><input class="num" value="50" oninput="updateCorpOwnershipTotal()" /></td><td><a href="#" onclick="removeCorpSubRow(this);updateCorpOwnershipTotal();return false;" data-i18n="wz.removerow">Remove</a></td></tr>
-                  </tbody>
-                </table></div>
-                <button type="button" class="btn btn-ghost btn-sm" style="margin-top:8px;" onclick="addCorpSubRow('wzCorpOwnTable',3,true)" data-i18n="wz.addrow">+ Add row</button>
-                <p style="font-size:12px;margin-top:8px;" id="wzCorpOwnTotal"></p>
+              <div class="section-title" style="margin-top:0;" data-i18n="wz.step2">Personal details</div>
+              <div class="form-grid">
+                <div class="field"><label data-i18n="wz.namefull">Full name (English) <span class="req">*</span></label><input id="wzNameEn" placeholder="e.g. Daw Su Su Hlaing" value="Daw Su Su Hlaing" /></div>
+                <div class="field"><label data-i18n="wz.namemm">Full name (Myanmar)</label><input id="wzNameMy" class="mono" style="font-family:var(--font-my);" placeholder="ဒေါ်စုစုလှိုင်" value="ဒေါ်စုစုလှိုင်" /></div>
+                <div class="field"><label data-i18n="wz.nrc">NRC number <span class="req">*</span></label><input id="wzNrc" placeholder="12/MaHaTha(N)123456" value="12/MaHaTha(N)123456" /></div>
+                <div class="field"><label data-i18n="wz.dob">Date of birth <span class="req">*</span></label><input type="date" id="wzDob" value="1988-04-12" /></div>
+                <div class="field"><label data-i18n="wz.nationality">Nationality</label><input id="wzNationality" value="Myanmar" /></div>
+                <div class="field"><label data-i18n="wz.occupation">Occupation</label><input id="wzOccupation" value="Business owner" /></div>
               </div>
             </div>
 
@@ -1001,9 +906,7 @@
             <div class="card kpi-card"><div class="kpi-label" data-i18n="kyc.screening">Awaiting screening</div><div class="kpi-value" id="kycKpiScreening">—</div></div>
             <div class="card kpi-card"><div class="kpi-label" data-i18n="kyc.pendingdocs">Pending documents</div><div class="kpi-value" id="kycKpiDocs">—</div></div>
             <div class="card kpi-card"><div class="kpi-label" data-i18n="kyc.decidedtoday">Decided today</div><div class="kpi-value" id="kycKpiDecided">—</div></div>
-            <div class="card kpi-card accent"><div class="kpi-label" data-i18n="kyc.reviewdue">Due / overdue for 6-month review</div><div class="kpi-value" id="kycKpiReviewDue">—</div></div>
           </div>
-          <p style="font-size:11.5px;color:var(--ink-400);margin:-4px 2px 14px;" data-i18n="kyc.reviewnote">Section 2.1 · KYC information must be re-reviewed every six months for every registered shareholder — not only at onboarding.</p>
           <div class="filter-row">
             <div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><input id="kycSearch" data-i18n-placeholder="kyc.searchph" placeholder="Search applicant or ID" oninput="kycPager.applySearch(this.value)" /></div>
           </div>
@@ -1028,11 +931,7 @@
                 <dt data-i18n="kyc.currentstage">Current stage</dt><dd id="kycDetailStage">—</dd>
                 <dt data-i18n="th.submitted">Submitted</dt><dd id="kycDetailDate">—</dd>
                 <dt data-i18n="kyc.screeningref">Screening ref.</dt><dd class="mono" id="kycDetailScreeningRef">—</dd>
-                <dt id="kycDetailReviewDueLabel" data-i18n="kyc.nextreviewdue">Next 6-month review due</dt><dd id="kycDetailReviewDue">—</dd>
-                <dt class="hidden" id="kycDetailTempIdLabelRow" data-i18n="kyc.temporaryid">Temporary Shareholder ID</dt><dd class="mono hidden" id="kycDetailTempId">—</dd>
               </dl>
-              <p class="hidden" id="kycDetailCorpMandatory" style="font-size:11.5px;color:var(--warning);margin-top:10px;" data-i18n="kyc.corpmandatory">Corporate applicant — KYC Approval status is Mandatory (cannot be left Optional/blank) before this case can proceed.</p>
-              <p class="hidden" id="kycDetailTempIdNote" style="font-size:11.5px;color:var(--ink-400);margin-top:10px;" data-i18n="kyc.temporaryidnote">Issued on KYC approval. Becomes the Permanent Shareholder ID only once CBM approval is obtained (see Approval Matrix).</p>
             </div>
             <div class="card">
               <h3 style="margin-bottom:14px;" data-i18n="approvals.decision">Decision</h3>
@@ -1076,7 +975,6 @@
               <h3 style="margin-bottom:14px;" data-i18n="sh.details">Shareholder details</h3>
               <dl class="kv-list">
                 <dt data-i18n="th.shid">Shareholder ID</dt><dd class="mono" id="shDetailIdField">—</dd>
-                <dt data-i18n="sh.idstatus">ID Status</dt><dd><span class="pill pill-success" data-i18n="sh.permanent">Permanent</span> <span style="font-size:11px;color:var(--ink-400);" data-i18n="sh.permanentnote">(CBM approval obtained)</span></dd>
                 <dt data-i18n="th.name">Name</dt><dd id="shDetailNameField">—</dd>
                 <dt data-i18n="th.type">Type</dt><dd id="shDetailType">—</dd>
                 <dt data-i18n="sh.group">Shareholder group</dt><dd id="shDetailGroup">—</dd>
@@ -1294,22 +1192,6 @@
               <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label" data-i18n="calc.premiumamount">Premium amount</div><div class="kpi-value">MMK 0</div></div>
               <div class="card" style="background:var(--surface-sunken);box-shadow:none;"><div class="kpi-label" data-i18n="calc.totalpayable">Total payable</div><div class="kpi-value">MMK 15.0M</div></div>
             </div>
-            <div class="section-title" data-i18n="issue.acctrail">Process &amp; accounting trail</div>
-            <div class="acct-trail">
-              <span class="sa-flow-step">KYC Compliance</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Legal Review</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Approval Request from V.C (CB Flow)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Sundry Deposit A/C Payment</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">BOD Decision</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Approval Request from CBM</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">CB Bank A/C → CBM A/C</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">CBM A/C → CB Bank A/C (Final Approve)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Paid-up Capital &amp; Share Premium A/C Transfer</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">DICA Register</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Shareholder's Share &amp; Certificate Record</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step sa-flow-step--end">Paid-up Capital Record</span>
-            </div>
-            <p style="font-size:11.5px;color:var(--ink-400);margin:10px 2px 0;" data-i18n="issue.acctrailnote">Section 5.3.1 · Approval routing is not strictly sequential — VC/BOD/CBM steps apply once the amount crosses the Approval Matrix's flexible-routing threshold.</p>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('issue')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('issue')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
         </div>
@@ -1332,49 +1214,17 @@
           <div class="pager" id="transferPagerBar"></div>
         </div>
         <div class="detail-view hidden" id="transfer-detail">
-          <div class="page-header"><div><h1 data-i18n="page.transfer.new.title">New Share Transfer</h1><p data-i18n="page.transfer.new.sub">Section 5.5 · Trade and Non-Trade transfer are separate processes with different accounting trails.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('transfer')" data-i18n="btn.backtolist">← Back to list</button></div></div>
+          <div class="page-header"><div><h1 data-i18n="page.transfer.new.title">New Share Transfer</h1><p data-i18n="page.transfer.new.sub">Section 7.2 · Available-balance validation, atomic debit/credit.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('transfer')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="card">
             <div class="section-title" data-i18n="transfer.details">Transfer details</div>
             <div class="form-grid">
-              <div class="field"><label data-i18n="transfer.type">Transfer type <span class="req">*</span></label><select id="transferTypeSelect" onchange="toggleTransferTypeFields()"><option data-i18n="type.trade">Trade</option><option data-i18n="type.nontrade">Non-trade</option></select></div>
-              <div class="field"><label data-i18n="app.review.group">Shareholder group</label><select><option data-i18n="grp.bod">BOD</option><option data-i18n="grp.companies">Private &amp; Public Companies</option><option data-i18n="grp.coops">States &amp; Divisions Co-operatives</option><option data-i18n="grp.staff">Staff</option></select></div>
+              <div class="field"><label data-i18n="transfer.type">Transfer type <span class="req">*</span></label><select><option data-i18n="type.trade">Trade</option><option data-i18n="type.nontrade">Non-trade</option></select></div>
               <div class="field"><label data-i18n="wz.shareclass">Share class <span class="req">*</span></label><select><option data-i18n="shareclass.ordinary">Ordinary</option></select></div>
               <div class="field"><label data-i18n="transfer.from">From shareholder <span class="req">*</span></label><select><option>U Zaw Min Htet — SH-24000002 (6,200 available)</option></select></div>
               <div class="field"><label data-i18n="transfer.to">To shareholder <span class="req">*</span></label><select><option>Daw Khin Thazin — SH-24000001</option></select></div>
               <div class="field"><label data-i18n="wz.quantity">Quantity <span class="req">*</span></label><input class="num" value="500" /></div>
+              <div class="field"><label data-i18n="transfer.consideration">Consideration (MMK)</label><input class="num" value="5,000,000" /></div>
             </div>
-            <div id="transferTradeFields">
-              <div class="section-title" data-i18n="transfer.tradedetails">Trade payment details — buying &amp; selling price</div>
-              <div class="form-grid">
-                <div class="field"><label data-i18n="transfer.capitalvalue">Capital value / share</label><input class="num" value="10,000" /></div>
-                <div class="field"><label data-i18n="transfer.premiumvalue2">Premium value / share</label><input class="num" value="0" /></div>
-                <div class="field"><label data-i18n="transfer.tradeprice">Trading price / share (capital + premium)</label><input class="num" value="10,000" disabled /></div>
-                <div class="field"><label data-i18n="transfer.cash">Cash</label><input class="num" value="5,000,000" /></div>
-                <div class="field"><label data-i18n="transfer.cheque">Cheque</label><input class="num" value="0" /></div>
-                <div class="field"><label data-i18n="transfer.total">Total (cash + cheque)</label><input class="num" value="5,000,000" disabled /></div>
-              </div>
-            </div>
-            <div class="section-title" data-i18n="transfer.acctrail">Process &amp; accounting trail</div>
-            <div id="transferTrailTrade" class="acct-trail">
-              <span class="sa-flow-step">Purchasing of Transferred Shares Application (buying/selling price)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">KYC Compliance</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Legal Review</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">BOD / Management Decision</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Approval Request from CBM</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">DICA Register</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Payment Record (buying &amp; selling price)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Shareholder's Share &amp; Certificate Record</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step sa-flow-step--end">Share Transfer Record</span>
-            </div>
-            <div id="transferTrailNonTrade" class="acct-trail hidden">
-              <span class="sa-flow-step">Share Application Form (entry)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">KYC Compliance</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Legal Review</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">BOD / Management Decision Approval</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Shareholder's Share &amp; Certificate Record</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step sa-flow-step--end">Share Transfer Record</span>
-            </div>
-            <p style="font-size:11.5px;color:var(--ink-400);margin:10px 2px 0;" data-i18n="transfer.notradenote">Non-trade transfers skip CBM approval and the buying/selling payment record — there is no consideration to bank.</p>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('transfer')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('transfer')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
         </div>
@@ -1415,32 +1265,6 @@
               </tbody>
             </table></div>
             <p style="font-size:11.5px; color:var(--ink-400); margin:8px 2px 0;" data-i18n="bonus.note">Only shareholders whose certificate is checked will receive this bonus batch — uncheck to exclude a holder (e.g. a cancelled or transferred certificate) from the run.</p>
-
-            <div class="section-title" data-i18n="bonus.acctrail">Process &amp; major accounting workflow</div>
-            <div class="acct-trail">
-              <span class="sa-flow-step">BOD Decision</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Provision to Sundry Dividend A/C</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Sundry Dividend A/C → Sundry Share Capital A/C</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Approval Request from CBM</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Cash Deposit to CBM (or without cash deposit)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">CB Bank A/C → CBM A/C → CBM A/C → CB Bank A/C (Final Approve)</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Paid-up Capital &amp; Share Premium A/C Transfer</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">DICA Register</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Shareholder's Share &amp; Certificate Record</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step sa-flow-step--end">Paid-up Capital Record</span>
-            </div>
-            <p style="font-size:11.5px;color:var(--ink-400);margin:8px 2px 14px;" data-i18n="bonus.ratioexample">Ratio example — 6 : 1: current total shares ÷ 6 gives the bonus share count; a remainder below the ratio pays cash bonus only (Cash Bonus Price × remainder).</p>
-
-            <div class="section-title" data-i18n="bonus.withdrawaltitle">Cash Bonus Withdrawal</div>
-            <div class="form-grid">
-              <div class="field"><label data-i18n="wz.shareholder">Shareholder</label><select><option>Daw Khin Thazin — SH-24000001</option></select></div>
-              <div class="field"><label data-i18n="bonus.finyear">Financial year</label><select><option>2025–2026</option><option>2024–2025</option></select></div>
-              <div class="field"><label data-i18n="bonus.cashamount">Cash bonus amount (MMK)</label><input class="num" id="bonusCashAmountField" value="25,000" disabled /></div>
-              <div class="field"><label data-i18n="bonus.cashwithdraw">Cash withdrawal (MMK)</label><input class="num" id="bonusCashWithdrawField" value="5,000" oninput="updateBonusWithdrawalOutstanding()" /></div>
-              <div class="field"><label data-i18n="bonus.accttransfer">Account transfer (MMK)</label><input class="num" id="bonusAcctTransferField" value="10,000" oninput="updateBonusWithdrawalOutstanding()" /></div>
-              <div class="field"><label data-i18n="bonus.reinvest">Reinvest (MMK)</label><input class="num" id="bonusReinvestField" value="8,000" oninput="updateBonusWithdrawalOutstanding()" /></div>
-              <div class="field"><label data-i18n="bonus.outstanding">Outstanding cash bonus amount (MMK)</label><input class="num" id="bonusOutstandingField" value="2,000" disabled /></div>
-            </div>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('bonus')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('bonus')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
         </div>
@@ -1462,45 +1286,11 @@
         <div class="detail-view hidden" id="dividends-detail">
           <div class="page-header"><div><h1 data-i18n="page.dividends.new.title">New Dividend Event</h1><p data-i18n="page.dividends.new.sub">Section 7.4 · Proration &amp; settlement tracking.</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('dividends')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="card">
-            <div class="section-title" style="margin-top:0;" data-i18n="dividend.provision">Provision for dividend % and amount</div>
             <div class="form-grid">
-              <div class="field"><label data-i18n="dividend.pct">Dividend percentage <span class="req">*</span></label><input class="num" value="8" /> <span style="font-size:11.5px;color:var(--ink-400);">%</span></div>
-              <div class="field"><label data-i18n="dividend.capvalue">Capital value / share (MMK)</label><input class="num" value="10,000" disabled /></div>
+              <div class="field"><label data-i18n="dividend.rate">Dividend rate (MMK/share) <span class="req">*</span></label><input class="num" value="10,000" /></div>
               <div class="field"><label data-i18n="wz.recorddate">Record date <span class="req">*</span></label><input type="date" value="2026-06-30" /></div>
               <div class="field"><label data-i18n="wz.shareclass">Share class <span class="req">*</span></label><select><option data-i18n="shareclass.ordinary">Ordinary</option></select></div>
-            </div>
-            <div class="section-title" data-i18n="dividend.proration">Old / new share proration</div>
-            <p style="font-size:11.5px;color:var(--ink-400);margin:-6px 2px 10px;" data-i18n="dividend.prorationnote">Old shares (held ≥ 365 days) receive the full rate; new shares (held &lt; 365 days) are prorated by days held ÷ 365.</p>
-            <div class="form-grid">
-              <div class="field"><label data-i18n="dividend.oldshares">Old shares (≥ 365 days)</label><input class="num" value="600" /></div>
-              <div class="field"><label data-i18n="dividend.newshares">New shares (&lt; 365 days)</label><input class="num" value="150" /></div>
-              <div class="field"><label data-i18n="dividend.newsharedays">Days held (new shares)</label><input class="num" value="120" /></div>
-              <div class="field"><label data-i18n="dividend.totalamount">Total dividend amount (MMK)</label><input class="num" value="488,877" disabled /></div>
-            </div>
-            <div class="section-title" data-i18n="issue.acctrail">Process &amp; accounting trail</div>
-            <div class="acct-trail">
-              <span class="sa-flow-step">Provision for Dividend % and Amount</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">BOD Decision</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Approval Request from CBM</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step">Dividend Provision Calculation</span><span class="sa-flow-arrow">→</span>
-              <span class="sa-flow-step sa-flow-step--end">Dividend Payout</span>
-            </div>
-            <div class="acct-trail-branch" style="margin-top:6px;">
-              <div class="acct-trail"><span class="sa-flow-arrow" style="padding-left:0;">↳</span><span class="sa-flow-step">Cash</span></div>
-              <div class="acct-trail"><span class="sa-flow-arrow" style="padding-left:0;">↳</span><span class="sa-flow-step">A/C Transfer</span></div>
-              <div class="acct-trail"><span class="sa-flow-arrow" style="padding-left:0;">↳</span><span class="sa-flow-step">Reinvest</span><span class="sa-flow-arrow">→</span><span class="sa-flow-step">Bonus Share</span><span class="sa-flow-arrow">or</span><span class="sa-flow-step">Rights Issue</span></div>
-            </div>
-            <div class="field"><label data-i18n="dividend.settlement">Settlement method</label><select><option data-i18n="settlement.cash">Cash</option><option data-i18n="settlement.transfer">Bank transfer</option><option data-i18n="settlement.reinvest">Reinvestment (Bonus Share / Rights Issue)</option></select></div>
-
-            <div class="section-title" data-i18n="dividend.withdrawaltitle">Dividend Withdrawal</div>
-            <div class="form-grid">
-              <div class="field"><label data-i18n="wz.shareholder">Shareholder</label><select><option>Daw Khin Thazin — SH-24000001</option></select></div>
-              <div class="field"><label data-i18n="bonus.finyear">Financial year</label><select><option>2025–2026</option><option>2024–2025</option></select></div>
-              <div class="field"><label data-i18n="dividend.divamount">Dividend amount (MMK)</label><input class="num" id="dividendAmountField" value="180,000" disabled /></div>
-              <div class="field"><label data-i18n="bonus.cashwithdraw">Cash withdrawal (MMK)</label><input class="num" id="dividendCashWithdrawField" value="80,000" oninput="updateDividendWithdrawalOutstanding()" /></div>
-              <div class="field"><label data-i18n="bonus.accttransfer">Account transfer (MMK)</label><input class="num" id="dividendAcctTransferField" value="80,000" oninput="updateDividendWithdrawalOutstanding()" /></div>
-              <div class="field"><label data-i18n="bonus.reinvest">Reinvest (MMK)</label><input class="num" id="dividendReinvestField" value="0" oninput="updateDividendWithdrawalOutstanding()" /></div>
-              <div class="field"><label data-i18n="dividend.outstandingbalance">Outstanding balance (MMK)</label><input class="num" id="dividendOutstandingField" value="20,000" disabled /></div>
+              <div class="field"><label data-i18n="dividend.settlement">Settlement method</label><select><option data-i18n="settlement.cash">Cash</option><option data-i18n="settlement.transfer">Bank transfer</option><option data-i18n="settlement.reinvest">Reinvestment</option></select></div>
             </div>
             <div class="form-actions"><button class="btn btn-ghost" onclick="saveDraft('dividends')" data-i18n="btn.savedraft">Save draft</button><button class="btn btn-primary" onclick="submitForApproval('dividends')" data-i18n="btn.submitforapproval">Submit for approval</button></div>
           </div>
@@ -1521,12 +1311,11 @@
             </tbody>
           </table></div>
           <div class="section-title" data-i18n="approvals.submittedbyme">Submitted by me</div>
-          <p style="font-size:11.5px;color:var(--ink-400);margin:-6px 2px 10px;" data-i18n="approvals.closenote">Section 3.4 General Notes · Only the Initiator can close the approval process — closing files the approved Board/CBM letters and archives the case.</p>
           <div class="table-wrap"><table class="data">
-            <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.currentstep">Current step</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
+            <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.currentstep">Current step</th><th data-i18n="th.status">Status</th></tr></thead>
             <tbody>
-              <tr><td class="mono">DS-2026-0007</td><td data-i18n="tx.dividend">Dividend</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td><td><a href="#" onclick="closeApprovalCase('DS-2026-0007', this);return false;" data-i18n="btn.close">Close</a></td></tr>
-              <tr><td class="mono">TS-2026-0008</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td><td><a href="#" onclick="closeApprovalCase('TS-2026-0008', this);return false;" data-i18n="btn.close">Close</a></td></tr>
+              <tr><td class="mono">DS-2026-0007</td><td data-i18n="tx.dividend">Dividend</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
+              <tr><td class="mono">TS-2026-0008</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
             </tbody>
           </table></div>
         </div>
@@ -1545,29 +1334,10 @@
             <div class="card">
               <h3 style="margin-bottom:14px;" data-i18n="approvals.decision">Decision</h3>
               <div class="decision-panel">
-                <label><input type="radio" name="dec" value="Approve" checked onchange="toggleApprovalTransferField()" /> <span data-i18n="decision.approve">Approve</span></label>
-                <label><input type="radio" name="dec" value="Reject" onchange="toggleApprovalTransferField()" /> <span data-i18n="decision.reject">Reject</span></label>
-                <label><input type="radio" name="dec" value="Revert" onchange="toggleApprovalTransferField()" /> <span data-i18n="decision.sendback">Send Back (Revert)</span></label>
-                <label><input type="radio" name="dec" value="Case-Transfer" onchange="toggleApprovalTransferField()" /> <span data-i18n="decision.casetransfer">Case-Transfer</span></label>
-                <label><input type="radio" name="dec" value="Recall" onchange="toggleApprovalTransferField()" /> <span data-i18n="decision.recall">Recall</span></label>
+                <label><input type="radio" name="dec" checked /> <span data-i18n="decision.approve">Approve</span></label>
+                <label><input type="radio" name="dec" /> <span data-i18n="decision.reject">Reject</span></label>
+                <label><input type="radio" name="dec" /> <span data-i18n="decision.revert">Revert</span></label>
               </div>
-              <div class="field" id="approvalNextApproverField">
-                <label data-i18n="approvals.nextapprover">Next approver</label>
-                <select id="approvalNextApprover">
-                  <option selected data-i18n="approvals.nextapprover.default">CFO — Step 3 of 3 (next in sequence)</option>
-                  <option>DGM</option><option>Legal</option><option>DMD</option><option>Managing Director</option>
-                  <option>CEO</option><option>Vice Chairman</option><option>Board of Directors</option><option>CBM</option>
-                </select>
-                <p style="font-size:11px;color:var(--ink-400);margin-top:4px;" data-i18n="approvals.nextapprovernote">Routing is not strictly sequential (General Notes) — override only if this case needs a different approver than the Approval Matrix's default next step.</p>
-              </div>
-              <div class="field hidden" id="approvalTransferToField">
-                <label data-i18n="approvals.transferto">Transfer to</label>
-                <select id="approvalTransferTo">
-                  <option>DGM</option><option>Legal</option><option>DMD</option><option>Managing Director</option>
-                  <option>CEO</option><option>Vice Chairman</option><option>Board of Directors</option><option>CBM</option>
-                </select>
-              </div>
-              <p class="hidden" id="approvalRecallNote" style="font-size:12px;color:var(--ink-400);margin:0 0 10px;" data-i18n="approvals.recallnote">Recall is only available to the original submitter — it pulls the case back from the current approver so it can be reassigned. The current approver can no longer act on it once recalled.</p>
               <div class="field"><label data-i18n="field.comment">Comment</label><textarea rows="4" data-i18n-placeholder="approvals.commentph" placeholder="Optional for approve, mandatory for reject/revert"></textarea></div>
               <div class="form-actions"><button class="btn btn-ghost" onclick="showList('approvals')" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitApprovalDecision()" data-i18n="btn.submitdecision">Submit decision</button></div>
             </div>
@@ -1577,14 +1347,13 @@
 
       <!-- ============ SUBMITTED BY ME ============ -->
       <section class="page" id="page-submitted">
-        <div class="page-header"><div><h1 data-i18n="page.submitted.title">Submitted by Me</h1><p data-i18n="page.submitted.sub">Track the approval progress of items you've submitted. Resubmit a sent-back case, or Recall one assigned to the wrong approver — only the Initiator can Close a fully-approved case.</p></div></div>
+        <div class="page-header"><div><h1 data-i18n="page.submitted.title">Submitted by Me</h1><p data-i18n="page.submitted.sub">Track the approval progress of items you've submitted.</p></div></div>
         <div class="table-wrap"><table class="data">
-          <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.submitted">Submitted</th><th data-i18n="th.currentstep">Current step</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
+          <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.submitted">Submitted</th><th data-i18n="th.currentstep">Current step</th><th data-i18n="th.status">Status</th></tr></thead>
           <tbody>
-            <tr><td class="mono">IS-2026-0018</td><td data-i18n="tx.issueshares">Issue Shares</td><td>17 Jul 2026</td><td>Head of IR</td><td><span class="pill pill-warning" data-i18n="status.inprogress">In progress</span></td><td><a href="#" onclick="go('approvals');return false;" data-i18n="approvals.recall">Recall</a></td></tr>
-            <tr><td class="mono">TS-2026-0011</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>16 Jul 2026</td><td>Maker</td><td><span class="pill pill-danger" data-i18n="stage.sentback">Sent Back</span></td><td><a href="#" onclick="resubmitSubmittedByMe('TS-2026-0011', this);return false;" data-i18n="app.btn.resubmit">Resubmit</a></td></tr>
-            <tr><td class="mono">DS-2026-0007</td><td data-i18n="tx.dividend">Dividend</td><td>28 Jun 2026</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td><td><a href="#" onclick="closeApprovalCase('DS-2026-0007', this);return false;" data-i18n="btn.close">Close</a></td></tr>
-            <tr><td class="mono">TS-2026-0008</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>14 Jul 2026</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td><td><a href="#" onclick="closeApprovalCase('TS-2026-0008', this);return false;" data-i18n="btn.close">Close</a></td></tr>
+            <tr><td class="mono">IS-2026-0018</td><td data-i18n="tx.issueshares">Issue Shares</td><td>17 Jul 2026</td><td>Head of IR</td><td><span class="pill pill-warning" data-i18n="status.inprogress">In progress</span></td></tr>
+            <tr><td class="mono">DS-2026-0007</td><td data-i18n="tx.dividend">Dividend</td><td>28 Jun 2026</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
+            <tr><td class="mono">TS-2026-0008</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>14 Jul 2026</td><td>—</td><td><span class="pill pill-success" data-i18n="status.fullyapproved">Fully approved</span></td></tr>
           </tbody>
         </table></div>
       </section>
@@ -1689,20 +1458,16 @@
       <!-- ============ USERS & ROLES ============ -->
       <section class="page" id="page-users">
         <div class="page-header"><div><h1 data-i18n="page.users.title">Users and Roles</h1><p data-i18n="page.users.sub">Administration · account provisioning and role assignment.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="toggleUserDrawer()" data-i18n="btn.newuser">+ New User</button></div></div>
-        <p style="font-size:11.5px;color:var(--ink-400);margin:-4px 2px 12px;" data-i18n="user.groupaccessnote">Section 3.2/3.3 · Access Role sets Create/Read/Edit/Delete/Approve rights; Assigned Groups restricts a Maker to only the Shareholder Main/Sub Groups they are responsible for — a regional Maker cannot view or manage another region's records.</p>
         <div class="table-wrap"><table class="data" id="usersTable">
-          <thead><tr><th data-i18n="th.user">User</th><th data-i18n="th.email">Email</th><th data-i18n="th.roles">Roles</th><th data-i18n="user.accessrole">Access role</th><th data-i18n="user.assignedgroups">Assigned groups</th><th data-i18n="th.status">Status</th></tr></thead>
+          <thead><tr><th data-i18n="th.user">User</th><th data-i18n="th.email">Email</th><th data-i18n="th.roles">Roles</th><th data-i18n="th.status">Status</th></tr></thead>
           <tbody>
-            <tr><td>Admin</td><td class="mono">admin@ems.local</td><td><span class="pill pill-neutral" data-i18n="role.sysadmin">System Administrator</span></td><td><span class="pill pill-neutral" data-i18n="user.role.admin">Admin</span></td><td data-i18n="user.groups.all">All groups</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Daw Yamin Oo</td><td class="mono">yamin.oo@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.branchmanager">Branch Manager</span></td><td><span class="pill pill-info" data-i18n="user.role.maker1">Maker (1)</span></td><td data-i18n="user.groups.maker1">B.O.D · Private &amp; Public Companies · Management &amp; Personal · CCS &amp; Original Co-operatives</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Ko Nyein Chan</td><td class="mono">nyein.chan@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.headofir">Head of IR</span></td><td><span class="pill pill-warning" data-i18n="user.role.manager">Manager (1)</span></td><td data-i18n="user.groups.all">All groups</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Daw Aye Aye Mon</td><td class="mono">aye.mon@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.complianceofficer">Compliance Officer</span></td><td><span class="pill pill-neutral" data-i18n="user.role.checker">Checker (1)</span></td><td data-i18n="user.groups.all">All groups</td><td><span class="pill pill-warning" data-i18n="status.suspended">Suspended</span></td></tr>
-            <tr><td>Ma Thin Thin Nwe</td><td class="mono">thin.nwe@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.branchmanager">Branch Manager</span></td><td><span class="pill pill-info" data-i18n="user.role.maker2">Maker (2)</span></td><td data-i18n="user.groups.maker2">States &amp; Divisions Co-operatives — Mandalay, Sagaing, Bago, Magwe, Tanintharyi, Ayeyarwaddy</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Ko Zaw Lin Aung</td><td class="mono">zaw.linaung@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.branchmanager">Branch Manager</span></td><td><span class="pill pill-info" data-i18n="user.role.maker3">Maker (3)</span></td><td data-i18n="user.groups.maker3">States &amp; Divisions Co-operatives — Yangon, Kachin, Kayar, Kayin, Chin, Mon, Rakhine, Shan</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
-            <tr><td>Daw Su Myat Mon</td><td class="mono">su.myatmon@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.cfo">CFO</span></td><td><span class="pill pill-danger" data-i18n="user.role.approver">Approver (DMD/MD/CEO/VC)</span></td><td data-i18n="user.groups.all">All groups</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
+            <tr><td>Admin</td><td class="mono">admin@ems.local</td><td><span class="pill pill-neutral" data-i18n="role.sysadmin">System Administrator</span></td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
+            <tr><td>Daw Yamin Oo</td><td class="mono">yamin.oo@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.branchmanager">Branch Manager</span></td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
+            <tr><td>Ko Nyein Chan</td><td class="mono">nyein.chan@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.headofir">Head of IR</span></td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td></tr>
+            <tr><td>Daw Aye Aye Mon</td><td class="mono">aye.mon@cbbank.com</td><td><span class="pill pill-neutral" data-i18n="role.complianceofficer">Compliance Officer</span></td><td><span class="pill pill-warning" data-i18n="status.suspended">Suspended</span></td></tr>
           </tbody>
         </table></div>
-        <div class="card" id="userDrawer" style="display:none; margin-top:18px; max-width:560px;">
+        <div class="card" id="userDrawer" style="display:none; margin-top:18px; max-width:520px;">
           <div class="section-title" style="margin-top:0;" data-i18n="user.newuser">New user</div>
           <div class="form-grid">
             <div class="field span-2"><label data-i18n="wz.fullname">Full name <span class="req">*</span></label><input id="newUserName" placeholder="e.g. Daw Su Su Hlaing" /></div>
@@ -1714,29 +1479,6 @@
                 <option data-i18n="role.complianceofficer">Compliance Officer</option>
                 <option data-i18n="role.cfo">CFO</option>
                 <option data-i18n="role.sysadmin">System Administrator</option>
-              </select>
-            </div>
-            <div class="field"><label data-i18n="user.accessrole">Access role <span class="req">*</span></label>
-              <select id="newUserAccessRole" onchange="toggleNewUserGroupsField()">
-                <option data-i18n="user.role.maker1">Maker (1)</option>
-                <option data-i18n="user.role.maker2">Maker (2)</option>
-                <option data-i18n="user.role.maker3">Maker (3)</option>
-                <option data-i18n="user.role.checker">Checker</option>
-                <option data-i18n="user.role.manager">Manager</option>
-                <option data-i18n="user.role.approver">Approver (DMD/MD/CEO/VC)</option>
-                <option data-i18n="user.role.admin">Admin</option>
-              </select>
-            </div>
-            <div class="field span-2" id="newUserGroupsField">
-              <label data-i18n="user.assignedgroups">Assigned Shareholder Main/Sub Groups</label>
-              <select id="newUserGroups" multiple size="4">
-                <option data-i18n="grp.bod">BOD</option>
-                <option data-i18n="grp.companies">Private &amp; Public Companies</option>
-                <option data-i18n="md.groups.management">Management &amp; Personal</option>
-                <option data-i18n="md.groups.ccs">CCS &amp; Original Co-operatives</option>
-                <option data-i18n="grp.coops">States &amp; Divisions Co-operatives</option>
-                <option data-i18n="grp.staff">Staff</option>
-                <option data-i18n="grp.public">Public</option>
               </select>
             </div>
             <div class="field"><label data-i18n="th.status">Status</label>
@@ -1751,13 +1493,13 @@
       <section class="page" id="page-matrix">
         <div class="page-header"><div><h1 data-i18n="page.matrix.title">Approval Matrix</h1><p data-i18n="page.matrix.sub">Configurable, effective-dated routing per transaction type &amp; amount band.</p></div><div class="page-header__actions"><button class="btn btn-primary" onclick="openMatrixDrawer()" data-i18n="matrix.newrule">+ New Rule</button></div></div>
         <div class="table-wrap"><table class="data" id="matrixTable">
-          <thead><tr><th data-i18n="matrix.txtype">Transaction type</th><th data-i18n="matrix.amountband">Amount band</th><th data-i18n="matrix.route">Route</th><th data-i18n="matrix.routingmode">Routing</th><th data-i18n="matrix.effectivefrom">Effective from</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
+          <thead><tr><th data-i18n="matrix.txtype">Transaction type</th><th data-i18n="matrix.amountband">Amount band</th><th data-i18n="matrix.route">Route</th><th data-i18n="matrix.effectivefrom">Effective from</th><th data-i18n="th.status">Status</th><th></th></tr></thead>
           <tbody>
-            <tr><td data-i18n="tx.issueshares">Issue Shares</td><td>&le; MMK 10.0M</td><td>DGM → Legal → DGM → CEO</td><td><span class="pill pill-neutral" data-i18n="matrix.sequential">Sequential</span></td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.issueshares">Issue Shares</td><td>&gt; MMK 10.0M</td><td>DGM → Legal → DGM → DMD → Managing Director → CEO → Vice Chairman → Board of Directors → CBM (conditional)</td><td><span class="pill pill-warning" data-i18n="matrix.flexible">Flexible</span></td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.transfershares">Transfer Shares</td><td data-i18n="matrix.any">Any</td><td>DGM → Legal → DGM → Managing Director → CEO</td><td><span class="pill pill-neutral" data-i18n="matrix.sequential">Sequential</span></td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.bonusshares">Bonus Shares</td><td data-i18n="matrix.any">Any</td><td>DGM → Legal → DGM → CEO → Board of Directors → CBM (conditional)</td><td><span class="pill pill-warning" data-i18n="matrix.flexible">Flexible</span></td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
-            <tr><td data-i18n="tx.dividend">Dividend</td><td data-i18n="matrix.any">Any</td><td>DGM → Legal → DGM → CEO → Board of Directors → CBM (conditional)</td><td><span class="pill pill-warning" data-i18n="matrix.flexible">Flexible</span></td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
+            <tr><td data-i18n="tx.issueshares">Issue Shares</td><td>&le; MMK 10.0M</td><td>Branch Manager → Head of IR</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
+            <tr><td data-i18n="tx.issueshares">Issue Shares</td><td>&gt; MMK 10.0M</td><td>Branch Manager → Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
+            <tr><td data-i18n="tx.transfershares">Transfer Shares</td><td data-i18n="matrix.any">Any</td><td>Compliance Officer → Head of IR</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
+            <tr><td data-i18n="tx.bonusshares">Bonus Shares</td><td data-i18n="matrix.any">Any</td><td>Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
+            <tr><td data-i18n="tx.dividend">Dividend</td><td data-i18n="matrix.any">Any</td><td>Head of IR → CFO</td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
           </tbody>
         </table></div>
         <div class="card" id="matrixDrawer" style="display:none; margin-top:18px; max-width:620px;">
@@ -1772,8 +1514,7 @@
               </select>
             </div>
             <div class="field"><label data-i18n="matrix.amountband">Amount band</label><input id="matrixBand" value="Any" /></div>
-            <div class="field span-2"><label data-i18n="matrix.routeseq">Route (approver sequence) <span class="req">*</span></label><input id="matrixRoute" placeholder="e.g. DGM &#8594; Legal &#8594; DGM &#8594; CEO &#8594; Board of Directors &#8594; CBM (conditional)" /></div>
-            <div class="field"><label data-i18n="matrix.routingmode">Routing</label><select id="matrixRoutingMode"><option data-i18n="matrix.sequential">Sequential</option><option data-i18n="matrix.flexible">Flexible</option></select></div>
+            <div class="field span-2"><label data-i18n="matrix.routeseq">Route (approver sequence) <span class="req">*</span></label><input id="matrixRoute" placeholder="e.g. Branch Manager &#8594; Head of IR" /></div>
             <div class="field"><label data-i18n="matrix.effectivefrom">Effective from <span class="req">*</span></label><input type="date" id="matrixDate" /></div>
             <div class="field"><label data-i18n="th.status">Status</label><select id="matrixStatus"><option data-i18n="status.active">Active</option><option data-i18n="status.inactive">Inactive</option></select></div>
           </div>
@@ -1791,13 +1532,8 @@
             <tr><td data-i18n="role.headofir">Head of IR</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
             <tr><td data-i18n="role.complianceofficer">Compliance Officer</td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td></tr>
             <tr><td data-i18n="role.cfo">CFO</td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
-            <tr><td data-i18n="user.role.maker1">Maker (1)</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td></tr>
-            <tr><td data-i18n="user.role.checker">Checker</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox"/></td><td><input type="checkbox"/></td></tr>
-            <tr><td data-i18n="user.role.manager">Manager</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
-            <tr><td data-i18n="user.role.admin">Admin</td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td><td><input type="checkbox" checked/></td></tr>
           </tbody>
         </table></div>
-        <p style="font-size:11.5px;color:var(--ink-400);margin-top:10px;" data-i18n="perm.approvernote">Approver (DMD / MD / CEO / VC) has no Submit rights here — decision rights over a submitted case are set per transaction type and amount band on the Approval Matrix page instead. A Maker's Submit rights are further scoped to their Assigned Groups (see Users and Roles).</p>
       </section>
 
       <!-- ============ MASTER DATA ============ -->
@@ -1805,7 +1541,7 @@
         <div class="page-header"><div><h1 data-i18n="page.masterdata.title">Master Data</h1><p data-i18n="page.masterdata.sub">Groups, share classes, branches, departments, NRC prefixes, document &amp; reason codes.</p></div></div>
         <div class="drawer-layout">
           <ul class="drawer-list" id="mdList">
-            <li class="active" data-key="groups" onclick="loadMasterData('groups')"><span data-i18n="md.groups">Shareholder groups</span> <span class="count">24</span></li>
+            <li class="active" data-key="groups" onclick="loadMasterData('groups')"><span data-i18n="md.groups">Shareholder groups</span> <span class="count">3</span></li>
             <li data-key="shareclasses" onclick="loadMasterData('shareclasses')"><span data-i18n="md.shareclasses">Share classes</span> <span class="count">2</span></li>
             <li data-key="branches" onclick="loadMasterData('branches')"><span data-i18n="md.branches">Branches</span> <span class="count">14</span></li>
             <li data-key="departments" onclick="loadMasterData('departments')"><span data-i18n="md.departments">Departments</span> <span class="count">6</span></li>
@@ -2465,8 +2201,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'btn.newbonus':'+ New Bonus Batch', 'btn.newdividend':'+ New Dividend Event', 'btn.newdelegation':'+ New Delegation',
       'btn.view':'View', 'btn.decide':'Decide', 'btn.end':'End',
       'decision.approve':'Approve', 'decision.reject':'Reject', 'decision.revert':'Revert',
-      'decision.casetransfer':'Case-Transfer', 'decision.recall':'Recall', 'approvals.transferto':'Transfer to',
-      'approvals.recallnote':'Recall is only available to the original submitter — it pulls the case back from the current approver so it can be reassigned. The current approver can no longer act on it once recalled.',
       'approvals.timeline':'Approval timeline', 'approvals.decision':'Decision', 'field.comment':'Comment',
       'filter.from':'From', 'filter.to':'To', 'filter.group':'Group', 'filter.shareclass':'Share class',
       'tab.shareholder':'Shareholder &amp; Certificate', 'tab.dividend':'Bonus &amp; Dividend', 'tab.market':'Capital &amp; Market',
@@ -2519,13 +2253,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'wz.applicanttype':'Applicant type', 'wz.referralsource':'Referral source',
       'wz.namefull':'Full name (English)', 'wz.namemm':'Full name (Myanmar)', 'wz.nrc':'NRC number',
       'wz.dob':'Date of birth', 'wz.nationality':'Nationality', 'wz.occupation':'Occupation',
-      'wz.corpdetails':'Corporate details', 'wz.corpname':'Company / Corporate name', 'wz.corpregno':'Registration No.',
-      'wz.corpincdate':'Date of incorporation', 'wz.corptype':'Type of institution', 'wz.corpnature':'Nature of business',
-      'wz.corpsourceoffund':'Source of fund', 'wz.corppaidup':'Paid-up capital (MMK)', 'wz.corpboardres':'Board resolution dated',
-      'wz.corpbodtitle':'Board of Directors / Principal Officers', 'wz.corpauthtitle':'Authorized Persons to Operate the Account',
-      'wz.corpowntitle':'Company Ownership', 'wz.col.name':'Name', 'wz.col.nrc':'NRC No.', 'wz.col.resaddr':'Residential address',
-      'wz.col.designation':'Designation', 'wz.col.ownername':'Owner name', 'wz.col.ownpct':'% of shareholding',
-      'wz.addrow':'+ Add row', 'wz.removerow':'Remove',
       'wz.mobile':'Mobile number', 'wz.regaddress':'Registered address', 'wz.bankdetails':'Bank details',
       'wz.bankname':'Bank name', 'wz.acctnumber':'Account number', 'wz.acctname':'Account name',
       'wz.supportingdocs':'Supporting documents',
@@ -2560,7 +2287,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'matrix.newrule':'+ New Rule', 'matrix.txtype':'Transaction type', 'matrix.amountband':'Amount band',
       'matrix.route':'Route', 'matrix.effectivefrom':'Effective from', 'matrix.any':'Any',
       'matrix.routeseq':'Route (approver sequence)', 'matrix.saverule':'Save rule',
-      'matrix.routingmode':'Routing', 'matrix.sequential':'Sequential', 'matrix.flexible':'Flexible',
       'perm.savechanges':'Save changes',
       'md.groups':'Shareholder groups', 'md.shareclasses':'Share classes', 'md.branches':'Branches',
       'md.departments':'Departments', 'md.nrcprefixes':'NRC prefixes', 'md.doctypes':'Document types',
@@ -2578,12 +2304,9 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'kyc.screening':'Awaiting screening', 'kyc.pendingdocs':'Pending documents', 'kyc.decidedtoday':'Decided today',
       'kyc.searchph':'Search applicant or ID', 'kyc.appdetails':'Application details',
       'kyc.currentstage':'Current stage', 'kyc.screeningref':'Screening ref.', 'kyc.requestdocs':'Request documents',
-      'kyc.temporaryid':'Temporary Shareholder ID',
-      'kyc.temporaryidnote':'Issued on KYC approval. Becomes the Permanent Shareholder ID only once CBM approval is obtained (see Approval Matrix).',
       'kyc.commentph':'Optional for approve, mandatory for reject/request documents',
       'sh.searchph':'Search by name or ID', 'sh.totalregister':'Total (full register)',
       'sh.details':'Shareholder details', 'sh.group':'Shareholder group', 'sh.nrc':'NRC / Registration No.',
-      'sh.idstatus':'ID Status', 'sh.permanent':'Permanent', 'sh.permanentnote':'(CBM approval obtained)',
       'sh.holdingsummary':'Holding summary', 'sh.paidupcapital':'Paid-up capital', 'sh.kycstatus':'KYC status',
       'app.searchph':'Search applicant or ID', 'cert.searchph':'Search by certificate no. or holder',
       'issue.searchph':'Search by reference or shareholder', 'issue.details':'Issuance details',
@@ -2673,8 +2396,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'btn.newbonus':'+ အပိုရှယ်ယာအသုတ်အသစ်', 'btn.newdividend':'+ အမြတ်ဝေစုအစီအစဉ်အသစ်', 'btn.newdelegation':'+ လွှဲအပ်မှုအသစ်',
       'btn.view':'ကြည့်ရန်', 'btn.decide':'ဆုံးဖြတ်ရန်', 'btn.end':'ရပ်ဆိုင်းမည်',
       'decision.approve':'အတည်ပြုမည်', 'decision.reject':'ငြင်းပယ်မည်', 'decision.revert':'ပြန်ပို့မည်',
-      'decision.casetransfer':'လွှဲပြောင်းမည်', 'decision.recall':'ပြန်ခေါ်မည်', 'approvals.transferto':'လွှဲပြောင်းမည့်သူ',
-      'approvals.recallnote':'ပြန်ခေါ်ခြင်းကို မူလတင်သွင်းသူသာ ပြုလုပ်နိုင်ပါသည် — လက်ရှိအတည်ပြုသူထံမှ ကိစ္စကို ပြန်ခေါ်ပြီး မှန်ကန်သောအတည်ပြုသူထံ ပြန်လည်သတ်မှတ်နိုင်ပါသည်။ ပြန်ခေါ်ပြီးနောက် လက်ရှိအတည်ပြုသူ ဆက်လက်လုပ်ဆောင်နိုင်တော့မည် မဟုတ်ပါ။',
       'approvals.timeline':'အတည်ပြုမှု အချိန်ဇယား', 'approvals.decision':'ဆုံးဖြတ်ချက်', 'field.comment':'မှတ်ချက်',
       'filter.from':'မှ', 'filter.to':'အထိ', 'filter.group':'အုပ်စု', 'filter.shareclass':'ရှယ်ယာအတန်းအစား',
       'tab.shareholder':'ရှယ်ယာရှင်နှင့် အစုလက်မှတ်', 'tab.dividend':'အပိုရှယ်ယာနှင့် အမြတ်ဝေစု', 'tab.market':'အရင်းအနှီးနှင့် ဈေးကွက်',
@@ -2727,13 +2448,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'wz.applicanttype':'လျှောက်ထားသူအမျိုးအစား', 'wz.referralsource':'ညွှန်းဆိုသူ အရင်းအမြစ်',
       'wz.namefull':'အမည်အပြည့်အစုံ (အင်္ဂလိပ်)', 'wz.namemm':'အမည်အပြည့်အစုံ (မြန်မာ)', 'wz.nrc':'မှတ်ပုံတင်အမှတ်',
       'wz.dob':'မွေးသက္ကရာဇ်', 'wz.nationality':'လူမျိုး', 'wz.occupation':'အလုပ်အကိုင်',
-      'wz.corpdetails':'ကုမ္ပဏီ အသေးစိတ်', 'wz.corpname':'ကုမ္ပဏီ / အသင်းအဖွဲ့ အမည်', 'wz.corpregno':'မှတ်ပုံတင်အမှတ်',
-      'wz.corpincdate':'စတင်တည်ထောင်သည့်ရက်', 'wz.corptype':'ကုမ္ပဏီ အမျိုးအစား', 'wz.corpnature':'လုပ်ငန်း အမျိုးအစား',
-      'wz.corpsourceoffund':'ငွေအရင်းအမြစ်', 'wz.corppaidup':'လုပ်ငန်းမတည်ရင်းနှီးငွေ (ကျပ်)', 'wz.corpboardres':'ဒါရိုက်တာအဖွဲ့ အစည်းအဝေးမှတ်တမ်းရက်စွဲ',
-      'wz.corpbodtitle':'ဒါရိုက်တာအဖွဲ့ / အဓိက တာဝန်ရှိသူများ', 'wz.corpauthtitle':'အကောင့်လုပ်ဆောင်ရန် ခွင့်ပြုထားသူများ',
-      'wz.corpowntitle':'ကုမ္ပဏီပိုင်ဆိုင်မှု', 'wz.col.name':'အမည်', 'wz.col.nrc':'မှတ်ပုံတင်အမှတ်', 'wz.col.resaddr':'နေထိုင်ရာ လိပ်စာ',
-      'wz.col.designation':'ရာထူး', 'wz.col.ownername':'ပိုင်ဆိုင်သူ အမည်', 'wz.col.ownpct':'ပိုင်ဆိုင်မှု %',
-      'wz.addrow':'+ အတန်း ထည့်ရန်', 'wz.removerow':'ဖယ်ရှားမည်',
       'wz.mobile':'မိုဘိုင်းဖုန်းနံပါတ်', 'wz.regaddress':'မှတ်ပုံတင်လိပ်စာ', 'wz.bankdetails':'ဘဏ်အချက်အလက်',
       'wz.bankname':'ဘဏ်အမည်', 'wz.acctnumber':'အကောင့်နံပါတ်', 'wz.acctname':'အကောင့်အမည်',
       'wz.supportingdocs':'အထောက်အထား စာရွက်စာတမ်းများ',
@@ -2768,7 +2482,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'matrix.newrule':'+ စည်းမျဉ်းအသစ်', 'matrix.txtype':'ငွေလွှဲမှု အမျိုးအစား', 'matrix.amountband':'ပမာဏအပိုင်းအခြား',
       'matrix.route':'လမ်းကြောင်း', 'matrix.effectivefrom':'အာဏာတည်သည့်ရက်', 'matrix.any':'မည်သည့်',
       'matrix.routeseq':'လမ်းကြောင်း (အတည်ပြုသူ အစီအစဉ်)', 'matrix.saverule':'စည်းမျဉ်းသိမ်းမည်',
-      'matrix.routingmode':'လမ်းကြောင်းစနစ်', 'matrix.sequential':'အစဉ်လိုက်', 'matrix.flexible':'ပြောင်းလွယ်ပြင်လွယ်',
       'perm.savechanges':'ပြောင်းလဲမှုများ သိမ်းမည်',
       'md.groups':'ရှယ်ယာရှင်အုပ်စုများ', 'md.shareclasses':'ရှယ်ယာအတန်းအစားများ', 'md.branches':'ဌာနခွဲများ',
       'md.departments':'ဌာနများ', 'md.nrcprefixes':'မှတ်ပုံတင် ရှေ့ဆက်များ', 'md.doctypes':'စာရွက်စာတမ်း အမျိုးအစားများ',
@@ -2786,12 +2499,9 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       'kyc.screening':'စိစစ်မှု စောင့်ဆိုင်းဆဲ', 'kyc.pendingdocs':'စာရွက်စာတမ်း စောင့်ဆိုင်းဆဲ', 'kyc.decidedtoday':'ယနေ့ဆုံးဖြတ်ပြီး',
       'kyc.searchph':'လျှောက်ထားသူ သို့မဟုတ် အမှတ်ဖြင့် ရှာရန်', 'kyc.appdetails':'လျှောက်လွှာ အသေးစိတ်',
       'kyc.currentstage':'လက်ရှိအဆင့်', 'kyc.screeningref':'စိစစ်မှု ကိုးကားနံပါတ်', 'kyc.requestdocs':'စာရွက်စာတမ်း တောင်းခံရန်',
-      'kyc.temporaryid':'ယာယီ အစုရှယ်ယာရှင်အမှတ်',
-      'kyc.temporaryidnote':'KYC အတည်ပြုချက်ရရှိသည်နှင့် ထုတ်ပေးသည်။ CBM အတည်ပြုချက်ရရှိမှသာ အမြဲတမ်း အစုရှယ်ယာရှင်အမှတ် ဖြစ်လာမည် (Approval Matrix ကိုကြည့်ပါ)။',
       'kyc.commentph':'အတည်ပြုရန် မဖြစ်မနေမလို၊ ငြင်းပယ်/စာရွက်စာတမ်းတောင်းခံရန် မဖြစ်မနေလိုအပ်သည်',
       'sh.searchph':'အမည် သို့မဟုတ် အမှတ်ဖြင့် ရှာရန်', 'sh.totalregister':'စုစုပေါင်း (မှတ်ပုံတင်စာရင်းအပြည့်)',
       'sh.details':'ရှယ်ယာရှင် အသေးစိတ်', 'sh.group':'ရှယ်ယာရှင် အုပ်စု', 'sh.nrc':'မှတ်ပုံတင်/မှတ်ပုံတင်အမှတ်',
-      'sh.idstatus':'အမှတ် အခြေအနေ', 'sh.permanent':'အမြဲတမ်း', 'sh.permanentnote':'(CBM အတည်ပြုချက် ရရှိပြီး)',
       'sh.holdingsummary':'ပိုင်ဆိုင်မှု အကျဉ်းချုပ်', 'sh.paidupcapital':'ငွေပေးသွင်းပြီးအရင်းအနှီး', 'sh.kycstatus':'KYC အခြေအနေ',
       'app.searchph':'လျှောက်ထားသူ သို့မဟုတ် အမှတ်ဖြင့် ရှာရန်', 'cert.searchph':'လက်မှတ်အမှတ် သို့မဟုတ် ပိုင်ရှင်ဖြင့် ရှာရန်',
       'issue.searchph':'ကိုးကားနံပါတ် သို့မဟုတ် ရှယ်ယာရှင်ဖြင့် ရှာရန်', 'issue.details':'ထုတ်ပေးမှု အသေးစိတ်',
@@ -3183,9 +2893,9 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
   }
   function pill(status){
     var cls = (status === 'Draft' || status === 'Printed') ? 'pill-neutral'
-      : (status === 'Pending Approval' || status === 'KYC Review' || status === 'Checker Review' || status === 'Submitted to DGM') ? 'pill-warning'
+      : (status === 'Pending Approval' || status === 'KYC Review') ? 'pill-warning'
       : (status === 'Pending Documents' || status === 'Submitted') ? 'pill-info'
-      : (status === 'Rejected' || status === 'Overdue' || status === 'Cancelled' || status === 'Sent Back') ? 'pill-danger'
+      : (status === 'Rejected' || status === 'Overdue' || status === 'Cancelled') ? 'pill-danger'
       : 'pill-success';
     return '<span class="pill ' + cls + '">' + esc(xlate(status)) + '</span>';
   }
@@ -3243,8 +2953,8 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       var root = document.getElementById('transfer-detail');
       var sels = root.querySelectorAll('select');
       var type = selText(sels[0]);
-      var from = selText(sels[3]).split(' — ')[0];
-      var to = selText(sels[4]).split(' — ')[0];
+      var from = selText(sels[2]).split(' — ')[0];
+      var to = selText(sels[3]).split(' — ')[0];
       var qty = root.querySelectorAll('input')[0].value || '0';
       return '<td class="mono">' + ref + '</td><td>' + esc(from) + '</td><td>' + esc(to) + '</td><td class="num">' + esc(qty) + '</td><td>' + esc(type) + '</td><td>' + pill(status) + '</td>';
     }
@@ -3262,15 +2972,12 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     }
     if(section === 'dividends'){
       var root = document.getElementById('dividends-detail');
-      var inputs = root.querySelectorAll('input');
-      var pct = inputs[0] ? inputs[0].value : '0';
-      var capValue = inputs[1] ? inputs[1].value : '10000';
+      var rate = root.querySelectorAll('input')[0].value || '0';
       var dateEl = root.querySelector('input[type=date]');
       var recordDate = dateEl ? fmtDate(dateEl.value) : '';
-      var pctNum = parseFloat(String(pct).replace(/,/g, '')) || 0;
-      var capNum = parseFloat(String(capValue).replace(/,/g, '')) || 0;
-      var total = (pctNum / 100 * capNum * 18700 / 1e6).toFixed(1) + 'M';
-      return '<td class="mono">' + ref + '</td><td>' + esc(pct) + '%</td><td>' + recordDate + '</td><td class="num">' + total + '</td><td>' + pill(status) + '</td>';
+      var rateNum = parseFloat(String(rate).replace(/,/g, '')) || 0;
+      var total = (rateNum * 18700 / 1e6).toFixed(1) + 'M';
+      return '<td class="mono">' + ref + '</td><td>' + esc(rate) + ' / share</td><td>' + recordDate + '</td><td class="num">' + total + '</td><td>' + pill(status) + '</td>';
     }
     return '';
   }
@@ -3293,22 +3000,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     if(master) master.checked = checked.length === boxes.length;
     var summary = document.getElementById('bonusSelectionSummary');
     if(summary) summary.textContent = checked.length + ' of ' + boxes.length + ' certificates selected · ' + issued.toLocaleString() + ' bonus shares';
-  }
-
-  /* Section 5.6.2 Category 11 — Outstanding = Cash Bonus Amount - (Cash Withdrawal + Account Transfer + Reinvest) */
-  function updateBonusWithdrawalOutstanding(){
-    var num = function(id){ return parseFloat((document.getElementById(id).value || '0').replace(/,/g, '')) || 0; };
-    var total = num('bonusCashAmountField');
-    var outstanding = total - num('bonusCashWithdrawField') - num('bonusAcctTransferField') - num('bonusReinvestField');
-    document.getElementById('bonusOutstandingField').value = outstanding.toLocaleString();
-  }
-
-  /* Section 5.7.5 — Outstanding Balance = Dividend Amount - (Cash Withdraw + A/C Transfer + Reinvest) */
-  function updateDividendWithdrawalOutstanding(){
-    var num = function(id){ return parseFloat((document.getElementById(id).value || '0').replace(/,/g, '')) || 0; };
-    var total = num('dividendAmountField');
-    var outstanding = total - num('dividendCashWithdrawField') - num('dividendAcctTransferField') - num('dividendReinvestField');
-    document.getElementById('dividendOutstandingField').value = outstanding.toLocaleString();
   }
 
   function validateBeforeAction(section){
@@ -3345,63 +3036,9 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     3: ['wzMobile', 'wzAddress'],
     4: ['wzBankAcct', 'wzBankAcctName']
   };
-  var WIZARD_REQUIRED_CORPORATE_STEP2 = ['wzCorpName', 'wzCorpRegNo'];
-
-  function isWizardCorporate(){
-    return selText(document.getElementById('wzApplicantType')) === (I18N[currentLang]['type.corporate'] || 'Corporate');
-  }
-  /* Section 5.5 — Trade Transfer and Non-Trade Transfer are two distinct processes: only Trade
-     carries a buying/selling payment record and needs CBM approval on the consideration. */
-  function toggleTransferTypeFields(){
-    var sel = document.getElementById('transferTypeSelect');
-    var isTrade = !sel || sel.selectedIndex === 0; // option 0 = Trade, option 1 = Non-trade
-    document.getElementById('transferTradeFields').classList.toggle('hidden', !isTrade);
-    document.getElementById('transferTrailTrade').classList.toggle('hidden', !isTrade);
-    document.getElementById('transferTrailNonTrade').classList.toggle('hidden', isTrade);
-  }
-
-  function toggleWizardApplicantFields(){
-    var corp = isWizardCorporate();
-    document.getElementById('wzPersonalFields').classList.toggle('hidden', corp);
-    document.getElementById('wzCorporateFields').classList.toggle('hidden', !corp);
-    if(corp) updateCorpOwnershipTotal();
-  }
-
-  /* Repeatable rows for the Corporate application's BOD / Authorized Persons / Company Ownership
-     sub-tables (blueprint §4.1.3.3 Categories 3, 4 &amp; 6 — "Can add new row with add row button"). */
-  function addCorpSubRow(tableId, colCount, isOwnership){
-    var tbody = document.querySelector('#' + tableId + ' tbody');
-    var tds = '';
-    for(var i = 0; i < colCount; i++){
-      var isPctCol = isOwnership && i === colCount - 1;
-      tds += '<td><input' + (i === 1 ? ' class="mono"' : (isPctCol ? ' class="num" oninput="updateCorpOwnershipTotal()"' : '')) + ' /></td>';
-    }
-    var tr = document.createElement('tr');
-    tr.innerHTML = tds + '<td><a href="#" onclick="removeCorpSubRow(this);' + (isOwnership ? 'updateCorpOwnershipTotal();' : '') + 'return false;" data-i18n="wz.removerow">' + esc(I18N[currentLang]['wz.removerow'] || 'Remove') + '</a></td>';
-    tbody.appendChild(tr);
-  }
-  function removeCorpSubRow(link){
-    var tbody = link.closest('tbody');
-    var tr = link.closest('tr');
-    if(tbody.querySelectorAll('tr').length > 1) tr.remove();
-    else toast('At least one row is required.', 'info');
-  }
-  function updateCorpOwnershipTotal(){
-    var el = document.getElementById('wzCorpOwnTotal');
-    if(!el) return;
-    var total = Array.prototype.reduce.call(document.querySelectorAll('#wzCorpOwnTable tbody tr'), function(sum, tr){
-      var v = parseFloat(tr.querySelectorAll('input')[2] ? tr.querySelectorAll('input')[2].value : '0');
-      return sum + (isNaN(v) ? 0 : v);
-    }, 0);
-    var ok = Math.abs(total - 100) < 0.01;
-    var label = currentLang === 'my' ? 'ပိုင်ဆိုင်မှု စုစုပေါင်း' : 'Total ownership';
-    el.innerHTML = esc(label) + ': <strong style="color:' + (ok ? 'var(--success)' : 'var(--danger)') + ';">' + total.toFixed(1) + '%</strong>' +
-      (ok ? '' : ' <span style="color:var(--danger);">' + esc(currentLang === 'my' ? '(၁၀၀% ဖြစ်ရပါမည်)' : '(must total 100%)') + '</span>');
-  }
 
   function wizardGoTo(step){
     wizardStep = step;
-    if(step === 2) toggleWizardApplicantFields();
     document.querySelectorAll('#applications-detail .wizard-step').forEach(function(el){
       el.classList.toggle('hidden', parseInt(el.getAttribute('data-step'), 10) !== step);
     });
@@ -3425,7 +3062,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
   }
 
   function wizardValidateStep(step){
-    var ids = step === 2 && isWizardCorporate() ? WIZARD_REQUIRED_CORPORATE_STEP2 : WIZARD_REQUIRED[step];
+    var ids = WIZARD_REQUIRED[step];
     if(!ids) return true;
     for(var i = 0; i < ids.length; i++){
       var el = document.getElementById(ids[i]);
@@ -3446,14 +3083,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     if(wizardStep > 1) wizardGoTo(wizardStep - 1);
   }
 
-  function corpSubRowsSummary(tableId, colIdxs, suffix){
-    var rows = document.querySelectorAll('#' + tableId + ' tbody tr');
-    return Array.prototype.map.call(rows, function(tr){
-      var inputs = tr.querySelectorAll('input');
-      return colIdxs.map(function(i){ return inputs[i] ? inputs[i].value.trim() : ''; }).filter(Boolean).join(' — ') + (suffix ? suffix : '');
-    }).filter(function(s){ return s && s !== (suffix || ''); }).join('; ') || '—';
-  }
-
   function buildWizardReview(){
     var val = function(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; };
     var docs = [
@@ -3463,36 +3092,16 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     ].filter(Boolean).join(', ') || 'None attached';
     var rows = [
       ['Applicant type', selText(document.getElementById('wzApplicantType'))],
-      ['Referral source', selText(document.getElementById('wzReferral'))]
-    ];
-    if(isWizardCorporate()){
-      rows = rows.concat([
-        ['Company / Corporate name', val('wzCorpName') || '—'],
-        ['Registration No.', val('wzCorpRegNo') || '—'],
-        ['Date of incorporation', val('wzCorpIncDate') ? fmtDate(val('wzCorpIncDate')) : '—'],
-        ['Type of institution', val('wzCorpType') || '—'],
-        ['Nature of business', val('wzCorpNature') || '—'],
-        ['Source of fund', val('wzCorpSourceOfFund') || '—'],
-        ['Paid-up capital (MMK)', val('wzCorpPaidUp') || '—'],
-        ['Board resolution dated', val('wzCorpBoardResDate') ? fmtDate(val('wzCorpBoardResDate')) : '—'],
-        ['Board of Directors / Principal Officers', corpSubRowsSummary('wzCorpBodTable', [0, 2])],
-        ['Authorized Persons', corpSubRowsSummary('wzCorpAuthTable', [0, 2])],
-        ['Company Ownership', corpSubRowsSummary('wzCorpOwnTable', [0, 2], '%')]
-      ]);
-    } else {
-      rows = rows.concat([
-        ['Full name', val('wzNameEn') || '—'],
-        ['NRC number', val('wzNrc') || '—'],
-        ['Date of birth', val('wzDob') ? fmtDate(val('wzDob')) : '—']
-      ]);
-    }
-    rows = rows.concat([
+      ['Referral source', selText(document.getElementById('wzReferral'))],
+      ['Full name', val('wzNameEn') || '—'],
+      ['NRC number', val('wzNrc') || '—'],
+      ['Date of birth', val('wzDob') ? fmtDate(val('wzDob')) : '—'],
       ['Mobile number', val('wzMobile') || '—'],
       ['Email', val('wzEmail') || '—'],
       ['Registered address', val('wzAddress') || '—'],
       ['Bank account', selText(document.getElementById('wzBankName')) + ' — ' + (val('wzBankAcct') || '—')],
       ['Documents attached', docs]
-    ]);
+    ];
     document.getElementById('wzReview').innerHTML = rows.map(function(r){
       return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>';
     }).join('');
@@ -3504,71 +3113,33 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       return;
     }
     var ref = nextRef('applications');
-    prependRow(LIST_TABLE.applications, rowHtml('applications', ref, 'Checker Review'));
-    toast('Application submitted — ' + ref + ' moved to Checker Review.');
-    logAudit('Submit', 'Applications', ref, 'Maker submitted application — moved to Checker Review (Section 4.2.1 SA process flow)');
+    prependRow(LIST_TABLE.applications, rowHtml('applications', ref, 'KYC Review'));
+    toast('Application submitted — ' + ref + ' moved to KYC Review.');
+    logAudit('Submit', 'Applications', ref, 'Application submitted — moved to KYC Review');
     document.getElementById('wzDeclaration').checked = false;
     showList('applications');
     wizardGoTo(1);
   }
 
   /* ---------- approvals ---------- */
-  function toggleApprovalTransferField(){
-    var checked = document.querySelector('#page-approvals input[name="dec"]:checked');
-    var decision = checked ? checked.value : 'Approve';
-    document.getElementById('approvalNextApproverField').classList.toggle('hidden', decision !== 'Approve');
-    document.getElementById('approvalTransferToField').classList.toggle('hidden', decision !== 'Case-Transfer');
-    document.getElementById('approvalRecallNote').classList.toggle('hidden', decision !== 'Recall');
-  }
   function submitApprovalDecision(){
     var checked = document.querySelector('#page-approvals input[name="dec"]:checked');
-    var decision = checked ? checked.value : 'Approve';
+    var decision = checked ? checked.parentElement.textContent.trim() : 'Approve';
     var comment = document.querySelector('#approvals-detail textarea');
     if((decision === 'Reject' || decision === 'Revert') && comment && !comment.value.trim()){
       toast('A comment is required to ' + decision.toLowerCase() + ' this step.', 'info');
       return;
     }
-    if(decision === 'Case-Transfer' && !document.getElementById('approvalTransferTo').value){
-      toast('Select who to transfer this case to.', 'info');
-      return;
-    }
     var row = document.querySelector('#approvalsPendingTable tr[data-ref="IS-2026-0018"]');
     if(row) row.remove();
-    var msg;
-    if(decision === 'Approve'){
-      var nextSel = document.getElementById('approvalNextApprover');
-      var next = nextSel && nextSel.selectedIndex > 0 ? selText(nextSel) : 'CFO';
-      msg = 'Decision recorded — Approved. IS-2026-0018 moved to Step 3 of 3 (' + next + ').' + (nextSel && nextSel.selectedIndex > 0 ? ' Next approver selected dynamically — the sequence is not strictly fixed.' : '');
-    }
-    else if(decision === 'Reject') msg = 'Decision recorded — Rejected. IS-2026-0018 returned to the submitter.';
-    else if(decision === 'Revert') msg = 'Decision recorded — Sent Back. IS-2026-0018 returned to Step 1 (Branch Manager) for resubmission once corrected.';
-    else if(decision === 'Case-Transfer') msg = 'Case-Transfer recorded. IS-2026-0018 reassigned to ' + document.getElementById('approvalTransferTo').value + '. The previous approver can no longer act on this case.';
-    else msg = 'Recall recorded. IS-2026-0018 pulled back from the current approver — the sender can now reassign it to the correct approver.';
+    var msg = decision === 'Approve'
+      ? 'Decision recorded — Approved. IS-2026-0018 moved to Step 3 of 3 (CFO).'
+      : decision === 'Reject'
+        ? 'Decision recorded — Rejected. IS-2026-0018 returned to the submitter.'
+        : 'Decision recorded — Reverted. IS-2026-0018 sent back to Step 1 (Branch Manager).';
     toast(msg);
     logAudit('Decision', 'Approvals', 'IS-2026-0018', msg + (comment && comment.value.trim() ? ' Comment: ' + comment.value.trim() : ''));
     showList('approvals');
-  }
-  /* Section 3.4 General Notes — "Only the Initiator can close the approval process." Close is offered
-     only on the submitter's own "Submitted by me" view, and only once every step shows Fully approved. */
-  function closeApprovalCase(ref, btn){
-    toast(ref + ' closed by the initiator — approved letters/records filed, case archived.');
-    logAudit('Close', 'Approvals', ref, 'Initiator closed the fully-approved approval process for ' + ref);
-    var row = btn.closest('tr');
-    if(row){
-      var lastCell = row.querySelector('td:last-child');
-      if(lastCell) lastCell.innerHTML = '<span class="pill pill-neutral">Closed</span>';
-    }
-  }
-  /* First Approver action "Re-submit" (Section 3.4) — corrected case returns to the assigned approver. */
-  function resubmitSubmittedByMe(ref, link){
-    toast(ref + ' resubmitted with corrected data — back with the assigned approver.');
-    logAudit('Resubmit', 'Approvals', ref, 'Initiator corrected and resubmitted ' + ref + ' after Send Back');
-    var row = link.closest('tr');
-    if(row){
-      row.querySelectorAll('td')[3].textContent = 'Compliance';
-      row.querySelectorAll('td')[4].innerHTML = '<span class="pill pill-warning">In progress</span>';
-      row.querySelectorAll('td')[5].innerHTML = '—';
-    }
   }
 
   /* ---------- delegations ---------- */
@@ -3594,35 +3165,20 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     var el = document.getElementById('userDrawer');
     el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
   }
-  /* Section 3.2/3.3 — only a Maker's access is group-scoped; Checker/Manager/Approver/Admin see all groups. */
-  function toggleNewUserGroupsField(){
-    var accessRole = selText(document.getElementById('newUserAccessRole'));
-    document.getElementById('newUserGroupsField').classList.toggle('hidden', accessRole.indexOf('Maker') === -1);
-  }
   function submitNewUser(){
     var name = document.getElementById('newUserName').value.trim();
     var email = document.getElementById('newUserEmail').value.trim();
     var role = selText(document.getElementById('newUserRole'));
-    var accessRole = selText(document.getElementById('newUserAccessRole'));
     var status = selText(document.getElementById('newUserStatus'));
     if(!name || !email){
       toast('Full name and email are required.', 'info');
       return;
     }
-    var isMaker = accessRole.indexOf('Maker') > -1;
-    var groups = 'All groups';
-    if(isMaker){
-      var picked = Array.prototype.slice.call(document.getElementById('newUserGroups').selectedOptions).map(function(o){ return o.text; });
-      groups = picked.length ? picked.join(' · ') : 'No group assigned yet';
-    }
-    var accessPill = isMaker ? 'pill-info' : (accessRole === 'Admin' ? 'pill-neutral' : accessRole === 'Manager' ? 'pill-warning' : accessRole === 'Checker' ? 'pill-neutral' : 'pill-danger');
     var pillClass = status === 'Active' ? 'pill-success' : 'pill-warning';
-    var html = '<td>' + esc(name) + '</td><td class="mono">' + esc(email) + '</td><td><span class="pill pill-neutral">' + esc(role) + '</span></td>' +
-      '<td><span class="pill ' + accessPill + '">' + esc(accessRole) + '</span></td><td>' + esc(groups) + '</td>' +
-      '<td><span class="pill ' + pillClass + '">' + esc(status) + '</span></td>';
+    var html = '<td>' + esc(name) + '</td><td class="mono">' + esc(email) + '</td><td><span class="pill pill-neutral">' + esc(role) + '</span></td><td><span class="pill ' + pillClass + '">' + esc(status) + '</span></td>';
     prependRow('usersTable', html);
-    toast('User created — ' + name + ' (' + role + ' · ' + accessRole + ').');
-    logAudit('Create', 'Users & Roles', email, 'User created — ' + name + ' (' + role + ', ' + accessRole + ', groups: ' + groups + ', ' + status + ')');
+    toast('User created — ' + name + ' (' + role + ').');
+    logAudit('Create', 'Users & Roles', email, 'User created — ' + name + ' (' + role + ', ' + status + ')');
     document.getElementById('newUserName').value = '';
     document.getElementById('newUserEmail').value = '';
     toggleUserDrawer();
@@ -3636,7 +3192,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     document.getElementById('matrixType').selectedIndex = 0;
     document.getElementById('matrixBand').value = 'Any';
     document.getElementById('matrixRoute').value = '';
-    document.getElementById('matrixRoutingMode').selectedIndex = 0;
     document.getElementById('matrixDate').value = '';
     document.getElementById('matrixStatus').selectedIndex = 0;
     document.getElementById('matrixDrawer').style.display = 'block';
@@ -3656,16 +3211,13 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     for(var i = 0; i < typeSel.options.length; i++){ if(typeSel.options[i].text === typeText) typeSel.selectedIndex = i; }
     document.getElementById('matrixBand').value = cells[1].textContent.trim();
     document.getElementById('matrixRoute').value = cells[2].textContent.trim();
-    var routingModeSel = document.getElementById('matrixRoutingMode');
-    var routingModeText = cells[3].textContent.trim();
-    for(var k = 0; k < routingModeSel.options.length; k++){ if(routingModeSel.options[k].text === routingModeText) routingModeSel.selectedIndex = k; }
-    var dateText = cells[4].textContent.trim();
+    var dateText = cells[3].textContent.trim();
     var parsedDate = new Date(dateText + ' UTC');
     if(!isNaN(parsedDate)){
       document.getElementById('matrixDate').value = parsedDate.toISOString().slice(0, 10);
     }
     var statusSel = document.getElementById('matrixStatus');
-    var statusText = cells[5].textContent.trim();
+    var statusText = cells[4].textContent.trim();
     for(var j = 0; j < statusSel.options.length; j++){ if(statusSel.options[j].text === statusText) statusSel.selectedIndex = j; }
     document.getElementById('matrixDrawer').style.display = 'block';
     document.getElementById('matrixDrawer').scrollIntoView({behavior: 'smooth', block: 'nearest'});
@@ -3674,7 +3226,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     var type = selText(document.getElementById('matrixType'));
     var band = document.getElementById('matrixBand').value.trim() || 'Any';
     var route = document.getElementById('matrixRoute').value.trim();
-    var routingMode = selText(document.getElementById('matrixRoutingMode'));
     var dateVal = document.getElementById('matrixDate').value;
     var status = selText(document.getElementById('matrixStatus'));
     if(!route || !dateVal){
@@ -3683,8 +3234,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     }
     var effDate = fmtDate(dateVal);
     var pillClass = status === 'Active' ? 'pill-success' : 'pill-neutral';
-    var routingPillClass = routingMode === 'Sequential' ? 'pill-neutral' : 'pill-warning';
-    var cellsHtml = '<td>' + esc(type) + '</td><td>' + esc(band) + '</td><td>' + esc(route) + '</td><td><span class="pill ' + routingPillClass + '">' + esc(routingMode) + '</span></td><td>' + effDate + '</td><td><span class="pill ' + pillClass + '">' + status + '</span></td><td><a href="#" onclick="editMatrixRule(this);return false;">Edit</a></td>';
+    var cellsHtml = '<td>' + esc(type) + '</td><td>' + esc(band) + '</td><td>' + esc(route) + '</td><td>' + effDate + '</td><td><span class="pill ' + pillClass + '">' + status + '</span></td><td><a href="#" onclick="editMatrixRule(this);return false;">Edit</a></td>';
     if(matrixEditingRow){
       matrixEditingRow.innerHTML = cellsHtml;
       toast('Approval rule updated — ' + type + '.');
@@ -3700,33 +3250,8 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
   /* ---------- master data: switchable categories + add ---------- */
   var MASTER_DATA = {
     groups: {
-      title: 'Shareholder groups', cols: ['Main Group', 'Code', 'Sub Group', 'Members', 'Status'], numCols: [3], addable: ['Main Group', 'Code', 'Sub Group'],
-      rows: [
-        ['B.O.D', 'BOD', 'B.O.D', '2', 'Active'],
-        ['Private & Public Companies', 'PRIV-CO', 'Private Companies', '0', 'Active'],
-        ['Private & Public Companies', 'PUB-CO', 'Public Companies', '1', 'Active'],
-        ['Management & Personal', 'MGMT', 'Management', '0', 'Active'],
-        ['Management & Personal', 'PERSONAL', 'Personal', '0', 'Active'],
-        ['CCS & Original Co-operatives', 'CCS', 'CCS', '0', 'Active'],
-        ['CCS & Original Co-operatives', 'ORIG-COOP', 'Original Co-Operatives', '0', 'Active'],
-        ['Staffs', 'KTM-STAFF', 'Kaytumadi Staffs', '0', 'Active'],
-        ['Staffs', 'CBB-STAFF', 'CB Bank Staffs', '2', 'Active'],
-        ['States & Divisions Co-Operatives', 'YGN-COOP', 'Yangon Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'MDY-COOP', 'Mandalay Division Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'SAG-COOP', 'Sagaing Division Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'BAGO-COOP', 'Bago Division Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'MAGWE-COOP', 'Magwe Division Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'TNT-COOP', 'Tanintharyi Division Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'AYW-COOP', 'Ayeyarwaddy Division Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'KAC-COOP', 'Kachin State Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'KYR-COOP', 'Kayar State Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'KYN-COOP', 'Kayin State Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'CHIN-COOP', 'Chin State Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'MON-COOP', 'Mon State Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'RKH-COOP', 'Rakhine State Co-Operatives', '0', 'Active'],
-        ['States & Divisions Co-Operatives', 'SHAN-COOP', 'Shan State Co-Operatives', '0', 'Active'],
-        ['—', 'FRAC-SH', 'Fraction Share', '0', 'Active']
-      ]
+      title: 'Shareholder groups', cols: ['Code', 'Name', 'Members', 'Status'], numCols: [2], addable: ['Code', 'Name'],
+      rows: [['BOD', 'Board of Directors', '1', 'Active'], ['STAFF', 'Staff', '2', 'Active'], ['PUBLIC', 'Public', '0', 'Active']]
     },
     shareclasses: {
       title: 'Share classes', cols: ['Code', 'Name', 'Par Value (MMK)', 'Status'], numCols: [2], addable: ['Code', 'Name', 'Par Value (MMK)'],
@@ -3785,7 +3310,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
   };
   var MD_COL_MY = {
     'Code':'ကုဒ်', 'Name':'အမည်', 'Status':'အခြေအနေ', 'Members':'အဖွဲ့ဝင်အရေအတွက်', 'Township':'မြို့နယ်',
-    'Main Group':'အဓိက အုပ်စု', 'Sub Group':'ခွဲအုပ်စု',
     'Par Value (MMK)':'မျက်နှာစာတန်ဖိုး (ကျပ်)', 'Region / State':'ဒေသ / ပြည်နယ်', 'Prefix':'ရှေ့ဆက်',
     'Required':'လိုအပ်သည်', 'Applies To':'သက်ဆိုင်သည့်နေရာ', 'Description':'ဖော်ပြချက်'
   };
@@ -3804,7 +3328,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     document.getElementById('mdBody').innerHTML = def.rows.map(function(row){
       return '<tr>' + row.map(function(cell, i){
         if(def.cols[i] === 'Status') return '<td><span class="pill pill-success">' + esc(xlate(cell)) + '</span></td>';
-        var cls = def.numCols.indexOf(i) !== -1 ? 'num' : ((def.cols[i] === 'Code' || def.cols[i] === 'Prefix') ? 'mono' : '');
+        var cls = def.numCols.indexOf(i) !== -1 ? 'num' : (i === 0 ? 'mono' : '');
         return '<td' + (cls ? ' class="' + cls + '"' : '') + '>' + esc(cell) + '</td>';
       }).join('') + '</tr>';
     }).join('');
@@ -4493,20 +4017,16 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
   });
 
   /* ---------- bulk Shareholder Applications ---------- */
-  var APP_GROUPS = ['BOD', 'Private & Public Companies', 'Staff', 'States & Divisions Co-operatives', 'Public'];
   var HERO_APPLICATIONS = [
-    {id:'APP-2026-0044', name:'Daw Khin Thazin', type:'Individual', stage:'Registered', date:'02 Jul 2026', group:'BOD'},
-    {id:'APP-2026-0043', name:'U Thura Aung', type:'Individual', stage:'Approved', date:'09 Jul 2026', group:'Staff'},
-    {id:'APP-2026-0041', name:'Daw Su Su Hlaing', type:'Individual', stage:'Checker Review', date:'12 Jul 2026', group:'Public'},
-    {id:'APP-2026-0042', name:'Everbright Logistics Ltd.', type:'Corporate', stage:'Pending Documents', date:'14 Jul 2026', group:'Private & Public Companies'},
-    {id:'APP-2026-0045', name:'Daw Moe Moe San', type:'Individual', stage:'Sent Back', date:'16 Jul 2026', group:'Public'},
-    {id:'APP-2026-0046', name:'Golden Hill Investments Ltd.', type:'Corporate', stage:'Submitted to DGM', date:'17 Jul 2026', group:'Private & Public Companies'}
+    {id:'APP-2026-0044', name:'Daw Khin Thazin', type:'Individual', stage:'Registered', date:'02 Jul 2026'},
+    {id:'APP-2026-0043', name:'U Thura Aung', type:'Individual', stage:'Approved', date:'09 Jul 2026'},
+    {id:'APP-2026-0041', name:'Daw Su Su Hlaing', type:'Individual', stage:'KYC Review', date:'12 Jul 2026'},
+    {id:'APP-2026-0042', name:'Everbright Logistics Ltd.', type:'Corporate', stage:'Pending Documents', date:'14 Jul 2026'}
   ];
   var BULK_APPLICATIONS = [];
   (function genApplications(){
-    /* Section 4.2.1 SA process flow — Maker entry -> Checker review -> Submit to DGM -> KYC approval -> Temp ID */
-    var stages = ['Draft','Checker Review','Submitted to DGM','Pending Documents','KYC Review','Sent Back','Approved','Registered','Rejected'];
-    var stageWeights = [0.05, 0.07, 0.06, 0.10, 0.12, 0.04, 0.14, 0.37, 0.05];
+    var stages = ['Draft','Pending Documents','KYC Review','Approved','Registered','Rejected'];
+    var stageWeights = [0.10, 0.12, 0.15, 0.18, 0.40, 0.05];
     for(var i = 0; i < 5000; i++){
       var r = rngBulk();
       var isCorp = r < 0.08, isCoop = !isCorp && r < 0.10;
@@ -4525,12 +4045,11 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       var mi = Math.floor(rngBulk() * 12);
       BULK_APPLICATIONS.push({
         id: 'APP-' + y + '-' + rpad(45 + i, 4), name: name, type: type, stage: stage,
-        date: rpad(day, 2) + ' ' + MONTHS_SHORT[mi] + ' ' + y, group: (isCorp || isCoop) ? 'Private & Public Companies' : rpick(APP_GROUPS)
+        date: rpad(day, 2) + ' ' + MONTHS_SHORT[mi] + ' ' + y
       });
     }
   })();
   var ALL_APPLICATIONS = HERO_APPLICATIONS.concat(BULK_APPLICATIONS);
-  var APP_REVIEW_STAGES = ['Draft', 'Checker Review', 'Submitted to DGM'];
 
   var appPager = makePager({
     data: ALL_APPLICATIONS, pageSize: 50, tbodySel: '#applicationsTable tbody', pagerSel: '#appPagerBar',
@@ -4541,47 +4060,23 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       return (!stageVal || r.stage === stageVal) && (!typeVal || r.type === typeVal);
     },
     rowFn: function(r){
-      var action;
-      if(APP_REVIEW_STAGES.indexOf(r.stage) > -1) action = '<a href="#" onclick="openApplicationReview(\'' + r.id + '\');return false;" data-i18n="btn.review">Review</a>';
-      else if(r.stage === 'Sent Back') action = '<a href="#" onclick="resubmitApplication(\'' + r.id + '\');return false;" data-i18n="app.btn.resubmit">Resubmit</a>';
-      else action = '<a href="#" onclick="showDetail(\'applications\');return false;" data-i18n="btn.view">View</a>';
-      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td>' + action + '</td></tr>';
+      return '<tr><td class="mono">' + esc(r.id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.stage) + '</td><td>' + esc(r.date) + '</td><td><a href="#" onclick="showDetail(\'applications\');return false;" data-i18n="btn.view">View</a></td></tr>';
     }
   });
 
   /* ---------- KYC queue: applications awaiting a compliance decision ---------- */
   var KYC_DECIDED_TODAY = 2;
   var currentKycId = null;
-  var TODAY_REF_MS = Date.UTC(2026, 6, 19); // 19 Jul 2026 — matches the dashboard "data as of" date
-
-  /* Section 2.1 — KYC information is reviewed every six months, not only at onboarding. */
-  function parseAppDateMs(dateStr){
-    var parts = dateStr.split(' ');
-    var mi = MONTHS_SHORT.indexOf(parts[1]);
-    return Date.UTC(parseInt(parts[2], 10), mi < 0 ? 0 : mi, parseInt(parts[0], 10) || 1);
-  }
-  function kycReviewDueMs(record){
-    var d = new Date(parseAppDateMs(record.date));
-    d.setUTCMonth(d.getUTCMonth() + 6);
-    return d.getTime();
-  }
-  function kycReviewDueLabel(record){
-    var d = new Date(kycReviewDueMs(record));
-    return rpad(d.getUTCDate(), 2) + ' ' + MONTHS_SHORT[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
-  }
 
   function renderKycKpis(){
-    var screening = 0, docs = 0, reviewDue = 0;
+    var screening = 0, docs = 0;
     for(var i = 0; i < ALL_APPLICATIONS.length; i++){
-      var r = ALL_APPLICATIONS[i];
-      if(r.stage === 'KYC Review') screening++;
-      else if(r.stage === 'Pending Documents') docs++;
-      if((r.stage === 'Approved' || r.stage === 'Registered') && kycReviewDueMs(r) <= TODAY_REF_MS + 30 * 86400000) reviewDue++;
+      if(ALL_APPLICATIONS[i].stage === 'KYC Review') screening++;
+      else if(ALL_APPLICATIONS[i].stage === 'Pending Documents') docs++;
     }
     document.getElementById('kycKpiScreening').textContent = fmtNum(screening);
     document.getElementById('kycKpiDocs').textContent = fmtNum(docs);
     document.getElementById('kycKpiDecided').textContent = fmtNum(KYC_DECIDED_TODAY);
-    document.getElementById('kycKpiReviewDue').textContent = fmtNum(reviewDue);
   }
 
   var kycPager = makePager({
@@ -4595,11 +4090,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
   kycPager.applySearch(''); // makePager only applies extraFilter once applySearch runs, not on the initial render
   renderKycKpis();
 
-  function tempShareholderIdFor(id){
-    var n = 0;
-    for(var i = 0; i < id.length; i++) n = (n * 37 + id.charCodeAt(i)) >>> 0;
-    return 'TSH26' + String(n % 1000000).padStart(6, '0');
-  }
   function screeningRefFor(id){
     var n = 0;
     for(var i = 0; i < id.length; i++) n = (n * 31 + id.charCodeAt(i)) >>> 0;
@@ -4619,17 +4109,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     document.getElementById('kycDetailStage').innerHTML = pill(record.stage);
     document.getElementById('kycDetailDate').textContent = record.date;
     document.getElementById('kycDetailScreeningRef').textContent = screeningRefFor(record.id);
-    var reviewDueRow = record.stage === 'Approved' || record.stage === 'Registered';
-    document.getElementById('kycDetailReviewDueLabel').classList.toggle('hidden', !reviewDueRow);
-    document.getElementById('kycDetailReviewDue').classList.toggle('hidden', !reviewDueRow);
-    document.getElementById('kycDetailReviewDue').textContent = reviewDueRow ? kycReviewDueLabel(record) : '—';
-    document.getElementById('kycDetailCorpMandatory').classList.toggle('hidden', record.type !== 'Corporate');
-    var tempIdShown = record.stage === 'Approved';
-    document.getElementById('kycDetailTempIdLabelRow').classList.toggle('hidden', !tempIdShown);
-    var tempIdEl = document.getElementById('kycDetailTempId');
-    tempIdEl.classList.toggle('hidden', !tempIdShown);
-    tempIdEl.textContent = tempIdShown ? (record.tempShareholderId || tempShareholderIdFor(record.id)) : '—';
-    document.getElementById('kycDetailTempIdNote').classList.toggle('hidden', !tempIdShown);
     document.getElementById('kycDecComment').value = '';
     var approveRadio = document.querySelector('#kyc-detail input[name="kycDec"][value="Approve"]');
     if(approveRadio) approveRadio.checked = true;
@@ -4656,15 +4135,11 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     record.stage = newStage;
     KYC_DECIDED_TODAY += 1;
 
-    var msg;
-    if(decision === 'Approve'){
-      record.tempShareholderId = record.tempShareholderId || tempShareholderIdFor(record.id);
-      msg = 'KYC decision recorded — Approved. ' + record.id + ' moved to Approved. Temporary Shareholder ID ' + record.tempShareholderId + ' issued — becomes permanent only after CBM approval.';
-    } else if(decision === 'Reject'){
-      msg = 'KYC decision recorded — Rejected. ' + record.id + ' returned to the applicant.';
-    } else {
-      msg = 'KYC decision recorded — Documents requested. ' + record.id + ' remains pending documents.';
-    }
+    var msg = decision === 'Approve'
+      ? 'KYC decision recorded — Approved. ' + record.id + ' moved to Approved.'
+      : decision === 'Reject'
+        ? 'KYC decision recorded — Rejected. ' + record.id + ' returned to the applicant.'
+        : 'KYC decision recorded — Documents requested. ' + record.id + ' remains pending documents.';
     toast(msg);
     logAudit('Decision', 'KYC', record.id, msg + (comment && comment.value.trim() ? ' Comment: ' + comment.value.trim() : '') + ' (was: ' + oldStage + ')');
 
@@ -4672,80 +4147,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     kycPager.applySearch(kycPager.state.term);
     showList('kyc');
     currentKycId = null;
-  }
-
-  /* ---------- application review: Maker -> Checker -> DGM (Section 4.2.1) ---------- */
-  var currentAppReviewId = null;
-  function findApplication(id){
-    for(var i = 0; i < ALL_APPLICATIONS.length; i++){ if(ALL_APPLICATIONS[i].id === id) return ALL_APPLICATIONS[i]; }
-    return null;
-  }
-  function openApplicationReview(id){
-    var record = findApplication(id);
-    if(!record) return;
-    currentAppReviewId = id;
-    document.getElementById('appReviewId').textContent = record.id;
-    document.getElementById('appReviewSub').textContent = record.name + ' · ' + xlate(record.type) + ' · ' + xlate(record.stage);
-    document.getElementById('appReviewIdField').textContent = record.id;
-    document.getElementById('appReviewName').textContent = record.name;
-    document.getElementById('appReviewType').textContent = xlate(record.type);
-    document.getElementById('appReviewStage').innerHTML = pill(record.stage);
-    document.getElementById('appReviewGroup').textContent = xlate(record.group || '—');
-    var isCorp = record.type === 'Corporate';
-    document.getElementById('appReviewCorpNote').classList.toggle('hidden', !isCorp);
-    document.getElementById('appReviewKycRow').classList.toggle('hidden', !isCorp);
-    var kycEl = document.getElementById('appReviewKyc');
-    kycEl.classList.toggle('hidden', !isCorp);
-    if(isCorp) kycEl.innerHTML = '<span class="pill pill-danger">Mandatory</span>';
-    var forwardLabel = document.getElementById('appReviewForwardLabel');
-    forwardLabel.textContent = record.stage === 'Draft' ? 'Approve & send to Checker'
-      : record.stage === 'Checker Review' ? 'Approve & submit to DGM'
-      : 'Approve — DGM clears for KYC';
-    document.getElementById('appReviewComment').value = '';
-    var fwdRadio = document.querySelector('#applications-review input[name="appReviewDec"][value="Forward"]');
-    if(fwdRadio) fwdRadio.checked = true;
-    document.getElementById('applications-list').classList.add('hidden');
-    document.getElementById('applications-review').classList.remove('hidden');
-    logAudit('View', 'Applications', record.id, 'Opened ' + record.stage + ' for Maker/Checker/DGM review');
-  }
-  function toggleAppReviewFields(){ /* reserved for future conditional fields on send-back/reject */ }
-  function submitApplicationReview(){
-    if(!currentAppReviewId) return;
-    var record = findApplication(currentAppReviewId);
-    if(!record) return;
-    var checked = document.querySelector('#applications-review input[name="appReviewDec"]:checked');
-    var decision = checked ? checked.value : 'Forward';
-    var comment = document.getElementById('appReviewComment');
-    if(decision !== 'Forward' && comment && !comment.value.trim()){
-      toast('A comment is required to send back or reject this application.', 'info');
-      return;
-    }
-    var msg;
-    if(decision === 'Forward'){
-      if(record.stage === 'Draft'){ record.stage = 'Checker Review'; msg = record.id + ' passed to the Checker for review.'; }
-      else if(record.stage === 'Checker Review'){ record.stage = 'Submitted to DGM'; msg = record.id + ' approved by Checker — submitted to DGM.'; }
-      else { record.stage = 'KYC Review'; msg = record.id + ' approved by DGM — moved to KYC Review.'; }
-    } else if(decision === 'SendBack'){
-      record.stage = 'Sent Back';
-      msg = record.id + ' sent back to the Maker — data needs correction before it can be resubmitted.';
-    } else {
-      record.stage = 'Rejected';
-      msg = record.id + ' rejected.';
-    }
-    toast(msg);
-    logAudit('Decision', 'Applications', record.id, msg + (comment && comment.value.trim() ? ' Comment: ' + comment.value.trim() : ''));
-    document.getElementById('applications-review').classList.add('hidden');
-    document.getElementById('applications-list').classList.remove('hidden');
-    appPager.applySearch(document.getElementById('appSearch').value);
-    currentAppReviewId = null;
-  }
-  function resubmitApplication(id){
-    var record = findApplication(id);
-    if(!record) return;
-    record.stage = 'Checker Review'; // Re-submit routes back to the assigned approver, not to a fresh Draft
-    toast(record.id + ' resubmitted by the Maker with corrected data — back with the Checker.');
-    logAudit('Resubmit', 'Applications', record.id, 'Maker corrected and resubmitted the application after Send Back');
-    appPager.applySearch(document.getElementById('appSearch').value);
   }
 
   /* ---------- rebuild the 11 statutory reports from the full bulk dataset ---------- */
@@ -4906,15 +4307,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     }).join('');
   }
 
-  function populateDashGroupFilter(){
-    var sel = document.getElementById('dashGroupFilter');
-    var prevValue = sel.value;
-    var allGroupsLabel = currentLang === 'my' ? 'အုပ်စု အားလုံး' : 'All groups';
-    sel.innerHTML = '<option value="">' + esc(allGroupsLabel) + '</option>' +
-      GROUP_ORDER.map(function(g){ return '<option value="' + esc(g) + '">' + esc(xlate(g)) + '</option>'; }).join('');
-    if(Array.prototype.some.call(sel.options, function(o){ return o.value === prevValue; })) sel.value = prevValue;
-  }
-
   function renderDashboardFromBulkData(){
     var PAR = 10000;
     var totalShares = ALL_SHAREHOLDERS.reduce(function(s, r){ return s + r.shares; }, 0);
@@ -4930,48 +4322,24 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       return {name: g, shares: groupTotals[g].shares, count: groupTotals[g].count, pct: groupTotals[g].shares / totalShares * 100};
     }).sort(function(a, b){ return b.shares - a.shares; });
 
-    // ---- shareholder group filter (dashGroupFilter select): scopes the KPIs and the two "recent" tables
-    // to one main group. DB-01/02 stay full-breakdown since comparing groups is their whole purpose, and
-    // DB-03/04/05 (capital raised, dividend %, dividend comparison) are company-wide corporate actions
-    // declared per share for every shareholder alike, not group-specific, so they are never filtered. ----
-    populateDashGroupFilter();
-    var selectedGroup = document.getElementById('dashGroupFilter').value;
-    var shScoped = selectedGroup ? ALL_SHAREHOLDERS.filter(function(r){ return r.group === selectedGroup; }) : ALL_SHAREHOLDERS;
-    var scopedShares = shScoped.reduce(function(s, r){ return s + r.shares; }, 0);
-    var scopedAmount = scopedShares * PAR;
-    var baseSubtitle = document.getElementById('dashSubtitle').textContent.split(' — ')[0];
-    document.getElementById('dashSubtitle').textContent = baseSubtitle + (selectedGroup
-      ? (currentLang === 'my' ? ' — အုပ်စု- ' : ' — Filtered to: ') + xlate(selectedGroup)
-      : '');
-
-    // Certificates/Issue/Transfer don't carry a group field of their own, but every bulk record was
-    // generated from one specific shareholder, so join back on name (best-effort: individual first names
-    // can repeat across the 15,000-shareholder pool, so this is an approximation for individuals — corporate
-    // and co-operative names carry a numeric suffix, so those joins are exact).
-    var nameToGroup = {};
-    ALL_SHAREHOLDERS.forEach(function(r){ nameToGroup[r.name] = r.group; });
-    var inScope = function(name){ return !selectedGroup || nameToGroup[name] === selectedGroup; };
-
-    // ---- pending work: pending/overdue Issue+Transfer, plus applications still in the KYC pipeline.
-    // Applications precede shareholder registration, so they carry no group yet — the "ShareHolders Main
-    // Group" field is only set once KYC is approved (4.1.1) — so they drop out once a group is picked. ----
-    var pendingIssue = ALL_ISSUE.filter(function(r){ return (r.status === 'Pending Approval' || r.status === 'Overdue') && inScope(r.name); });
-    var pendingTransfer = ALL_TRANSFER.filter(function(r){ return (r.status === 'Pending Approval' || r.status === 'Overdue') && (inScope(r.from) || inScope(r.to)); });
-    var pendingKyc = selectedGroup ? [] : ALL_APPLICATIONS.filter(function(r){ return r.stage === 'KYC Review' || r.stage === 'Pending Documents'; });
+    // ---- pending work: pending/overdue Issue+Transfer, plus applications still in the KYC pipeline ----
+    var pendingIssue = ALL_ISSUE.filter(function(r){ return r.status === 'Pending Approval' || r.status === 'Overdue'; });
+    var pendingTransfer = ALL_TRANSFER.filter(function(r){ return r.status === 'Pending Approval' || r.status === 'Overdue'; });
+    var pendingKyc = ALL_APPLICATIONS.filter(function(r){ return r.stage === 'KYC Review' || r.stage === 'Pending Documents'; });
     var totalPending = pendingIssue.length + pendingTransfer.length + pendingKyc.length;
 
-    var activeCerts = ALL_CERTS.filter(function(c){ return c.status !== 'Cancelled' && inScope(c.holder); }).length;
-    var appsInProgress = selectedGroup ? null : ALL_APPLICATIONS.filter(function(a){ return a.stage !== 'Registered' && a.stage !== 'Rejected'; }).length;
+    var activeCerts = ALL_CERTS.filter(function(c){ return c.status !== 'Cancelled'; }).length;
+    var appsInProgress = ALL_APPLICATIONS.filter(function(a){ return a.stage !== 'Registered' && a.stage !== 'Rejected'; }).length;
     var latestDividend = ALL_DIVIDENDS[0];
 
     // ---- KPIs ----
-    document.getElementById('kpiShareholders').textContent = fmtNum(shScoped.length);
-    document.getElementById('kpiTotalShares').textContent = fmtNum(scopedShares);
-    document.getElementById('kpiPaidUp').textContent = fmtMoneyCompact(scopedAmount);
+    document.getElementById('kpiShareholders').textContent = fmtNum(ALL_SHAREHOLDERS.length);
+    document.getElementById('kpiTotalShares').textContent = fmtNum(totalShares);
+    document.getElementById('kpiPaidUp').textContent = fmtMoneyCompact(totalAmount);
     document.getElementById('kpiPending').textContent = fmtNum(totalPending);
     document.getElementById('kpiDividend').textContent = 'MMK ' + latestDividend.total;
     document.getElementById('kpiCertificates').textContent = fmtNum(activeCerts);
-    document.getElementById('kpiApplications').textContent = appsInProgress === null ? '—' : fmtNum(appsInProgress);
+    document.getElementById('kpiApplications').textContent = fmtNum(appsInProgress);
 
     // ---- DB-01: shareholding by group (bars, number of shares) ----
     dashBars('dashGroupBars', groupList.map(function(g){ return {label: dashGroupLabel(g.name), value: g.shares}; }), fmtNum);
@@ -5030,11 +4398,9 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
       return '<tr><td class="mono">' + esc(r.ref) + '</td><td>' + esc(xlate(r.type)) + '</td><td>' + pill(r.status) + '</td></tr>';
     }).join('') : '<tr><td colspan="3" style="text-align:center;color:var(--ink-400);padding:16px;">' + nothingPendingText + '</td></tr>';
 
-    // ---- recent transactions (most recently posted/settled across all four transaction types).
-    // Bonus batches and dividend events are declared company-wide, not per shareholder group, so — like
-    // DB-03/04/05 above — they're always included regardless of the filter; only Issue/Transfer are scoped. ----
-    var recentRows = ALL_ISSUE.filter(function(r){ return r.status === 'Posted' && inScope(r.name); }).slice(0, 2).map(function(r){ return {ref: r.ref, type: 'Issue Shares', status: r.status}; })
-      .concat(ALL_TRANSFER.filter(function(r){ return r.status === 'Posted' && (inScope(r.from) || inScope(r.to)); }).slice(0, 1).map(function(r){ return {ref: r.ref, type: 'Transfer Shares', status: r.status}; }))
+    // ---- recent transactions (most recently posted/settled across all four transaction types) ----
+    var recentRows = ALL_ISSUE.filter(function(r){ return r.status === 'Posted'; }).slice(0, 2).map(function(r){ return {ref: r.ref, type: 'Issue Shares', status: r.status}; })
+      .concat(ALL_TRANSFER.filter(function(r){ return r.status === 'Posted'; }).slice(0, 1).map(function(r){ return {ref: r.ref, type: 'Transfer Shares', status: r.status}; }))
       .concat(ALL_BONUS.slice(0, 1).map(function(r){ return {ref: r.batch, type: 'Bonus Shares', status: r.status}; }))
       .concat(ALL_DIVIDENDS.slice(0, 1).map(function(r){ return {ref: r.event, type: 'Dividend', status: r.status}; }))
       .slice(0, 2);
