@@ -112,8 +112,6 @@
     border-radius:var(--radius-sm); padding:9px 11px; font-size:14px; font-family:inherit;
   }
   .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--navy-700);}
-  .upload-row{display:flex; align-items:center; gap:8px; margin-top:6px;}
-  .upload-filename{font-size:11.5px; color:var(--ink-400); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
   .btn{
     display:inline-flex; align-items:center; justify-content:center; gap:6px;
     border-radius:var(--radius-sm); border:1px solid transparent; padding:9px 16px;
@@ -407,13 +405,7 @@
   .step.current{color:var(--ink-900); font-weight:700;}
   .step.current .n{background:var(--navy-800); color:#fff;}
 
-  .route-step-row{display:flex; align-items:center; gap:8px; margin-bottom:8px;}
-  .route-step-row .route-step-n{width:20px; flex:0 0 auto; font-size:11.5px; color:var(--ink-400); text-align:right;}
-  .route-step-row select{flex:1 1 auto; min-width:0;}
-  .route-step-row label{display:flex; align-items:center; gap:5px; font-size:12px; color:var(--ink-600); white-space:nowrap; flex:0 0 auto;}
-  .route-step-row .route-step-remove{flex:0 0 auto; color:var(--danger); font-size:12.5px; white-space:nowrap;}
   .sa-flow-step{background:var(--surface-sunken); border:1px solid var(--border); border-radius:999px; padding:5px 12px; font-weight:600; color:var(--ink-700); white-space:nowrap; margin:3px 0;}
-  .sa-flow-step--conditional{border-style:dashed; font-style:italic;}
   .sa-flow-step--end{background:var(--gold-100); border-color:var(--gold-500); color:var(--gold-ink);}
   .sa-flow-arrow{color:var(--ink-400); padding:0 6px; font-weight:700;}
   .acct-trail{display:flex; flex-wrap:wrap; align-items:center; gap:0; margin:2px 0;}
@@ -974,32 +966,10 @@
               </div>
               <div class="section-title" data-i18n="wz.supportingdocs">Supporting documents</div>
               <div class="form-grid">
-                <div class="field">
-                  <label><input type="checkbox" id="wzDocNrc" checked /> <span data-i18n="doc.nrccopy">NRC Copy</span></label>
-                  <div class="upload-row">
-                    <button type="button" class="btn btn-ghost btn-sm" onclick="document.getElementById('wzDocNrcFile').click()" data-i18n="btn.upload">⬆ Upload</button>
-                    <input type="file" id="wzDocNrcFile" class="hidden" multiple accept="image/jpeg,image/png,.pdf,.doc,.docx,.xls,.xlsx" onchange="handleWizardDocUpload(this,'wzDocNrcFileName')" />
-                    <span class="mono upload-filename" id="wzDocNrcFileName" data-i18n="upload.nofile">No file selected</span>
-                  </div>
-                </div>
-                <div class="field">
-                  <label><input type="checkbox" id="wzDocPhoto" checked /> <span data-i18n="doc.photo">Passport Photo</span></label>
-                  <div class="upload-row">
-                    <button type="button" class="btn btn-ghost btn-sm" onclick="document.getElementById('wzDocPhotoFile').click()" data-i18n="btn.upload">⬆ Upload</button>
-                    <input type="file" id="wzDocPhotoFile" class="hidden" multiple accept="image/jpeg,image/png" onchange="handleWizardDocUpload(this,'wzDocPhotoFileName')" />
-                    <span class="mono upload-filename" id="wzDocPhotoFileName" data-i18n="upload.nofile">No file selected</span>
-                  </div>
-                </div>
-                <div class="field">
-                  <label><input type="checkbox" id="wzDocAddr" /> <span data-i18n="doc.address">Proof of Address</span></label>
-                  <div class="upload-row">
-                    <button type="button" class="btn btn-ghost btn-sm" onclick="document.getElementById('wzDocAddrFile').click()" data-i18n="btn.upload">⬆ Upload</button>
-                    <input type="file" id="wzDocAddrFile" class="hidden" multiple accept="image/jpeg,image/png,.pdf,.doc,.docx,.xls,.xlsx" onchange="handleWizardDocUpload(this,'wzDocAddrFileName')" />
-                    <span class="mono upload-filename" id="wzDocAddrFileName" data-i18n="upload.nofile">No file selected</span>
-                  </div>
-                </div>
+                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocNrc" checked /> <span data-i18n="doc.nrccopy">NRC Copy</span></label></div>
+                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocPhoto" checked /> <span data-i18n="doc.photo">Passport Photo</span></label></div>
+                <div class="field" style="margin-bottom:0;"><label><input type="checkbox" id="wzDocAddr" /> <span data-i18n="doc.address">Proof of Address</span></label></div>
               </div>
-              <p style="font-size:11px;color:var(--ink-400);margin-top:8px;" data-i18n="upload.constraints">JPEG, PNG, Excel, Word or PDF · up to 8 files per document · max 5 MB per file (2 MB for images).</p>
             </div>
 
             <div class="wizard-step hidden" data-step="5">
@@ -1099,10 +1069,7 @@
         <div class="detail-view hidden" id="shareholders-detail">
           <div class="page-header">
             <div><h1 id="shDetailId">—</h1><p id="shDetailSub">—</p></div>
-            <div class="page-header__actions no-print">
-              <button class="btn btn-ghost" onclick="downloadShareholderProfile()" data-i18n="btn.downloadprofile">⬇ Download Profile (PDF)</button>
-              <button class="btn btn-ghost" onclick="showList('shareholders')" data-i18n="btn.backtolist">← Back to list</button>
-            </div>
+            <div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('shareholders')" data-i18n="btn.backtolist">← Back to list</button></div>
           </div>
           <div class="grid-2">
             <div class="card">
@@ -1127,13 +1094,6 @@
                 <dt data-i18n="sh.kycstatus">KYC status</dt><dd id="shDetailKyc">—</dd>
               </dl>
             </div>
-          </div>
-          <div class="card" style="margin-top:14px;">
-            <h3 style="margin-bottom:14px;" data-i18n="sh.documents">Documents</h3>
-            <div class="table-wrap"><table class="data">
-              <thead><tr><th data-i18n="th.documenttype">Document type</th><th data-i18n="th.filename">File name</th><th></th></tr></thead>
-              <tbody id="shDetailDocsBody"></tbody>
-            </table></div>
           </div>
         </div>
       </section>
@@ -1554,7 +1514,7 @@
           <div class="table-wrap"><table class="data" id="approvalsPendingTable">
             <thead><tr><th data-i18n="th.reference">Reference</th><th data-i18n="th.type">Type</th><th data-i18n="th.submittedby">Submitted by</th><th data-i18n="th.step">Step</th><th data-i18n="th.waiting">Waiting</th><th></th></tr></thead>
             <tbody>
-              <tr data-ref="IS-2026-0018"><td class="mono">IS-2026-0018</td><td data-i18n="tx.issueshares">Issue Shares</td><td>M. Aung Aung</td><td><span class="pill pill-warning">Step 3 of 9 — DGM (Confirms Legal Comments)</span></td><td>18 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
+              <tr data-ref="IS-2026-0018"><td class="mono">IS-2026-0018</td><td data-i18n="tx.issueshares">Issue Shares</td><td>M. Aung Aung</td><td><span class="pill pill-warning" data-i18n="approvals.progress.2of3headofir">2 of 3 — Head of IR</span></td><td>18 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
               <tr><td class="mono">TS-2026-0009</td><td data-i18n="tx.transfershares">Transfer Shares</td><td>M. Aung Aung</td><td><span class="pill pill-danger" data-i18n="approvals.progress.1of2compliance">1 of 2 — Compliance</span></td><td>26 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
               <tr><td class="mono">APP-2026-0042</td><td data-i18n="approvals.kycdecision">KYC Decision</td><td>system</td><td><span class="pill pill-warning" data-i18n="approvals.progress.1of2compliance">1 of 2 — Compliance</span></td><td>4 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
               <tr><td class="mono">BS-2026-0005</td><td data-i18n="tx.bonusshares">Bonus Shares</td><td>M. Aung Aung</td><td><span class="pill pill-warning" data-i18n="approvals.progress.1of2cfo">1 of 2 — CFO</span></td><td>2 hrs</td><td><a href="#" onclick="showDetail('approvals');return false;" data-i18n="btn.review">Review</a></td></tr>
@@ -1574,9 +1534,13 @@
           <div class="page-header"><div><h1>IS-2026-0018</h1><p><span data-i18n="tx.issueshares">Issue Shares</span> · Golden Delta Trading Co., Ltd. · 1,500 <span data-i18n="shareclass.ordinary">Ordinary</span> shares · MMK 15.0M</p></div><div class="page-header__actions"><button class="btn btn-ghost" onclick="showList('approvals')" data-i18n="btn.backtolist">← Back to list</button></div></div>
           <div class="grid-2">
             <div class="card">
-              <h3 style="margin-bottom:2px;" data-i18n="approvals.timeline">Approval timeline</h3>
-              <p style="font-size:11px;color:var(--ink-400);margin:0 0 14px;" data-i18n="approvals.levelnote">Section 3.4 · Approval Level: DGM → Legal → DGM → DMD → MD → CEO → V.C → B.O.D → CBM.</p>
-              <ul class="timeline" id="approvalTimelineList"></ul>
+              <h3 style="margin-bottom:14px;" data-i18n="approvals.timeline">Approval timeline</h3>
+              <ul class="timeline">
+                <li><span class="t-dot">✓</span><div class="t-body"><strong data-i18n="approvals.submitted">Submitted</strong><div class="t-meta">M. Aung Aung · 17 Jul 2026, 10:12</div></div></li>
+                <li><span class="t-dot">✓</span><div class="t-body"><strong data-i18n="approvals.step1">Step 1 — Branch Manager: Approved</strong><div class="t-meta">Daw Yamin Oo · 17 Jul 2026, 15:40</div><div class="t-comment" data-i18n="approvals.step1comment">Documents verified, payment confirmed.</div></div></li>
+                <li><span class="t-dot current">2</span><div class="t-body"><strong data-i18n="approvals.step2">Step 2 — Head of IR</strong><div class="t-meta" data-i18n="approvals.awaiting">Awaiting your decision</div></div></li>
+                <li><span class="t-dot pending">3</span><div class="t-body"><strong data-i18n="approvals.step3">Step 3 — CFO</strong><div class="t-meta" data-i18n="approvals.notreached">Not yet reached</div></div></li>
+              </ul>
             </div>
             <div class="card">
               <h3 style="margin-bottom:14px;" data-i18n="approvals.decision">Decision</h3>
@@ -1589,12 +1553,19 @@
               </div>
               <div class="field" id="approvalNextApproverField">
                 <label data-i18n="approvals.nextapprover">Next approver</label>
-                <select id="approvalNextApprover"></select>
+                <select id="approvalNextApprover">
+                  <option selected data-i18n="approvals.nextapprover.default">CFO — Step 3 of 3 (next in sequence)</option>
+                  <option>DGM</option><option>Legal</option><option>DMD</option><option>Managing Director</option>
+                  <option>CEO</option><option>Vice Chairman</option><option>Board of Directors</option><option>CBM</option>
+                </select>
                 <p style="font-size:11px;color:var(--ink-400);margin-top:4px;" data-i18n="approvals.nextapprovernote">Routing is not strictly sequential (General Notes) — override only if this case needs a different approver than the Approval Matrix's default next step.</p>
               </div>
               <div class="field hidden" id="approvalTransferToField">
                 <label data-i18n="approvals.transferto">Transfer to</label>
-                <select id="approvalTransferTo"></select>
+                <select id="approvalTransferTo">
+                  <option>DGM</option><option>Legal</option><option>DMD</option><option>Managing Director</option>
+                  <option>CEO</option><option>Vice Chairman</option><option>Board of Directors</option><option>CBM</option>
+                </select>
               </div>
               <p class="hidden" id="approvalRecallNote" style="font-size:12px;color:var(--ink-400);margin:0 0 10px;" data-i18n="approvals.recallnote">Recall is only available to the original submitter — it pulls the case back from the current approver so it can be reassigned. The current approver can no longer act on it once recalled.</p>
               <div class="field"><label data-i18n="field.comment">Comment</label><textarea rows="4" data-i18n-placeholder="approvals.commentph" placeholder="Optional for approve, mandatory for reject/revert"></textarea></div>
@@ -1789,7 +1760,7 @@
             <tr><td data-i18n="tx.dividend">Dividend</td><td data-i18n="matrix.any">Any</td><td>DGM → Legal → DGM → CEO → Board of Directors → CBM (conditional)</td><td><span class="pill pill-warning" data-i18n="matrix.flexible">Flexible</span></td><td>01 Jan 2026</td><td><span class="pill pill-success" data-i18n="status.active">Active</span></td><td><a href="#" onclick="editMatrixRule(this);return false;" data-i18n="btn.editrule">Edit</a></td></tr>
           </tbody>
         </table></div>
-        <div class="card" id="matrixDrawer" style="display:none; margin-top:18px; max-width:680px;">
+        <div class="card" id="matrixDrawer" style="display:none; margin-top:18px; max-width:620px;">
           <div class="section-title" style="margin-top:0;" id="matrixDrawerTitle" data-i18n="matrix.newruletitle">New approval rule</div>
           <div class="form-grid">
             <div class="field"><label data-i18n="matrix.txtype">Transaction type <span class="req">*</span></label>
@@ -1801,21 +1772,11 @@
               </select>
             </div>
             <div class="field"><label data-i18n="matrix.amountband">Amount band</label><input id="matrixBand" value="Any" /></div>
+            <div class="field span-2"><label data-i18n="matrix.routeseq">Route (approver sequence) <span class="req">*</span></label><input id="matrixRoute" placeholder="e.g. DGM &#8594; Legal &#8594; DGM &#8594; CEO &#8594; Board of Directors &#8594; CBM (conditional)" /></div>
             <div class="field"><label data-i18n="matrix.routingmode">Routing</label><select id="matrixRoutingMode"><option data-i18n="matrix.sequential">Sequential</option><option data-i18n="matrix.flexible">Flexible</option></select></div>
             <div class="field"><label data-i18n="matrix.effectivefrom">Effective from <span class="req">*</span></label><input type="date" id="matrixDate" /></div>
             <div class="field"><label data-i18n="th.status">Status</label><select id="matrixStatus"><option data-i18n="status.active">Active</option><option data-i18n="status.inactive">Inactive</option></select></div>
           </div>
-
-          <div class="section-title" data-i18n="matrix.configroute">Configure Approval Route</div>
-          <p style="font-size:11.5px;color:var(--ink-400);margin:-6px 2px 12px;" data-i18n="matrix.configroutenote">Section 3.4 · Build this rule's approver sequence step by step — add or remove roles and reorder them freely; flag a step Conditional (e.g. CBM) when it only applies above a threshold or for certain transactions.</p>
-          <div id="matrixRouteBuilder"></div>
-          <button type="button" class="btn btn-ghost btn-sm" style="margin-bottom:14px;" onclick="addMatrixRouteStep()" data-i18n="matrix.addstep">+ Add step</button>
-          <div class="field span-2" style="margin-bottom:0;">
-            <label data-i18n="matrix.routepreview">Route preview</label>
-            <div id="matrixRoutePreview" class="acct-trail"></div>
-            <input type="hidden" id="matrixRoute" />
-          </div>
-
           <div class="form-actions"><button class="btn btn-ghost" onclick="closeMatrixDrawer()" data-i18n="btn.cancel">Cancel</button><button class="btn btn-primary" onclick="submitMatrixRule()" data-i18n="matrix.saverule">Save rule</button></div>
         </div>
       </section>
@@ -2392,11 +2353,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     if(list) list.classList.add('hidden');
     if(detail) detail.classList.remove('hidden');
     if(section === 'applications') wizardGoTo(1);
-    if(section === 'approvals' && typeof renderApprovalTimeline === 'function'){
-      document.querySelector('#page-approvals input[name="dec"][value="Approve"]').checked = true;
-      toggleApprovalTransferField();
-      renderApprovalTimeline(CURRENT_APPROVAL_STEP);
-    }
   }
   function showList(section){
     var list = document.getElementById(section+'-list');
@@ -3498,35 +3454,12 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     }).filter(function(s){ return s && s !== (suffix || ''); }).join('; ') || '—';
   }
 
-  /* File & Image Upload — multi-attachment up to 8 files, max 5MB (2MB for images) per the setup features table. */
-  function handleWizardDocUpload(input, labelId){
-    var label = document.getElementById(labelId);
-    var files = Array.prototype.slice.call(input.files || []);
-    if(!files.length){ label.textContent = 'No file selected'; return; }
-    if(files.length > 8){
-      toast('Up to 8 files can be attached per document — only the first 8 were kept.', 'info');
-      files = files.slice(0, 8);
-    }
-    var isImage = /\.(jpe?g|png)$/i;
-    var oversize = files.find(function(f){ return f.size > (isImage.test(f.name) ? 2 : 5) * 1024 * 1024; });
-    if(oversize){
-      toast('"' + oversize.name + '" exceeds the max file size (5 MB, 2 MB for images).', 'info');
-    }
-    label.textContent = files.length === 1 ? files[0].name : files.length + ' files selected';
-    label.title = files.map(function(f){ return f.name; }).join(', ');
-  }
-
   function buildWizardReview(){
     var val = function(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; };
-    var docLabel = function(checkId, fileNameId, label){
-      if(!document.getElementById(checkId).checked) return null;
-      var fn = document.getElementById(fileNameId).textContent;
-      return label + (fn && fn !== 'No file selected' ? ' (' + fn + ')' : '');
-    };
     var docs = [
-      docLabel('wzDocNrc', 'wzDocNrcFileName', 'NRC Copy'),
-      docLabel('wzDocPhoto', 'wzDocPhotoFileName', 'Passport Photo'),
-      docLabel('wzDocAddr', 'wzDocAddrFileName', 'Proof of Address')
+      document.getElementById('wzDocNrc').checked ? 'NRC Copy' : null,
+      document.getElementById('wzDocPhoto').checked ? 'Passport Photo' : null,
+      document.getElementById('wzDocAddr').checked ? 'Proof of Address' : null
     ].filter(Boolean).join(', ') || 'None attached';
     var rows = [
       ['Applicant type', selText(document.getElementById('wzApplicantType'))],
@@ -3579,64 +3512,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     wizardGoTo(1);
   }
 
-  /* ---------- approvals ----------
-     Section 3.4 Approval Level List: DGM -> Legal -> DGM -> DMD -> MD -> CEO -> V.C -> B.O.D -> CBM.
-     DGM appears twice (Initial Review, then again once Legal's comments are confirmed) — both the
-     Approval timeline and the Next approver / Case-Transfer dropdowns are built from this single list
-     so they can never drift out of sync with each other. */
-  var APPROVAL_LEVELS = [
-    { label: 'DGM', detail: 'DGM (Initial Review)' },
-    { label: 'Legal', detail: 'Legal' },
-    { label: 'DGM', detail: 'DGM (Confirms Legal Comments)' },
-    { label: 'DMD', detail: 'DMD' },
-    { label: 'MD', detail: 'MD' },
-    { label: 'CEO', detail: 'CEO' },
-    { label: 'V.C', detail: 'V.C' },
-    { label: 'B.O.D', detail: 'B.O.D' },
-    { label: 'CBM', detail: 'CBM (Final Approval)' }
-  ];
-  var APPROVAL_LEVEL_META = [
-    { by: 'Daw Yamin Oo', when: '17 Jul 2026, 15:40', comment: 'Reviewed for completeness, accuracy and business justification.' },
-    { by: 'U Aung Moe', when: '17 Jul 2026, 17:05', comment: 'Legal clearance granted — no amendments required.' }
-  ];
-  var CURRENT_APPROVAL_STEP = 2; // 0-based index into APPROVAL_LEVELS — the demo case sits at Step 3 (DGM, confirming Legal's comments)
-
-  function approvalLevelOptionsHtml(){
-    return APPROVAL_LEVELS.map(function(lvl, i){
-      return '<option value="' + esc(lvl.label) + '" data-idx="' + i + '">Step ' + (i + 1) + ' of ' + APPROVAL_LEVELS.length + ' — ' + esc(lvl.detail) + '</option>';
-    }).join('');
-  }
-  function renderApprovalTimeline(currentIndex){
-    var list = document.getElementById('approvalTimelineList');
-    if(!list) return;
-    var html = '<li><span class="t-dot">✓</span><div class="t-body"><strong data-i18n="approvals.submitted">Submitted</strong><div class="t-meta">M. Aung Aung · 17 Jul 2026, 10:12</div></div></li>';
-    APPROVAL_LEVELS.forEach(function(lvl, i){
-      var stepNum = i + 1;
-      if(i < currentIndex){
-        var meta = APPROVAL_LEVEL_META[i] || { by: '—', when: '—', comment: '' };
-        html += '<li><span class="t-dot">✓</span><div class="t-body"><strong>Step ' + stepNum + ' — ' + esc(lvl.detail) + ': Approved</strong>' +
-          '<div class="t-meta">' + esc(meta.by) + ' · ' + esc(meta.when) + '</div>' +
-          (meta.comment ? '<div class="t-comment">' + esc(meta.comment) + '</div>' : '') + '</div></li>';
-      } else if(i === currentIndex){
-        html += '<li><span class="t-dot current">' + stepNum + '</span><div class="t-body"><strong>Step ' + stepNum + ' — ' + esc(lvl.detail) + '</strong><div class="t-meta" data-i18n="approvals.awaiting">Awaiting your decision</div></div></li>';
-      } else {
-        html += '<li><span class="t-dot pending">' + stepNum + '</span><div class="t-body"><strong>Step ' + stepNum + ' — ' + esc(lvl.detail) + '</strong><div class="t-meta" data-i18n="approvals.notreached">Not yet reached</div></div></li>';
-      }
-    });
-    list.innerHTML = html;
-
-    var nextSel = document.getElementById('approvalNextApprover');
-    var transferSel = document.getElementById('approvalTransferTo');
-    var optionsHtml = approvalLevelOptionsHtml();
-    if(nextSel) nextSel.innerHTML = optionsHtml;
-    if(transferSel) transferSel.innerHTML = optionsHtml;
-    var nextIndex = Math.min(currentIndex + 1, APPROVAL_LEVELS.length - 1);
-    if(nextSel) nextSel.selectedIndex = nextIndex;
-    if(transferSel) transferSel.selectedIndex = nextIndex;
-
-    var pendingBadge = document.querySelector('#approvalsPendingTable tr[data-ref="IS-2026-0018"] .pill');
-    if(pendingBadge) pendingBadge.textContent = 'Step ' + (currentIndex + 1) + ' of ' + APPROVAL_LEVELS.length + ' — ' + APPROVAL_LEVELS[currentIndex].detail;
-  }
+  /* ---------- approvals ---------- */
   function toggleApprovalTransferField(){
     var checked = document.querySelector('#page-approvals input[name="dec"]:checked');
     var decision = checked ? checked.value : 'Approve';
@@ -3661,18 +3537,12 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     var msg;
     if(decision === 'Approve'){
       var nextSel = document.getElementById('approvalNextApprover');
-      var nextIdx = nextSel ? parseInt(nextSel.options[nextSel.selectedIndex].dataset.idx, 10) : CURRENT_APPROVAL_STEP + 1;
-      var overridden = nextIdx !== CURRENT_APPROVAL_STEP + 1;
-      msg = 'Decision recorded — Approved. IS-2026-0018 moved to Step ' + (nextIdx + 1) + ' of ' + APPROVAL_LEVELS.length + ' (' + APPROVAL_LEVELS[nextIdx].detail + ').' +
-        (overridden ? ' Next approver selected dynamically — the sequence is not strictly fixed.' : '');
+      var next = nextSel && nextSel.selectedIndex > 0 ? selText(nextSel) : 'CFO';
+      msg = 'Decision recorded — Approved. IS-2026-0018 moved to Step 3 of 3 (' + next + ').' + (nextSel && nextSel.selectedIndex > 0 ? ' Next approver selected dynamically — the sequence is not strictly fixed.' : '');
     }
     else if(decision === 'Reject') msg = 'Decision recorded — Rejected. IS-2026-0018 returned to the submitter.';
-    else if(decision === 'Revert') msg = 'Decision recorded — Sent Back. IS-2026-0018 returned to Step 1 (' + APPROVAL_LEVELS[0].detail + ') for resubmission once corrected.';
-    else if(decision === 'Case-Transfer'){
-      var transferSel = document.getElementById('approvalTransferTo');
-      var transferIdx = parseInt(transferSel.options[transferSel.selectedIndex].dataset.idx, 10);
-      msg = 'Case-Transfer recorded. IS-2026-0018 reassigned to Step ' + (transferIdx + 1) + ' of ' + APPROVAL_LEVELS.length + ' (' + APPROVAL_LEVELS[transferIdx].detail + '). The previous approver can no longer act on this case.';
-    }
+    else if(decision === 'Revert') msg = 'Decision recorded — Sent Back. IS-2026-0018 returned to Step 1 (Branch Manager) for resubmission once corrected.';
+    else if(decision === 'Case-Transfer') msg = 'Case-Transfer recorded. IS-2026-0018 reassigned to ' + document.getElementById('approvalTransferTo').value + '. The previous approver can no longer act on this case.';
     else msg = 'Recall recorded. IS-2026-0018 pulled back from the current approver — the sender can now reassign it to the correct approver.';
     toast(msg);
     logAudit('Decision', 'Approvals', 'IS-2026-0018', msg + (comment && comment.value.trim() ? ' Comment: ' + comment.value.trim() : ''));
@@ -3758,74 +3628,17 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     toggleUserDrawer();
   }
 
-  /* ---------- approval matrix: add + edit, with a dynamic Route builder (Section 3.4) ----------
-     Each rule's approver sequence is built from individually add/remove-able steps rather than a
-     single free-text field, so a step can be inserted, removed, reordered (via its own dropdown) or
-     flagged Conditional (e.g. CBM only applies above a threshold) without retyping the whole route. */
-  var MATRIX_ROLE_OPTIONS = ['DGM', 'Legal', 'DMD', 'Managing Director', 'CEO', 'Vice Chairman', 'Board of Directors', 'CBM'];
+  /* ---------- approval matrix: add + edit ---------- */
   var matrixEditingRow = null;
-  var matrixStepSeq = 0;
-
-  function matrixRoleOptionsHtml(selectedRole){
-    var opts = MATRIX_ROLE_OPTIONS.slice();
-    if(selectedRole && opts.indexOf(selectedRole) === -1) opts.push(selectedRole);
-    return opts.map(function(r){ return '<option' + (r === selectedRole ? ' selected' : '') + '>' + esc(r) + '</option>'; }).join('');
-  }
-  function addMatrixRouteStep(role, conditional){
-    matrixStepSeq += 1;
-    var row = document.createElement('div');
-    row.className = 'route-step-row';
-    row.dataset.stepId = matrixStepSeq;
-    row.innerHTML =
-      '<span class="route-step-n"></span>' +
-      '<select onchange="syncMatrixRoutePreview()">' + matrixRoleOptionsHtml(role || 'DGM') + '</select>' +
-      '<label><input type="checkbox" onchange="syncMatrixRoutePreview()"' + (conditional ? ' checked' : '') + ' /> <span data-i18n="matrix.conditional">Conditional</span></label>' +
-      '<a href="#" class="route-step-remove" onclick="removeMatrixRouteStep(this);return false;" data-i18n="wz.removerow">Remove</a>';
-    document.getElementById('matrixRouteBuilder').appendChild(row);
-    syncMatrixRoutePreview();
-  }
-  function removeMatrixRouteStep(link){
-    link.closest('.route-step-row').remove();
-    syncMatrixRoutePreview();
-  }
-  function resetMatrixRouteBuilder(){
-    document.getElementById('matrixRouteBuilder').innerHTML = '';
-    matrixStepSeq = 0;
-  }
-  /* Rebuild the step rows from an existing route string like "DGM → Legal → CBM (conditional)". */
-  function loadMatrixRouteIntoBuilder(routeText){
-    resetMatrixRouteBuilder();
-    routeText.split(/→|->/).map(function(s){ return s.trim(); }).filter(Boolean).forEach(function(token){
-      var conditional = /\(conditional\)\s*$/i.test(token);
-      var role = token.replace(/\(conditional\)\s*$/i, '').trim();
-      addMatrixRouteStep(role, conditional);
-    });
-  }
-  function syncMatrixRoutePreview(){
-    var rows = document.querySelectorAll('#matrixRouteBuilder .route-step-row');
-    var steps = [];
-    rows.forEach(function(row, i){
-      row.querySelector('.route-step-n').textContent = (i + 1) + '.';
-      var role = selText(row.querySelector('select'));
-      var conditional = row.querySelector('input[type=checkbox]').checked;
-      steps.push({ role: role, conditional: conditional });
-    });
-    document.getElementById('matrixRoute').value = steps.map(function(s){ return s.role + (s.conditional ? ' (conditional)' : ''); }).join(' → ');
-    document.getElementById('matrixRoutePreview').innerHTML = steps.map(function(s, i){
-      return '<span class="sa-flow-step' + (s.conditional ? ' sa-flow-step--conditional' : '') + '">' + esc(s.role) + (s.conditional ? ' <span style="font-size:10px;">(conditional)</span>' : '') + '</span>' +
-        (i < steps.length - 1 ? '<span class="sa-flow-arrow">→</span>' : '');
-    }).join('') || '<span style="font-size:12px;color:var(--ink-400);">No steps yet — click "Add step" below.</span>';
-  }
-
   function openMatrixDrawer(){
     matrixEditingRow = null;
     document.getElementById('matrixDrawerTitle').textContent = I18N[currentLang]['matrix.newruletitle'];
     document.getElementById('matrixType').selectedIndex = 0;
     document.getElementById('matrixBand').value = 'Any';
+    document.getElementById('matrixRoute').value = '';
     document.getElementById('matrixRoutingMode').selectedIndex = 0;
     document.getElementById('matrixDate').value = '';
     document.getElementById('matrixStatus').selectedIndex = 0;
-    loadMatrixRouteIntoBuilder('DGM → Legal → DGM → CEO');
     document.getElementById('matrixDrawer').style.display = 'block';
     document.getElementById('matrixDrawer').scrollIntoView({behavior: 'smooth', block: 'nearest'});
   }
@@ -3842,7 +3655,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     var typeText = cells[0].textContent.trim();
     for(var i = 0; i < typeSel.options.length; i++){ if(typeSel.options[i].text === typeText) typeSel.selectedIndex = i; }
     document.getElementById('matrixBand').value = cells[1].textContent.trim();
-    loadMatrixRouteIntoBuilder(cells[2].textContent.trim());
+    document.getElementById('matrixRoute').value = cells[2].textContent.trim();
     var routingModeSel = document.getElementById('matrixRoutingMode');
     var routingModeText = cells[3].textContent.trim();
     for(var k = 0; k < routingModeSel.options.length; k++){ if(routingModeSel.options[k].text === routingModeText) routingModeSel.selectedIndex = k; }
@@ -3860,17 +3673,12 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
   function submitMatrixRule(){
     var type = selText(document.getElementById('matrixType'));
     var band = document.getElementById('matrixBand').value.trim() || 'Any';
-    syncMatrixRoutePreview();
     var route = document.getElementById('matrixRoute').value.trim();
     var routingMode = selText(document.getElementById('matrixRoutingMode'));
     var dateVal = document.getElementById('matrixDate').value;
     var status = selText(document.getElementById('matrixStatus'));
-    if(!route){
-      toast('Add at least one approval step to the route.', 'info');
-      return;
-    }
-    if(!dateVal){
-      toast('Effective date is required.', 'info');
+    if(!route || !dateVal){
+      toast('Route and effective date are required.', 'info');
       return;
     }
     var effDate = fmtDate(dateVal);
@@ -4634,29 +4442,8 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
     document.getElementById('shDetailCapital').textContent = 'MMK ' + fmtNum(record.shares * PAR_VALUE);
     document.getElementById('shDetailStatus').innerHTML = pill('Active');
     document.getElementById('shDetailKyc').innerHTML = pill('Approved');
-    var docs = [
-      ['NRC Copy', record.id + '-NRC.pdf'],
-      ['Passport Photo', record.id + '-Photo.jpg'],
-      ['Proof of Address', record.id + '-Address.pdf'],
-      ['Bank Statement', record.id + '-BankStatement.pdf']
-    ];
-    document.getElementById('shDetailDocsBody').innerHTML = docs.map(function(d){
-      return '<tr><td>' + esc(d[0]) + '</td><td class="mono">' + esc(d[1]) + '</td><td><a href="#" onclick="downloadShareholderDocument(\'' + esc(d[1]) + '\');return false;" data-i18n="btn.download">⬇ Download</a></td></tr>';
-    }).join('');
     showDetail('shareholders');
     logAudit('View', 'Shareholders', record.id, 'Viewed shareholder details for ' + record.name);
-  }
-
-  /* File & Image Download — every function that displays uploaded data offers a download of it. */
-  function downloadShareholderDocument(filename){
-    downloadBlob('This is a mockup placeholder for the attachment "' + filename + '" uploaded during onboarding.\r\n', filename.replace(/\.(pdf|jpg|jpeg|png)$/i, '.txt'), 'text/plain;charset=utf-8;');
-    toast('Downloaded ' + filename + '.');
-    logAudit('Download', 'Shareholders', document.getElementById('shDetailIdField').textContent, 'Downloaded attachment ' + filename);
-  }
-  function downloadShareholderProfile(){
-    toast('Opening the print dialog — choose "Save as PDF" as the destination.', 'info');
-    printOnly(document.getElementById('shareholders-detail'), 'Shareholder-' + document.getElementById('shDetailIdField').textContent);
-    logAudit('Download', 'Shareholders', document.getElementById('shDetailIdField').textContent, 'Downloaded shareholder profile as PDF');
   }
 
   var certPager = makePager({
